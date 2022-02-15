@@ -1,23 +1,25 @@
+import React from "react";
 import InputFields from "./Components/InputFields";
 import "./App.css";
+import { useState } from "react";
+import Modal from "./Components/Modal";
 
 function App() {
+  const [openForm, setForm] = useState(false);
   return (
     <div>
       <input className="search" type="text" placeholder="Search Account" />
 
-      <button type="button" className="addAccount">
+      <button
+        onClick={() => {
+          setForm(true);
+        }}
+        type="button"
+        className="addAccount"
+      >
         + Account
       </button>
-      <div className=" customerBox">
-        <form>
-          <label className="customerName" for="desc">
-            fullName
-          </label>
-          <br />
-          <input className="name" type="text" placeholder="Name" />
-        </form>
-      </div>
+      {openForm && <Modal />}
       <InputFields />
     </div>
   );

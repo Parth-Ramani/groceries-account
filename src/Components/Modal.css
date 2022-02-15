@@ -1,0 +1,29 @@
+.customerBox {
+  height: 13rem;
+  width: 18rem;
+  background-color: rgb(251, 251, 251);
+  margin-top: 0%;
+  margin-left: 70%;
+  border-radius: 18px;
+  box-shadow: 0 10px 100px rgba(117, 114, 114, 0.5);
+}
+.customerName {
+  padding-top: 8px;
+  margin-top: 8%;
+  margin-left: 9%;
+  font-size: 18px;
+}
+
+.name {
+  margin-top: 19px;
+  margin-left: 9%;
+  border: none;
+  height: 2rem;
+  width: 12rem;
+  padding: 8px;
+  font-size: medium;
+  border-radius: 12px;
+}
+.name:focus {
+  outline: none;
+}
