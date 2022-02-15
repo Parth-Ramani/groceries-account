@@ -12,7 +12,7 @@ function App() {
       <div className=" customerBox">
         <form>
           <label className="customerName" for="desc">
-            Description
+            fullName
           </label>
           <br />
           <input className="name" type="text" placeholder="Name" />

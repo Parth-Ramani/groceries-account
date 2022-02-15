@@ -37,6 +37,8 @@ const InputFields = () => {
           placeholder="Price.."
           name="price"
         />
+        <br />
+        <button className="add">Add</button>
       </form>
     </div>
   );
