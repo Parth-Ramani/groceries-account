@@ -1,0 +1,21 @@
+.search {
+  margin-left: 30%;
+  margin-top: 3%;
+  height: 3rem;
+  width: 30rem;
+  font-size: medium;
+}
+
+.search:focus {
+  outline: none;
+}
+.addAccount {
+  height: 3rem;
+  width: 8rem;
+  margin-left: 3%;
+  margin-top: 2%;
+  border-radius: 6px;
+  background-color: rgb(26, 212, 26);
+  border: none;
+  font-size: medium;
+}

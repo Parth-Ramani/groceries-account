@@ -1,0 +1,78 @@
+.desc {
+  font-size: medium;
+  margin-left: 12px;
+}
+.inputBox {
+  display: flex;
+  height: 30vh;
+  width: 40vw;
+  /* border: 2px solid black; */
+  background-color: purple;
+  margin-top: 44px;
+  margin-left: 50%;
+  border-radius: 18px;
+}
+.descInput {
+  /* height: 28px; */
+  height: 2rem;
+  width: 20rem;
+  margin-bottom: 18px;
+  margin-right: 6px;
+  margin-top: 18px;
+  padding: 8px;
+  font-size: medium;
+  margin-left: 12px;
+  border-radius: 12px;
+  border: none;
+}
+.descInput:focus {
+  outline: none;
+}
+.quantity {
+  font-size: medium;
+  margin-left: 24px;
+}
+.quant {
+  height: 2rem;
+  width: 6rem;
+  padding: 8px;
+  font-size: medium;
+  margin-left: 12px;
+  border-radius: 12px;
+  border: none;
+}
+.quant:focus {
+  outline: none;
+}
+.dt {
+  font-size: medium;
+  margin-left: 12px;
+}
+.dtInput {
+  height: 2rem;
+  width: 8rem;
+  padding: 6px;
+  margin-left: 12px;
+  border-radius: 12px;
+  border: none;
+}
+
+.dtInput:focus {
+  outline: none;
+}
+.price {
+  font-size: 24px;
+  margin-left: 89px;
+}
+.priceInput {
+  height: 2rem;
+  width: 6rem;
+  padding: 8px;
+  font-size: medium;
+  margin-left: 12px;
+  border-radius: 12px;
+  border: none;
+}
+.priceInput:focus {
+  outline: none;
+}
