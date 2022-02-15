@@ -19,7 +19,7 @@ function App() {
       >
         + Account
       </button>
-      {openForm && <Modal />}
+      {openForm && <Modal setForm={setForm} />}
       <InputFields />
     </div>
   );

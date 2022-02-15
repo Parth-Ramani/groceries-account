@@ -1,18 +1,50 @@
+import { useState } from "react";
 import "./Modal.css";
-const Modal = () => {
+const Modal = (setForm) => {
+  const [enteredName, setName] = useState("");
+
+  const nameChangeHandler = (event) => {
+    setName(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const customerNameData = {
+      fullName: enteredName,
+    };
+    console.log(customerNameData);
+
+    setName("");
+  };
+
   return (
     <div>
       <div className=" customerBox">
-        <form>
+        <form onSubmit={submitHandler}>
           <label className="customerName" for="desc">
             fullName
           </label>
 
+          <input
+            className="name"
+            value={enteredName}
+            type="text"
+            name="fullName"
+            placeholder="Name"
+            onChange={nameChangeHandler}
+          />
           <br />
-          <input className="name" type="text" placeholder="Name" />
-          <br />
-          <button>Cancel</button>
-          <button>Add</button>
+          <button
+            className="cancel"
+            onClick={() => {
+              setForm(false);
+            }}
+          >
+            Cancel
+          </button>
+          <button className="addCust">Add</button>
         </form>
       </div>
     </div>

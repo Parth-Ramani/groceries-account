@@ -5,7 +5,7 @@
   margin-top: 0%;
   margin-left: 70%;
   border-radius: 18px;
-  box-shadow: 0 10px 100px rgba(117, 114, 114, 0.5);
+  box-shadow: 0 10px 100px rgba(224, 219, 219, 0.5);
 }
 .customerName {
   padding-top: 8px;
@@ -26,4 +26,24 @@
 }
 .name:focus {
   outline: none;
+}
+.cancel {
+  height: 3rem;
+  width: 6rem;
+  margin-left: 10%;
+  margin-top: 6%;
+  border-radius: 6px;
+
+  border: none;
+  font-size: medium;
+}
+.addCust {
+  height: 3rem;
+  width: 6rem;
+  margin-left: 8%;
+  margin-top: 3%;
+  border-radius: 6px;
+
+  border: none;
+  font-size: medium;
 }
