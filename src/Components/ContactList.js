@@ -1,16 +1,16 @@
 import "./ContactList.css";
 const ContactList = () => {
   return (
-    <div>
+    <div className="listBox">
       <ul>
         <li>
-          <button>jj</button>
+          <button className="contactName">rohit</button>
         </li>
         <li>
-          <button>jj</button>
+          <button>rakesh</button>
         </li>
         <li>
-          <button>jj</button>
+          <button>akash</button>
         </li>
       </ul>
     </div>
