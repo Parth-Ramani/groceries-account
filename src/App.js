@@ -3,7 +3,7 @@ import InputFields from "./Components/InputFields";
 import "./App.css";
 import { useState } from "react";
 import Modal from "./Components/Modal";
-
+import ContactList from "./Components/ContactList";
 function App() {
   const [openForm, setForm] = useState(false);
   return (
@@ -21,6 +21,7 @@ function App() {
       </button>
       <br />
       <button className="accountList">Account List</button>
+      <ContactList />
       {openForm && <Modal setForm={setForm} />}
       <InputFields />
     </div>
