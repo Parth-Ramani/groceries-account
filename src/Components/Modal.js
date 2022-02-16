@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Modal.css";
-const Modal = (setForm) => {
+const Modal = (props) => {
   const [enteredName, setName] = useState("");
 
   const nameChangeHandler = (event) => {
@@ -12,7 +12,7 @@ const Modal = (setForm) => {
     event.preventDefault();
 
     const customerNameData = {
-      fullName: enteredName,
+      fullname: enteredName,
     };
     console.log(customerNameData);
 
@@ -23,9 +23,7 @@ const Modal = (setForm) => {
     <div>
       <div className=" customerBox">
         <form onSubmit={submitHandler}>
-          <label className="customerName" for="desc">
-            fullName
-          </label>
+          <label className="customerName">fullName</label>
 
           <input
             className="name"
@@ -39,7 +37,7 @@ const Modal = (setForm) => {
           <button
             className="cancel"
             onClick={() => {
-              setForm(false);
+              props.setForm(false);
             }}
           >
             Cancel

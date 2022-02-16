@@ -19,3 +19,13 @@
   border: none;
   font-size: medium;
 }
+.accountList {
+  height: 3rem;
+  width: 8rem;
+  margin-left: 15%;
+  margin-top: 44px;
+  border-radius: 6px;
+  background-color: rgb(26, 212, 26);
+  border: none;
+  font-size: medium;
+}

@@ -24,49 +24,61 @@ const InputFields = () => {
     console.log(event.target.value);
   };
 
-  const submitFormHandler = (event) => {};
+  const submitFormHandler = (event) => {
+    event.preventDefault();
+
+    const customerData = {
+      description: enteredDesc,
+      quantity: enteredQuantity,
+      date: entereddate,
+      price: enteredPrice,
+    };
+    console.log(customerData);
+    setDesc("");
+    setQuantity("");
+
+    setDate("");
+    setPrice("");
+  };
+
   return (
     <div className="inputBox">
       <form onSubmit={submitFormHandler}>
-        <label className="desc" for="desc">
-          Description{" "}
-        </label>
+        <label className="desc">Description</label>
         <input
           className="descInput"
           type="text"
-          name="desc"
+          name="description"
           placeholder="Description.."
+          value={enteredDesc}
           onChange={descChangeHandler}
         />
 
-        <label className="quantity" for="quantity">
-          Quantity
-        </label>
+        <label className="quantity">Quantity</label>
         <input
           className="quant"
           type="text"
           name="quantity"
           placeholder="quantity"
+          value={enteredQuantity}
           onChange={quantityChangeHandler}
         />
         <br />
-        <label className="dt" for="date">
-          Date
-        </label>
+        <label className="dt">Date</label>
         <input
           className="dtInput"
           type="date"
           name="date"
+          value={entereddate}
           onChange={dateChangeHandler}
         />
-        <label className="price" for="price">
-          Price
-        </label>
+        <label className="price">Price</label>
         <input
           className="priceInput"
           type="number"
           placeholder="Price.."
           name="price"
+          value={enteredPrice}
           onChange={priceChangeHandler}
         />
         <br />

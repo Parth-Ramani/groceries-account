@@ -19,6 +19,8 @@ function App() {
       >
         + Account
       </button>
+      <br />
+      <button className="accountList">Account List</button>
       {openForm && <Modal setForm={setForm} />}
       <InputFields />
     </div>
