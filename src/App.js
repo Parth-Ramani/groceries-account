@@ -10,32 +10,27 @@ function App() {
 
   return (
     <div>
-      <input className="search" type="text" placeholder="Search Account" />
-
       <button
         onClick={() => {
-          setForm(true);
+          setList(!openList);
+        }}
+        className="accountList"
+      >
+        Account List
+      </button>
+      <input className="search" type="text" placeholder="Search Account" />
+      <button
+        onClick={() => {
+          setForm(!openForm);
         }}
         type="button"
         className="addAccount"
       >
         + Account
       </button>
-      <br />
-      <button
-        onClick={() => {
-          setList(true);
-          // setList(false);
-        }}
-        className="accountList"
-      >
-        Account List
-      </button>
-
-      {openList && <ContactList />}
-
-      {openForm && <Modal setForm={setForm} />}
-      <InputFields />
+      <br /> <InputFields />
+      {openList ? <ContactList /> : null}
+      {openForm ? <Modal setForm={setForm} /> : null}
     </div>
   );
 }

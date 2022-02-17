@@ -4,10 +4,11 @@ li {
 .listBox {
   height: 21.2rem;
   width: 16rem;
-  border: 2px solid black;
-  margin-left: 193px;
+
+  margin-top: -17%;
+  margin-left: 11%;
   border-radius: 14px;
-  box-shadow: 0 10px 100px rgba(224, 219, 219, 0.5);
+  box-shadow: 0 10px 100px rgba(122, 120, 120, 0.5);
 }
 .contactName {
   width: 13rem;
@@ -16,20 +17,21 @@ li {
   margin-top: -14px;
   margin-bottom: 13px;
   font-size: medium;
-  border: 1px solid;
+  border: none;
   border-right: none;
   border-radius: 6px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  background: white;
 }
 .cancl {
-  margin-top: -13px;
+  margin-top: -14px;
   height: 3rem;
   width: 3rem;
-
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
-  border: 1px solid;
+  border: none;
   border-left: none;
-  margin-bottom: 13px;
+  margin-bottom: 15px;
+  background: white;
 }
