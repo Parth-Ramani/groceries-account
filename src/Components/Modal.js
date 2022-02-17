@@ -14,6 +14,7 @@ const Modal = (props) => {
     const customerNameData = {
       fullname: enteredName,
     };
+    props.onSaveData(customerNameData);
     console.log(customerNameData);
 
     setName("");

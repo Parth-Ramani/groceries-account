@@ -7,7 +7,13 @@ import ContactList from "./Components/ContactList";
 function App() {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
-
+  const saveCustomerData = (enteredCustomer) => {
+    let customer = {
+      ...enteredCustomer,
+      id: Math.random().toString(),
+    };
+    console.log(customer);
+  };
   return (
     <div>
       <button
@@ -29,8 +35,12 @@ function App() {
         + Account
       </button>
       <br /> <InputFields />
-      {openList ? <ContactList /> : null}
-      {openForm ? <Modal setForm={setForm} /> : null}
+      {customer.map((name) => {
+        openList ? <ContactList /> : null;
+      })}
+      {openForm ? (
+        <Modal setForm={setForm} onSaveData={saveCustomerData} />
+      ) : null}
     </div>
   );
 }
