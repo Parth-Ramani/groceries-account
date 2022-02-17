@@ -5,24 +5,31 @@ const ContactList = () => {
       <ul>
         <li>
           <button className="contactName">rohit</button>
+          <button className="cancl">X</button>
         </li>
         <li>
           <button className="contactName">rakesh</button>
+          <button className="cancl">X</button>
         </li>
         <li>
           <button className="contactName">akash</button>
+          <button className="cancl">X</button>
         </li>
         <li>
           <button className="contactName">akash</button>
+          <button className="cancl">X</button>
         </li>
         <li>
           <button className="contactName">akash</button>
+          <button className="cancl">X</button>
         </li>
         <li>
           <button className="contactName">akash</button>
+          <button className="cancl">X</button>
         </li>
         <li>
           <button className="contactName">akash</button>
+          <button className="cancl">X</button>
         </li>
       </ul>
     </div>

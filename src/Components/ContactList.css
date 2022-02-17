@@ -10,12 +10,26 @@ li {
   box-shadow: 0 10px 100px rgba(224, 219, 219, 0.5);
 }
 .contactName {
-  width: 16rem;
+  width: 13rem;
   height: 3rem;
   margin-left: -40px;
   margin-top: -14px;
-  margin-bottom: 14px;
+  margin-bottom: 13px;
   font-size: medium;
-  border: 1px dotted;
+  border: 1px solid;
+  border-right: none;
   border-radius: 6px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.cancl {
+  margin-top: -13px;
+  height: 3rem;
+  width: 3rem;
+
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 1px solid;
+  border-left: none;
+  margin-bottom: 13px;
 }
