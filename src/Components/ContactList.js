@@ -1,13 +1,16 @@
 import "./ContactList.css";
-const ContactList = () => {
+const ContactList = (props) => {
   return (
     <div className="listBox">
       <ul>
-        <li>
-          <button className="contactName">rohit</button>
-          <button className="cancl">X</button>
-        </li>
-        <li>
+        {props.item.map((name) => (
+          <li>
+            <button className="contactName">{name.fullName}</button>
+            <button className="cancl">X</button>
+          </li>
+        ))}
+
+        {/* <li>
           <button className="contactName">rakesh</button>
           <button className="cancl">X</button>
         </li>
@@ -30,7 +33,7 @@ const ContactList = () => {
         <li>
           <button className="contactName">akash</button>
           <button className="cancl">X</button>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
