@@ -1,7 +1,7 @@
 import React from "react";
 import InputFields from "./Components/InputFields";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./Components/Modal";
 import ContactList from "./Components/ContactList";
 
@@ -35,10 +35,20 @@ let DUMMY_NAME = [
     fullName: "vivek",
   },
 ];
+// setItem
+const getLocalItem = () => {
+  let customerData = localStorage.getItem("customer");
+  console.log(customerData);
+  if (customerData) {
+    return JSON.parse(localStorage.getItem("customer"));
+  } else {
+    return [];
+  }
+};
 function App() {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
-  const [customerList, setCustomerList] = useState(DUMMY_NAME);
+  const [customerList, setCustomerList] = useState(getLocalItem);
 
   const saveCustomerData = (enterCustomer) => {
     const updateName = [enterCustomer, ...customerList];
@@ -47,6 +57,19 @@ function App() {
 
     setCustomerList(updateName);
   };
+  //delete list
+  const handleDeleteClick = (dataid) => {
+    const newCustomer = [...customerList];
+
+    const index = customerList.findIndex((item) => item.id === dataid);
+    newCustomer.splice(index, 1);
+    setCustomerList(newCustomer);
+  };
+
+  //  stored data
+  useEffect(() => {
+    localStorage.setItem("customer", JSON.stringify(customerList));
+  }, [customerList]);
 
   return (
     <div>
@@ -69,7 +92,12 @@ function App() {
         + Account
       </button>
       <br /> <InputFields />
-      {openList ? <ContactList item={customerList} /> : null}
+      {openList ? (
+        <ContactList
+          item={customerList}
+          handleDeleteClick={handleDeleteClick}
+        />
+      ) : null}
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}

@@ -6,34 +6,15 @@ const ContactList = (props) => {
         {props.item.map((name) => (
           <li>
             <button className="contactName">{name.fullName}</button>
-            <button className="cancl">X</button>
+            <button
+              className="cancl"
+              onClick={() => props.handleDeleteClick(name.id)}
+            >
+              
+              X
+            </button>
           </li>
         ))}
-
-        {/* <li>
-          <button className="contactName">rakesh</button>
-          <button className="cancl">X</button>
-        </li>
-        <li>
-          <button className="contactName">akash</button>
-          <button className="cancl">X</button>
-        </li>
-        <li>
-          <button className="contactName">akash</button>
-          <button className="cancl">X</button>
-        </li>
-        <li>
-          <button className="contactName">akash</button>
-          <button className="cancl">X</button>
-        </li>
-        <li>
-          <button className="contactName">akash</button>
-          <button className="cancl">X</button>
-        </li>
-        <li>
-          <button className="contactName">akash</button>
-          <button className="cancl">X</button>
-        </li> */}
       </ul>
     </div>
   );
