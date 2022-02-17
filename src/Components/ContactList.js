@@ -7,10 +7,22 @@ const ContactList = () => {
           <button className="contactName">rohit</button>
         </li>
         <li>
-          <button>rakesh</button>
+          <button className="contactName">rakesh</button>
         </li>
         <li>
-          <button>akash</button>
+          <button className="contactName">akash</button>
+        </li>
+        <li>
+          <button className="contactName">akash</button>
+        </li>
+        <li>
+          <button className="contactName">akash</button>
+        </li>
+        <li>
+          <button className="contactName">akash</button>
+        </li>
+        <li>
+          <button className="contactName">akash</button>
         </li>
       </ul>
     </div>

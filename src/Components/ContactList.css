@@ -2,8 +2,20 @@ li {
   list-style: none;
 }
 .listBox {
-  height: 23rem;
+  height: 21.2rem;
   width: 16rem;
   border: 2px solid black;
   margin-left: 193px;
+  border-radius: 14px;
+  box-shadow: 0 10px 100px rgba(224, 219, 219, 0.5);
+}
+.contactName {
+  width: 16rem;
+  height: 3rem;
+  margin-left: -40px;
+  margin-top: -14px;
+  margin-bottom: 14px;
+  font-size: medium;
+  border: 1px dotted;
+  border-radius: 6px;
 }
