@@ -14,52 +14,65 @@ const DetailTable = (props) => {
             <th>Edit</th>
           </tr>
           <tr>
-            <td>{props.DUMMY_DATA.description}</td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
+            <td>{props.DUMMY_DATA[0].description}</td>
+            <td>{props.DUMMY_DATA[0].quantity}</td>
+            <td>{props.DUMMY_DATA[0].date}</td>
+            <td>{props.DUMMY_DATA[0].amount}</td>
+            <td>
+              <button>Save</button>
+              <button>Cancel</button>
+            </td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
+            <td>{props.DUMMY_DATA[1].description}</td>
+            <td>{props.DUMMY_DATA[1].quantity}</td>
+            <td>{props.DUMMY_DATA[1].date}</td>
+            <td>{props.DUMMY_DATA[1].amount}</td>
+            <td>
+              <button>Save</button>
+              <button>Cancel</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>{props.DUMMY_DATA[2].description}</td>
+            <td>{props.DUMMY_DATA[2].quantity}</td>
+            <td>{props.DUMMY_DATA[2].date}</td>
+            <td>{props.DUMMY_DATA[2].amount}</td>
+            <td>
+              <button>Save</button>
+              <button>Cancel</button>
+            </td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
+            <td>{props.DUMMY_DATA[3].description}</td>
+            <td>{props.DUMMY_DATA[3].quantity}</td>
+            <td>{props.DUMMY_DATA[3].date}</td>
+            <td>{props.DUMMY_DATA[3].amount}</td>
+            <td>
+              <button>Save</button>
+              <button>Cancel</button>
+            </td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
+            <td>{props.DUMMY_DATA[4].description}</td>
+            <td>{props.DUMMY_DATA[4].quantity}</td>
+            <td>{props.DUMMY_DATA[4].date}</td>
+            <td>{props.DUMMY_DATA[4].amount}</td>
+            <td>
+              <button>Save</button>
+              <button>Cancel</button>{" "}
+            </td>
           </tr>
           <tr>
-            <td></td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>4/12/2021</td>
-            <td></td>
+            <td>{props.DUMMY_DATA[5].description}</td>
+            <td>{props.DUMMY_DATA[5].quantity}</td>
+            <td>{props.DUMMY_DATA[5].date}</td>
+            <td>{props.DUMMY_DATA[5].amount}</td>
+            <td>
+              <button>Save</button>
+              <button>Cancel</button>
+            </td>
           </tr>
         </table>
       </div>
