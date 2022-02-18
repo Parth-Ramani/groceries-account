@@ -81,20 +81,33 @@ const DUMMY_DATA = [
     amount: 150,
   },
 ];
+
 // setItem
-const getLocalItem = () => {
-  let customerData = localStorage.getItem("customer");
-  console.log(customerData);
-  if (customerData) {
-    return JSON.parse(localStorage.getItem("customer"));
-  } else {
-    return [];
-  }
-};
-function App() {
+// const getLocalItem = () => {
+//   let customerData = localStorage.getItem("customer");
+//   console.log(customerData);
+//   if (customerData) {
+//     return JSON.parse(localStorage.getItem("customer"));
+//   } else {
+//     return [];
+//   }
+// };
+
+// const getLocalItems = () => {
+//   let customerInput = localStorage.getItem("details");
+//   console.log(customerInput);
+//   if (customerInput) {
+//     return JSON.parse(localStorage.getItem("details"));
+//   } else {
+//     return [];
+//   }
+// };
+
+const App = () => {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
-  const [customerList, setCustomerList] = useState(getLocalItem);
+  const [customerList, setCustomerList] = useState(DUMMY_NAME);
+  const [enteredInputs, setInput] = useState(DUMMY_DATA);
 
   const saveCustomerData = (enterCustomer) => {
     const updateName = [enterCustomer, ...customerList];
@@ -103,6 +116,14 @@ function App() {
 
     setCustomerList(updateName);
   };
+
+  // inputData
+  const customerInputData = (enteredList) => {
+    const updateList = [enteredList, ...enteredInputs];
+    console.log(enteredList);
+    setInput(updateList);
+  };
+
   //delete list
   const handleDeleteClick = (dataid) => {
     const newCustomer = [...customerList];
@@ -116,6 +137,9 @@ function App() {
   useEffect(() => {
     localStorage.setItem("customer", JSON.stringify(customerList));
   }, [customerList]);
+  // useEffect(() => {
+  //   localStorage.setItem("details", JSON.stringify(enteredInputs));
+  // }, [enteredInputs]);
 
   return (
     <div>
@@ -137,7 +161,7 @@ function App() {
       >
         + Account
       </button>
-      <br /> <InputFields />
+      <br /> <InputFields saveList={customerInputData} />
       {openList ? (
         <ContactList
           item={customerList}
@@ -147,9 +171,9 @@ function App() {
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
-      <DetailTable DUMMY_DATA={DUMMY_DATA} />
+      <DetailTable items={enteredInputs} />
     </div>
   );
-}
+};
 
 export default App;

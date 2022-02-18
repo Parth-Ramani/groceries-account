@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./InputFields.css";
 
-const InputFields = () => {
+const InputFields = (props) => {
   const [enteredDesc, setDesc] = useState("");
   const [enteredQuantity, setQuantity] = useState("");
   const [entereddate, setDate] = useState("");
@@ -28,12 +28,14 @@ const InputFields = () => {
     event.preventDefault();
 
     const customerData = {
+      id: Math.random().toString(),
       description: enteredDesc,
       quantity: enteredQuantity,
       date: entereddate,
-      price: enteredPrice,
+      amount: enteredPrice,
     };
     console.log(customerData);
+    props.saveList(customerData);
     setDesc("");
     setQuantity("");
 
@@ -50,6 +52,7 @@ const InputFields = () => {
           type="text"
           name="description"
           placeholder="Description.."
+          required="required"
           value={enteredDesc}
           onChange={descChangeHandler}
         />
@@ -60,6 +63,7 @@ const InputFields = () => {
           type="text"
           name="quantity"
           placeholder="quantity"
+          required="required"
           value={enteredQuantity}
           onChange={quantityChangeHandler}
         />
@@ -69,15 +73,17 @@ const InputFields = () => {
           className="dtInput"
           type="date"
           name="date"
+          required="required"
           value={entereddate}
           onChange={dateChangeHandler}
         />
-        <label className="price">Price</label>
+        <label className="price">Amount</label>
         <input
           className="priceInput"
           type="number"
-          placeholder="Price.."
-          name="price"
+          placeholder="Amount.."
+          name="amount"
+          required="required"
           value={enteredPrice}
           onChange={priceChangeHandler}
         />

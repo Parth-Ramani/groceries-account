@@ -19,6 +19,9 @@ h1 {
   border-collapse: collapse;
   width: 100%;
 }
+/* table {
+  overflow-y: scroll;
+} */
 .customers td,
 .customers th {
   border: 1px solid #ddd;
@@ -30,4 +33,25 @@ h1 {
   text-align: left;
 
   color: black;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.editbtn {
+  border: none;
+  height: 30px;
+  width: 67px;
+  border-radius: 6px;
+  font-size: medium;
+}
+.deletebtn {
+  margin-left: 18px;
+  border: none;
+  height: 30px;
+  width: 67px;
+  border-radius: 6px;
+
+  font-size: medium;
 }
