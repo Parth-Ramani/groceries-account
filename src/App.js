@@ -4,6 +4,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Modal from "./Components/Modal";
 import ContactList from "./Components/ContactList";
+import DetailTable from "./Components/DetailTable";
 
 let DUMMY_NAME = [
   {
@@ -33,6 +34,51 @@ let DUMMY_NAME = [
   {
     id: "e7",
     fullName: "vivek",
+  },
+];
+
+const DUMMY_DATA = [
+  {
+    id: "a1",
+    description: "soap",
+    quantity: "4",
+    date: 4 / 12 / 21,
+    price: 100,
+  },
+  {
+    id: "a2",
+    description: "Dal",
+    quantity: "500gm",
+    date: 5 / 12 / 21,
+    price: 50,
+  },
+  {
+    id: "a3",
+    description: "wheat",
+    quantity: "1kg",
+    date: 6 / 12 / 21,
+    price: 30,
+  },
+  {
+    id: "a4",
+    description: "sampoo",
+    quantity: "40",
+    date: 7 / 12 / 21,
+    price: 80,
+  },
+  {
+    id: "a5",
+    description: "rice",
+    quantity: "2kg",
+    date: 7 / 12 / 21,
+    price: 140,
+  },
+  {
+    id: "a6",
+    description: "oil",
+    quantity: "1kg",
+    date: 8 / 12 / 21,
+    price: 150,
   },
 ];
 // setItem
@@ -101,6 +147,7 @@ function App() {
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
+      <DetailTable DUMMY_DATA={DUMMY_DATA} />
     </div>
   );
 }

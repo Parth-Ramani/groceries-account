@@ -33,6 +33,7 @@ const Modal = (props) => {
             type="text"
             name="fullName"
             placeholder="Name"
+            required="required"
             onChange={nameChangeHandler}
           />
           <br />
