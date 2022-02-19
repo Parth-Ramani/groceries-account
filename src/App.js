@@ -82,37 +82,51 @@ const DUMMY_DATA = [
   },
 ];
 
-// setItem
-// const getLocalItem = () => {
-//   let customerData = localStorage.getItem("customer");
-//   console.log(customerData);
-//   if (customerData) {
-//     return JSON.parse(localStorage.getItem("customer"));
-//   } else {
-//     return [];
-//   }
+// const account1 = {
+//   owner: 'Jonas Schmedtmann',
+//   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+//   interestRate: 1.2, // %
+//   pin: 1111,
 // };
 
-// const getLocalItems = () => {
-//   let customerInput = localStorage.getItem("details");
-//   console.log(customerInput);
-//   if (customerInput) {
-//     return JSON.parse(localStorage.getItem("details"));
-//   } else {
-//     return [];
-//   }
-// };
+// setItem
+const getLocalItem = () => {
+  let customerData = localStorage.getItem("customer");
+  console.log(customerData);
+  if (customerData) {
+    return JSON.parse(localStorage.getItem("customer"));
+  } else {
+    return [];
+  }
+};
+
+const getLocalItems = () => {
+  let customerInput = localStorage.getItem("details");
+  console.log(customerInput);
+  if (customerInput) {
+    return JSON.parse(localStorage.getItem("details"));
+  } else {
+    return [];
+  }
+};
 
 const App = () => {
+  // const customerAccount = [
+  //   {
+  //     fullName: updateName[0].fullName,
+  //   },
+  // ];
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
-  const [customerList, setCustomerList] = useState(DUMMY_NAME);
-  const [enteredInputs, setInput] = useState(DUMMY_DATA);
+  const [customerList, setCustomerList] = useState(getLocalItem);
+  const [enteredInputs, setInput] = useState(getLocalItems);
 
+  //customerListData
   const saveCustomerData = (enterCustomer) => {
-    const updateName = [enterCustomer, ...customerList];
-    console.log(enterCustomer);
+    let updateName = [enterCustomer, ...customerList];
+
     console.log(updateName);
+    console.log(customerList);
 
     setCustomerList(updateName);
   };
@@ -137,9 +151,10 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("customer", JSON.stringify(customerList));
   }, [customerList]);
-  // useEffect(() => {
-  //   localStorage.setItem("details", JSON.stringify(enteredInputs));
-  // }, [enteredInputs]);
+
+  useEffect(() => {
+    localStorage.setItem("details", JSON.stringify(enteredInputs));
+  }, [enteredInputs]);
 
   return (
     <div>
