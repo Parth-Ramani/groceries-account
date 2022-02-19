@@ -43,42 +43,42 @@ const DUMMY_DATA = [
     description: "soap",
     quantity: "4",
     date: "4 / 12 / 21",
-    amount: 100,
+    amount: "100",
   },
   {
     id: "a2",
     description: "Dal",
     quantity: "500gm",
     date: "5 / 12 / 21",
-    amount: 50,
+    amount: "50",
   },
   {
     id: "a3",
     description: "wheat",
     quantity: "1kg",
     date: "6 / 12 / 21",
-    amount: 30,
+    amount: "30",
   },
   {
     id: "a4",
     description: "sampoo",
     quantity: "40",
     date: "7 / 12 / 21",
-    amount: 80,
+    amount: "80",
   },
   {
     id: "a5",
     description: "rice",
     quantity: "2kg",
     date: "7 / 12 / 21",
-    amount: 140,
+    amount: "140",
   },
   {
     id: "a6",
     description: "oil",
     quantity: "1kg",
     date: "8 / 12 / 21",
-    amount: 150,
+    amount: "150",
   },
 ];
 
@@ -112,17 +112,17 @@ const getLocalItems = () => {
 
 // }
 const App = () => {
-  let updateName;
-  const customerAccount = [
-    // {
-    //   id: "b1",
-    //   fullName: updateName[0].fullName,
-    //   description: "oil",
-    //   quantity: "1kg",
-    //   date: "8 / 12 / 21",
-    //   amount: 150,
-    // },
-  ];
+  // let updateName;
+  // const customerAccount = [
+  // {
+  //   id: "b1",
+  //   fullName: updateName[0].fullName,
+  //   description: "oil",
+  //   quantity: "1kg",
+  //   date: "8 / 12 / 21",
+  //   amount: 150,
+  // },
+  // ];
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(getLocalItem);
@@ -130,7 +130,7 @@ const App = () => {
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
-    updateName = [enterCustomer, ...customerList];
+    const updateName = [enterCustomer, ...customerList];
 
     console.log(updateName);
     console.log(customerList);
@@ -144,12 +144,27 @@ const App = () => {
     console.log(enteredList);
     setInput(updateList);
   };
+  const descriptionArray = enteredInputs.map((obj) => obj.description);
+  console.log(descriptionArray);
+  ///
+  const quantityArray = enteredInputs.map((obj) => obj.quantity);
+  console.log(quantityArray);
+  ///
+  const dateArray = enteredInputs.map((obj) => obj.date);
+  console.log(dateArray);
+  ///
+  const amountArray = enteredInputs.map((obj) => obj.amount);
+  console.log(amountArray);
 
   /////////////////////
   const data = [
     {
       id: "b2",
       name: customerList[0].fullName,
+      description: descriptionArray,
+      quantity: quantityArray,
+      date: dateArray,
+      amount: amountArray,
     },
   ];
   console.log(data);
