@@ -1,11 +1,16 @@
 import "./ContactList.css";
 const ContactList = (props) => {
+  const clickme = (name) => {
+    console.log(name);
+  };
   return (
     <div className="listBox">
       <ul>
-        {props.item.map((name) => (
+        {props.data.map((name) => (
           <li>
-            <button className="contactName">{name.fullName}</button>
+            <button onClick={() => clickme(name)} className="contactName">
+              {name.name}
+            </button>
             <button
               className="cancl"
               onClick={() => props.handleDeleteClick(name.id)}

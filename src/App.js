@@ -137,6 +137,8 @@ const App = () => {
 
     setCustomerList(updateName);
   };
+  const contactArray = customerList.map((obj) => obj.fullName);
+  console.log(contactArray);
 
   // inputData
   const customerInputData = (enteredList) => {
@@ -157,17 +159,117 @@ const App = () => {
   console.log(amountArray);
 
   /////////////////////
+  // const data = [
+  //   {
+  //     id: "b2",
+  //     name: contactArray[0],
+  //     description: descriptionArray,
+  //     quantity: quantityArray,
+  //     date: dateArray,
+  //     amount: amountArray,
+  //   },
+  // ];
+  // console.log(data);
+
   const data = [
     {
+      id: "b1",
+      name: "parth",
+      description: [
+        "soap",
+        "chana",
+        "chhas",
+        "wheat",
+        "milk",
+        "icecream",
+        "oil",
+      ],
+      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+      date: [
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+      ],
+      amount: ["100", "50", "20", "30", "30", "20", "150"],
+    },
+    {
       id: "b2",
-      name: customerList[0].fullName,
-      description: descriptionArray,
-      quantity: quantityArray,
-      date: dateArray,
-      amount: amountArray,
+      name: "himanshu",
+      description: [
+        "soap",
+        "chana",
+        "chhas",
+        "wheat",
+        "milk",
+        "icecream",
+        "oil",
+      ],
+      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+      date: [
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+      ],
+      amount: ["100", "50", "20", "30", "30", "20", "150"],
+    },
+    {
+      id: "b3",
+      name: "hari",
+      description: {
+
+       { a: "soapfddfdfdddfdf"},
+        { b: "chana"},
+        {c: "chhas"},
+        {d: "wheat"},
+        {e: "milk"},
+        {f: "icecream"},
+        {g: "oil"},
+      },
+      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+      date: [
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+      ],
+      amount: ["100", "50", "20", "30", "30", "20", "150"],
+    },
+    {
+      id: "b4",
+      name: "rakesh",
+      description: [
+        "soapjhhhhj",
+        "chana",
+        "chhas",
+        "wheat",
+        "milk",
+        "icecream",
+        "oil",
+      ],
+      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+      date: [
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+        "4/2/21",
+      ],
+      amount: ["100", "50", "20", "30", "30", "20", "150"],
     },
   ];
-  console.log(data);
 
   //delete list
   const handleDeleteClick = (dataid) => {
@@ -210,14 +312,18 @@ const App = () => {
       <br /> <InputFields saveList={customerInputData} />
       {openList ? (
         <ContactList
-          item={customerList}
+          // item={customerList}
+          data={data}
           handleDeleteClick={handleDeleteClick}
         />
       ) : null}
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
-      <DetailTable items={enteredInputs} />
+      <DetailTable
+        //  items={enteredInputs}
+        data={data}
+      />
     </div>
   );
 };
