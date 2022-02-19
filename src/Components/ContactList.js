@@ -10,7 +10,6 @@ const ContactList = (props) => {
               className="cancl"
               onClick={() => props.handleDeleteClick(name.id)}
             >
-              
               X
             </button>
           </li>

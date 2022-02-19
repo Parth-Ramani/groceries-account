@@ -111,11 +111,17 @@ const getLocalItems = () => {
 };
 
 const App = () => {
-  // const customerAccount = [
-  //   {
-  //     fullName: updateName[0].fullName,
-  //   },
-  // ];
+  let updateName;
+  const customerAccount = [
+    // {
+    //   id: "b1",
+    //   fullName: updateName[0].fullName,
+    //   description: "oil",
+    //   quantity: "1kg",
+    //   date: "8 / 12 / 21",
+    //   amount: 150,
+    // },
+  ];
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(getLocalItem);
@@ -123,7 +129,7 @@ const App = () => {
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
-    let updateName = [enterCustomer, ...customerList];
+    updateName = [enterCustomer, ...customerList];
 
     console.log(updateName);
     console.log(customerList);
@@ -137,6 +143,16 @@ const App = () => {
     console.log(enteredList);
     setInput(updateList);
   };
+  const finalArray = [
+    [customerList[0].fullName],
+    [
+      enteredInputs[0].description,
+      enteredInputs[0].quantity,
+      enteredInputs[0].date,
+      enteredInputs[0].amount,
+    ],
+  ];
+  console.log(finalArray);
 
   //delete list
   const handleDeleteClick = (dataid) => {
@@ -186,7 +202,7 @@ const App = () => {
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
-      <DetailTable items={enteredInputs} />
+      <DetailTable items={enteredInputs} item={customerList} />
     </div>
   );
 };
