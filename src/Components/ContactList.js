@@ -1,15 +1,12 @@
 import "./ContactList.css";
 const ContactList = (props) => {
-  const clickme = (name) => {
-    console.log(name);
-  };
   return (
     <div className="listBox">
       <ul>
-        {props.data.map((name) => (
+        {props.item.map((name) => (
           <li>
-            <button onClick={() => clickme(name)} className="contactName">
-              {name.name}
+            <button onClick={() => props.clickme(name)} className="contactName">
+              {name.fullName}
             </button>
             <button
               className="cancl"

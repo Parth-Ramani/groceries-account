@@ -137,8 +137,8 @@ const App = () => {
 
     setCustomerList(updateName);
   };
-  const contactArray = customerList.map((obj) => obj.fullName);
-  console.log(contactArray);
+  // const contactArray = customerList.map((obj) => obj.fullName);
+  // console.log(contactArray);
 
   // inputData
   const customerInputData = (enteredList) => {
@@ -146,17 +146,17 @@ const App = () => {
     console.log(enteredList);
     setInput(updateList);
   };
-  const descriptionArray = enteredInputs.map((obj) => obj.description);
-  console.log(descriptionArray);
-  ///
-  const quantityArray = enteredInputs.map((obj) => obj.quantity);
-  console.log(quantityArray);
-  ///
-  const dateArray = enteredInputs.map((obj) => obj.date);
-  console.log(dateArray);
-  ///
-  const amountArray = enteredInputs.map((obj) => obj.amount);
-  console.log(amountArray);
+  // const descriptionArray = enteredInputs.map((obj) => obj.description);
+  // console.log(descriptionArray);
+  // ///
+  // const quantityArray = enteredInputs.map((obj) => obj.quantity);
+  // console.log(quantityArray);
+  // ///
+  // const dateArray = enteredInputs.map((obj) => obj.date);
+  // console.log(dateArray);
+  // ///
+  // const amountArray = enteredInputs.map((obj) => obj.amount);
+  // console.log(amountArray);
 
   /////////////////////
   // const data = [
@@ -223,16 +223,7 @@ const App = () => {
     {
       id: "b3",
       name: "hari",
-      description: {
-
-       { a: "soapfddfdfdddfdf"},
-        { b: "chana"},
-        {c: "chhas"},
-        {d: "wheat"},
-        {e: "milk"},
-        {f: "icecream"},
-        {g: "oil"},
-      },
+      description: "soap",
       quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
       date: [
         "4/2/21",
@@ -289,6 +280,9 @@ const App = () => {
     localStorage.setItem("details", JSON.stringify(enteredInputs));
   }, [enteredInputs]);
 
+  const clickme = (name) => {
+    console.log(name);
+  };
   return (
     <div>
       <button
@@ -312,17 +306,19 @@ const App = () => {
       <br /> <InputFields saveList={customerInputData} />
       {openList ? (
         <ContactList
-          // item={customerList}
+          item={customerList}
           data={data}
           handleDeleteClick={handleDeleteClick}
+          clickme={clickme}
         />
       ) : null}
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
       <DetailTable
-        //  items={enteredInputs}
-        data={data}
+        items={enteredInputs}
+        clickme={clickme()}
+        // data={data}
       />
     </div>
   );
