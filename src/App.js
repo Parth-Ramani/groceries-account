@@ -143,9 +143,15 @@ const App = () => {
     console.log(enteredList);
     setInput(updateList);
   };
-  // const finalData = (name, description, quantity, date, amount) => {
+  // const inputs = () => {
+  const finalInput = {};
+  // };
+
+  console.log(finalInput);
+
+  // const submitData = (nam, description, quantity, date, amount) => {
   //   // const finalObject = {
-  //   this.name = customerList[0].fullName;
+  //   this.nam = customerList[0].fullName;
 
   //   this.description = enteredInputs[0].description;
   //   this.quantity = enteredInputs[0].quantity;
@@ -153,15 +159,17 @@ const App = () => {
   //   this.amount = enteredInputs[0].amount;
   //   // };
   // };
-  const finalObject = {
-    name: customerList[0].fullName,
-    description: enteredInputs[0].description,
-    quantity: enteredInputs[0].quantity,
-    date: enteredInputs[0].date,
-    amount: enteredInputs[0].amount,
-  };
-
-  console.log(finalObject);
+  // const submitData = (name) => {
+  //   // const finalObject = {
+  //   this.id = Math.random().toString();
+  //   this.name : customerList[0].fullName;
+  //   description = enteredInputs[0].description;
+  //   (quantity = enteredInputs[0].quantity),
+  //     (date = enteredInputs[0].date),
+  //     (amount = enteredInputs[0].amount);
+  //   // };
+  // };
+  // console.log(submitData());
 
   //delete list
   const handleDeleteClick = (dataid) => {
@@ -206,13 +214,12 @@ const App = () => {
         <ContactList
           item={customerList}
           handleDeleteClick={handleDeleteClick}
-          itemData={finalObject}
         />
       ) : null}
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
-      <DetailTable items={enteredInputs} itemData={finalObject} />
+      <DetailTable items={enteredInputs} finalInput={finalInput} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ const DetailTable = (props) => {
   return (
     <div>
       <div className="detail_container">
-        <h1>Parth Ramani</h1>
+        <h1>{props.finalInput.name}</h1>
 
         <table className="customers">
           <thead>
