@@ -5,7 +5,11 @@ const ContactList = (props) => {
       <ul>
         {props.item.map((name) => (
           <li>
-            <button className="contactName">{name.fullName}</button>
+            <button
+            // onClick={() =>
+            //   props.finalData(name.fullName);
+            // }
+            ></button>
             <button
               className="cancl"
               onClick={() => props.handleDeleteClick(name.id)}

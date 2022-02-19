@@ -143,14 +143,24 @@ const App = () => {
     console.log(enteredList);
     setInput(updateList);
   };
+  // const finalData = (name, description, quantity, date, amount) => {
+  //   // const finalObject = {
+  //   this.name = customerList[0].fullName;
+
+  //   this.description = enteredInputs[0].description;
+  //   this.quantity = enteredInputs[0].quantity;
+  //   this.date = enteredInputs[0].date;
+  //   this.amount = enteredInputs[0].amount;
+  //   // };
+  // };
   const finalObject = {
     name: customerList[0].fullName,
-
     description: enteredInputs[0].description,
     quantity: enteredInputs[0].quantity,
     date: enteredInputs[0].date,
     amount: enteredInputs[0].amount,
   };
+
   console.log(finalObject);
 
   //delete list
@@ -196,12 +206,13 @@ const App = () => {
         <ContactList
           item={customerList}
           handleDeleteClick={handleDeleteClick}
+          itemData={finalObject}
         />
       ) : null}
       {openForm ? (
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
-      <DetailTable items={enteredInputs} item={customerList} />
+      <DetailTable items={enteredInputs} itemData={finalObject} />
     </div>
   );
 };
