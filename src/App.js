@@ -10,30 +10,38 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
+
+    array: [],
   },
   {
     id: "e2",
     fullName: "akash",
+    array: [],
   },
   {
     id: "e3",
     fullName: "hari",
+    array: [],
   },
   {
     id: "e4",
     fullName: "rahul",
+    array: [],
   },
   {
     id: "e5",
     fullName: "shyam",
+    array: [],
   },
   {
     id: "e6",
     fullName: "rohit",
+    array: [],
   },
   {
     id: "e7",
     fullName: "vivek",
+    array: [],
   },
 ];
 
@@ -130,7 +138,7 @@ const App = () => {
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
-    const updateName = [enterCustomer, ...customerList, ...enteredInputs];
+    const updateName = [enterCustomer, ...customerList];
 
     console.log(updateName);
     console.log(customerList);
@@ -293,6 +301,11 @@ const App = () => {
   //   {}
   // );
   // console.log(object);
+  console.log(
+    customerList.map((item) => {
+      item.array.push(enteredInputs);
+    })
+  );
 
   return (
     <div>
