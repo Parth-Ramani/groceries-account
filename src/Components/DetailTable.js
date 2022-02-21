@@ -1,5 +1,7 @@
 import "./DetailTable.css";
 const DetailTable = (props) => {
+  console.log(props.clickme);
+
   return (
     <div>
       <div className="detail_container">
