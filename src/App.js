@@ -15,6 +15,10 @@ let DUMMY_NAME = [
       { quantity: "4" },
       { date: "2022-2-12" },
       { amount: "100" },
+      { description: "chhas" },
+      { quantity: "4" },
+      { date: "2022-2-12" },
+      { amount: "100" },
     ],
   },
   {
@@ -44,50 +48,50 @@ let DUMMY_NAME = [
   },
 ];
 
-// const DUMMY_DATA = [
-//   {
-//     id: "a1",
-//     description: "soap",
-//     quantity: "4",
-//     date: "4 / 12 / 21",
-//     amount: "100",
-//   },
-//   {
-//     id: "a2",
-//     description: "Dal",
-//     quantity: "500gm",
-//     date: "5 / 12 / 21",
-//     amount: "50",
-//   },
-//   {
-//     id: "a3",
-//     description: "wheat",
-//     quantity: "1kg",
-//     date: "6 / 12 / 21",
-//     amount: "30",
-//   },
-//   {
-//     id: "a4",
-//     description: "sampoo",
-//     quantity: "40",
-//     date: "7 / 12 / 21",
-//     amount: "80",
-//   },
-//   {
-//     id: "a5",
-//     description: "rice",
-//     quantity: "2kg",
-//     date: "7 / 12 / 21",
-//     amount: "140",
-//   },
-//   {
-//     id: "a6",
-//     description: "oil",
-//     quantity: "1kg",
-//     date: "8 / 12 / 21",
-//     amount: "150",
-//   },
-// ];
+const DUMMY_DATA = [
+  {
+    // id: "a1",
+    description: "soap",
+    quantity: "4",
+    date: "4 / 12 / 21",
+    amount: "100",
+  },
+  {
+    // id: "a2",
+    description: "Dal",
+    quantity: "500gm",
+    date: "5 / 12 / 21",
+    amount: "50",
+  },
+  {
+    // id: "a3",
+    description: "wheat",
+    quantity: "1kg",
+    date: "6 / 12 / 21",
+    amount: "30",
+  },
+  {
+    // id: "a4",
+    description: "sampoo",
+    quantity: "40",
+    date: "7 / 12 / 21",
+    amount: "80",
+  },
+  {
+    // id: "a5",
+    description: "rice",
+    quantity: "2kg",
+    date: "7 / 12 / 21",
+    amount: "140",
+  },
+  {
+    // id: "a6",
+    description: "oil",
+    quantity: "1kg",
+    date: "8 / 12 / 21",
+    amount: "150",
+  },
+];
 
 // const account1 = {
 //   owner: 'Jonas Schmedtmann',
@@ -133,7 +137,7 @@ const App = () => {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(DUMMY_NAME);
-  const [enteredInputs, setInput] = useState("");
+  const [enteredInputs, setInput] = useState(DUMMY_DATA);
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
@@ -151,6 +155,8 @@ const App = () => {
   const customerInputData = (enteredList) => {
     const updateList = [enteredList, ...enteredInputs];
     console.log(enteredList);
+    console.log(enteredInputs);
+
     setInput(updateList);
   };
 
@@ -197,9 +203,6 @@ const App = () => {
   const clickme = (name) => {
     console.log(name);
   };
-
-  const array = [clickme()];
-  console.log(array);
 
   // console.log(...enteredInputs);
 
@@ -258,7 +261,7 @@ const App = () => {
         enteredInputs={enteredInputs}
         customerList={customerList}
         handleTableDeleteClick={handleTableDeleteClick}
-        clickme={clickme()}
+        DUMMY_NAME={DUMMY_NAME}
         // data={data}
       />
     </div>
