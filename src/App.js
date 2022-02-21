@@ -10,38 +10,30 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
-
-    array: [],
   },
   {
     id: "e2",
     fullName: "akash",
-    array: [],
   },
   {
     id: "e3",
     fullName: "hari",
-    array: [],
   },
   {
     id: "e4",
     fullName: "rahul",
-    array: [],
   },
   {
     id: "e5",
     fullName: "shyam",
-    array: [],
   },
   {
     id: "e6",
     fullName: "rohit",
-    array: [],
   },
   {
     id: "e7",
     fullName: "vivek",
-    array: [],
   },
 ];
 
@@ -150,7 +142,7 @@ const App = () => {
 
   // inputData
   const customerInputData = (enteredList) => {
-    const updateList = { enteredList, ...enteredInputs };
+    const updateList = [enteredList, ...enteredInputs];
     console.log(enteredList);
     setInput(updateList);
   };
@@ -195,9 +187,13 @@ const App = () => {
   }, [enteredInputs]);
 
   const clickme = (name) => {
+    const enteredList = {
+      array: [],
+    };
     console.log(name);
+    console.log(enteredList);
   };
-  console.log(customerList, enteredInputs);
+
   // var object = enteredInputs.reduce(
   //   (obj, item) => Object.assign(obj, { [item.description]: item.value }),
   //   {}
@@ -207,11 +203,11 @@ const App = () => {
   //   {}
   // );
   // console.log(object);
-  console.log(
-    customerList.map((item) => {
-      item.array.push(enteredInputs);
-    })
-  );
+  // console.log(
+  //   customerList.map((item) => {
+  //     item.array.push(enteredInputs);
+  //   })
+  // );
 
   return (
     <div>
