@@ -133,7 +133,7 @@ const App = () => {
   // ];
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
-  const [customerList, setCustomerList] = useState(getLocalItem);
+  const [customerList, setCustomerList] = useState(DUMMY_NAME);
   const [enteredInputs, setInput] = useState(getLocalItems);
 
   //customerListData
@@ -150,7 +150,7 @@ const App = () => {
 
   // inputData
   const customerInputData = (enteredList) => {
-    const updateList = [enteredList, ...enteredInputs];
+    const updateList = { enteredList, ...enteredInputs };
     console.log(enteredList);
     setInput(updateList);
   };
@@ -167,108 +167,6 @@ const App = () => {
   // console.log(amountArray);
 
   /////////////////////
-  // const data = [
-  //   {
-  //     id: "b2",
-  //     name: contactArray[0],
-  //     description: descriptionArray,
-  //     quantity: quantityArray,
-  //     date: dateArray,
-  //     amount: amountArray,
-  //   },
-  // ];
-  // console.log(data);
-
-  // const data = [
-  //   {
-  //     id: "b1",
-  //     name: "parth",
-  //     description: [
-  //       "soap",
-  //       "chana",
-  //       "chhas",
-  //       "wheat",
-  //       "milk",
-  //       "icecream",
-  //       "oil",
-  //     ],
-  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-  //     date: [
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //     ],
-  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
-  //   },
-  //   {
-  //     id: "b2",
-  //     name: "himanshu",
-  //     description: [
-  //       "soap",
-  //       "chana",
-  //       "chhas",
-  //       "wheat",
-  //       "milk",
-  //       "icecream",
-  //       "oil",
-  //     ],
-  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-  //     date: [
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //     ],
-  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
-  //   },
-  //   {
-  //     id: "b3",
-  //     name: "hari",
-  //     description: "soap",
-  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-  //     date: [
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //     ],
-  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
-  //   },
-  //   {
-  //     id: "b4",
-  //     name: "rakesh",
-  //     description: [
-  //       "soapjhhhhj",
-  //       "chana",
-  //       "chhas",
-  //       "wheat",
-  //       "milk",
-  //       "icecream",
-  //       "oil",
-  //     ],
-  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-  //     date: [
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //       "4/2/21",
-  //     ],
-  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
-  //   },
-  // ];
 
   //delete list
   const handleDeleteClick = (dataid) => {
@@ -277,6 +175,14 @@ const App = () => {
     const index = customerList.findIndex((item) => item.id === dataid);
     newCustomer.splice(index, 1);
     setCustomerList(newCustomer);
+  };
+
+  const handleTableDeleteClick = (dataid) => {
+    const enteredData = [...enteredInputs];
+
+    const indx = enteredInputs.findIndex((item) => item.id === dataid);
+    enteredData.splice(indx, 1);
+    setInput(enteredData);
   };
 
   //  stored data
@@ -330,7 +236,7 @@ const App = () => {
       <br /> <InputFields saveList={customerInputData} />
       {openList ? (
         <ContactList
-          item={customerList}
+          customerList={customerList}
           // data={data}
           handleDeleteClick={handleDeleteClick}
           clickme={clickme}
@@ -340,7 +246,9 @@ const App = () => {
         <Modal setForm={setForm} onSaveData={saveCustomerData} />
       ) : null}
       <DetailTable
-        items={enteredInputs}
+        enteredInputs={enteredInputs}
+        customerList={customerList}
+        handleTableDeleteClick={handleTableDeleteClick}
         clickme={clickme()}
         // data={data}
       />

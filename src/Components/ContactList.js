@@ -3,7 +3,7 @@ const ContactList = (props) => {
   return (
     <div className="listBox">
       <ul>
-        {props.item.map((name) => (
+        {props.customerList.map((name) => (
           <li>
             <button onClick={() => props.clickme(name)} className="contactName">
               {name.fullName}
