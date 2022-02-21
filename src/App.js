@@ -130,7 +130,7 @@ const App = () => {
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
-    const updateName = [enterCustomer, ...customerList];
+    const updateName = [enterCustomer, ...customerList, ...enteredInputs];
 
     console.log(updateName);
     console.log(customerList);
@@ -283,7 +283,16 @@ const App = () => {
   const clickme = (name) => {
     console.log(name);
   };
-  console.log(customerList);
+  console.log(customerList, enteredInputs);
+  // var object = enteredInputs.reduce(
+  //   (obj, item) => Object.assign(obj, { [item.description]: item.value }),
+  //   {}
+  // );
+  // var object = enteredInputs.reduce(
+  //   (obj, item) => ((obj[item.description] = item.value), obj),
+  //   {}
+  // );
+  // console.log(object);
 
   return (
     <div>
