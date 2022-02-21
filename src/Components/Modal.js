@@ -14,6 +14,7 @@ const Modal = (props) => {
     const customerNameData = {
       id: Math.random().toString(),
       fullName: enteredName,
+      list: [{ descrption: "soap" }, { quantity: "4" }],
     };
     props.onSaveData(customerNameData);
     console.log(customerNameData);

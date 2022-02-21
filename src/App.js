@@ -10,10 +10,17 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
+    array: [
+      { description: "soap" },
+      { quantity: "4" },
+      { date: "2022-2-12" },
+      { amount: "100" },
+    ],
   },
   {
     id: "e2",
     fullName: "akash",
+    array: [{}],
   },
   {
     id: "e3",
@@ -126,7 +133,7 @@ const App = () => {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(DUMMY_NAME);
-  const [enteredInputs, setInput] = useState(getLocalItems);
+  const [enteredInputs, setInput] = useState(DUMMY_DATA);
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
@@ -146,6 +153,7 @@ const App = () => {
     console.log(enteredList);
     setInput(updateList);
   };
+
   // const descriptionArray = enteredInputs.map((obj) => obj.description);
   // console.log(descriptionArray);
   // ///
@@ -187,12 +195,9 @@ const App = () => {
   }, [enteredInputs]);
 
   const clickme = (name) => {
-    const enteredList = {
-      array: [],
-    };
     console.log(name);
-    console.log(enteredList);
   };
+  // console.log(...enteredInputs);
 
   // var object = enteredInputs.reduce(
   //   (obj, item) => Object.assign(obj, { [item.description]: item.value }),
@@ -239,7 +244,11 @@ const App = () => {
         />
       ) : null}
       {openForm ? (
-        <Modal setForm={setForm} onSaveData={saveCustomerData} />
+        <Modal
+          setForm={setForm}
+          onSaveData={saveCustomerData}
+          customerInputData={customerInputData}
+        />
       ) : null}
       <DetailTable
         enteredInputs={enteredInputs}
