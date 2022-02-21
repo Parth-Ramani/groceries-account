@@ -171,96 +171,96 @@ const App = () => {
   // ];
   // console.log(data);
 
-  const data = [
-    {
-      id: "b1",
-      name: "parth",
-      description: [
-        "soap",
-        "chana",
-        "chhas",
-        "wheat",
-        "milk",
-        "icecream",
-        "oil",
-      ],
-      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-      date: [
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-      ],
-      amount: ["100", "50", "20", "30", "30", "20", "150"],
-    },
-    {
-      id: "b2",
-      name: "himanshu",
-      description: [
-        "soap",
-        "chana",
-        "chhas",
-        "wheat",
-        "milk",
-        "icecream",
-        "oil",
-      ],
-      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-      date: [
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-      ],
-      amount: ["100", "50", "20", "30", "30", "20", "150"],
-    },
-    {
-      id: "b3",
-      name: "hari",
-      description: "soap",
-      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-      date: [
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-      ],
-      amount: ["100", "50", "20", "30", "30", "20", "150"],
-    },
-    {
-      id: "b4",
-      name: "rakesh",
-      description: [
-        "soapjhhhhj",
-        "chana",
-        "chhas",
-        "wheat",
-        "milk",
-        "icecream",
-        "oil",
-      ],
-      quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
-      date: [
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-        "4/2/21",
-      ],
-      amount: ["100", "50", "20", "30", "30", "20", "150"],
-    },
-  ];
+  // const data = [
+  //   {
+  //     id: "b1",
+  //     name: "parth",
+  //     description: [
+  //       "soap",
+  //       "chana",
+  //       "chhas",
+  //       "wheat",
+  //       "milk",
+  //       "icecream",
+  //       "oil",
+  //     ],
+  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+  //     date: [
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //     ],
+  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
+  //   },
+  //   {
+  //     id: "b2",
+  //     name: "himanshu",
+  //     description: [
+  //       "soap",
+  //       "chana",
+  //       "chhas",
+  //       "wheat",
+  //       "milk",
+  //       "icecream",
+  //       "oil",
+  //     ],
+  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+  //     date: [
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //     ],
+  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
+  //   },
+  //   {
+  //     id: "b3",
+  //     name: "hari",
+  //     description: "soap",
+  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+  //     date: [
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //     ],
+  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
+  //   },
+  //   {
+  //     id: "b4",
+  //     name: "rakesh",
+  //     description: [
+  //       "soapjhhhhj",
+  //       "chana",
+  //       "chhas",
+  //       "wheat",
+  //       "milk",
+  //       "icecream",
+  //       "oil",
+  //     ],
+  //     quantity: ["4", "500gm", "2", "1kg", "3", "4", "1kg"],
+  //     date: [
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //       "4/2/21",
+  //     ],
+  //     amount: ["100", "50", "20", "30", "30", "20", "150"],
+  //   },
+  // ];
 
   //delete list
   const handleDeleteClick = (dataid) => {
@@ -283,6 +283,8 @@ const App = () => {
   const clickme = (name) => {
     console.log(name);
   };
+  console.log(customerList);
+
   return (
     <div>
       <button
@@ -307,7 +309,7 @@ const App = () => {
       {openList ? (
         <ContactList
           item={customerList}
-          data={data}
+          // data={data}
           handleDeleteClick={handleDeleteClick}
           clickme={clickme}
         />
