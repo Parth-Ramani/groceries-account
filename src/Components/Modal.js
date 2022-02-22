@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import "./Modal.css";
+
 const Modal = (props) => {
   const [enteredName, setName] = useState("");
 
@@ -14,7 +15,7 @@ const Modal = (props) => {
     const customerNameData = {
       id: Math.random().toString(),
       fullName: enteredName,
-      array: [],
+      array: [{}],
     };
     props.onSaveData(customerNameData);
     console.log(customerNameData);

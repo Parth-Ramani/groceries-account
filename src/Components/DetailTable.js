@@ -1,4 +1,5 @@
 import react, { useContext } from "react";
+
 import "./DetailTable.css";
 import { NameObject } from "../App";
 import { InputObject } from "../App";
@@ -6,17 +7,23 @@ const DetailTable = (props) => {
   let inputObject = useContext(InputObject);
   console.log(inputObject);
   let object = useContext(NameObject);
-  console.log(object);
+  console.log(object.array.length);
 
-  console.log(object.array);
-  const add = object.push(inputObject);
-  console.log(add);
+  {
+    const obj = {
+      a: 12,
+      b: [],
+    };
+    // console.log(obj.b.push("parth", 23));
+    // const add = obj.b.push(56);
+    // console.log(add);
+    console.log(obj.b);
+  }
 
   return (
     <div>
       <div className="detail_container">
         <h1>{object.fullName}</h1>
-
         <table className="customers">
           <thead>
             <tr>
