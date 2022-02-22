@@ -1,13 +1,17 @@
+import react, { useContext } from "react";
 import "./DetailTable.css";
+import { NameObject } from "../App";
+import { InputObject } from "./InputFields";
 const DetailTable = (props) => {
-  onclick = () => {
-    let name = {};
-    props.clickme(name);
-  };
+  const object = useContext(NameObject);
+  console.log(object);
+  const inputObject = useContext(InputObject);
+  console.log(inputObject);
+
   return (
     <div>
       <div className="detail_container">
-        <h1 onChange={() => props.clickme}></h1>
+        <h1>{object.fullName}</h1>
 
         <table className="customers">
           <thead>
@@ -39,7 +43,7 @@ const DetailTable = (props) => {
                 </td>
               </tr>
             ))} */}
-            {props.DUMMY_NAME[0].array.map((n) => (
+            {/* {props.DUMMY_NAME[0].array.map((n) => (
               <tr>
                 <td>{n.description}</td>
                 <td>{n.quantity}</td>
@@ -50,7 +54,7 @@ const DetailTable = (props) => {
                   <button className="deletebtn">Delete</button>
                 </td>
               </tr>
-            ))}
+            ))} */}
 
             {/* <tr>
               <td>{props.DUMMY_DATA[1].description}</td>

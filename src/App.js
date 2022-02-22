@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import InputFields from "./Components/InputFields";
 import "./App.css";
 import { useState, useEffect } from "react";
@@ -43,51 +43,6 @@ let DUMMY_NAME = [
   },
 ];
 
-const DUMMY_DATA = [
-  {
-    // id: "a1",
-    description: "soap",
-    quantity: "4",
-    date: "4 / 12 / 21",
-    amount: "100",
-  },
-  {
-    // id: "a2",
-    description: "Dal",
-    quantity: "500gm",
-    date: "5 / 12 / 21",
-    amount: "50",
-  },
-  {
-    // id: "a3",
-    description: "wheat",
-    quantity: "1kg",
-    date: "6 / 12 / 21",
-    amount: "30",
-  },
-  {
-    // id: "a4",
-    description: "sampoo",
-    quantity: "40",
-    date: "7 / 12 / 21",
-    amount: "80",
-  },
-  {
-    // id: "a5",
-    description: "rice",
-    quantity: "2kg",
-    date: "7 / 12 / 21",
-    amount: "140",
-  },
-  {
-    // id: "a6",
-    description: "oil",
-    quantity: "1kg",
-    date: "8 / 12 / 21",
-    amount: "150",
-  },
-];
-
 // const account1 = {
 //   owner: 'Jonas Schmedtmann',
 //   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -115,6 +70,7 @@ const getLocalItems = () => {
     return [];
   }
 };
+export const NameObject = createContext();
 
 // }
 const App = (props) => {
@@ -132,7 +88,7 @@ const App = (props) => {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(DUMMY_NAME);
-  const [enteredInputs, setInput] = useState(DUMMY_DATA);
+  const [enteredInputs, setInput] = useState("");
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
@@ -150,6 +106,7 @@ const App = (props) => {
   const customerInputData = (enteredList) => {
     const updateList = [enteredList, ...enteredInputs];
     console.log(enteredList);
+
     console.log(enteredInputs);
 
     setInput(updateList);
@@ -185,8 +142,10 @@ const App = (props) => {
     enteredData.splice(indx, 1);
     setInput(enteredData);
   };
+  const [enteredObject, setObject] = useState("");
+
   function clickme(name) {
-    console.log(name);
+    setObject(name);
   }
 
   //  stored data
@@ -216,51 +175,53 @@ const App = (props) => {
   // );
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          setList(!openList);
-        }}
-        className="accountList"
-      >
-        Account List
-      </button>
-      <input className="search" type="text" placeholder="Search Account" />
-      <button
-        onClick={() => {
-          setForm(!openForm);
-        }}
-        type="button"
-        className="addAccount"
-      >
-        + Account
-      </button>
-      <br /> <InputFields saveList={customerInputData} />
-      {openList ? (
-        <ContactList
-          customerList={customerList}
-          // data={data}
-          handleDeleteClick={handleDeleteClick}
+    <NameObject.Provider value={enteredObject}>
+      <div>
+        <button
+          onClick={() => {
+            setList(!openList);
+          }}
+          className="accountList"
+        >
+          Account List
+        </button>
+        <input className="search" type="text" placeholder="Search Account" />
+        <button
+          onClick={() => {
+            setForm(!openForm);
+          }}
+          type="button"
+          className="addAccount"
+        >
+          + Account
+        </button>
+        <br /> <InputFields saveList={customerInputData} />
+        {openList ? (
+          <ContactList
+            customerList={customerList}
+            // data={data}
+            handleDeleteClick={handleDeleteClick}
+            clickme={clickme}
+          />
+        ) : null}
+        {openForm ? (
+          <Modal
+            setForm={setForm}
+            onSaveData={saveCustomerData}
+            customerInputData={customerInputData}
+          />
+        ) : null}
+        <DetailTable
           clickme={clickme}
-        />
-      ) : null}
-      {openForm ? (
-        <Modal
-          setForm={setForm}
-          onSaveData={saveCustomerData}
-          customerInputData={customerInputData}
-        />
-      ) : null}
-      <DetailTable
-        clickme={clickme}
-        enteredInputs={enteredInputs}
-        customerList={customerList}
-        handleTableDeleteClick={handleTableDeleteClick}
-        DUMMY_NAME={DUMMY_NAME}
+          enteredInputs={enteredInputs}
+          customerList={customerList}
+          handleTableDeleteClick={handleTableDeleteClick}
+          DUMMY_NAME={DUMMY_NAME}
 
-        // data={data}
-      />
-    </div>
+          // data={data}
+        />
+      </div>
+    </NameObject.Provider>
   );
 };
 
