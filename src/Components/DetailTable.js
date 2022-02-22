@@ -7,11 +7,14 @@ const DetailTable = (props) => {
   let inputObject = useContext(InputObject);
   console.log(inputObject);
   let object = useContext(NameObject);
-  console.log(object);
+  console.log(object.array.push(inputObject));
 
-  let obj = {
-    a: 12,
-  };
+  // let array = [];
+  // array.push(inputObject);
+  // console.log(array);
+  // object["array"] = inputObject;
+  // console.log(object);
+
   return (
     <div>
       <div className="detail_container">
