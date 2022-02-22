@@ -117,7 +117,7 @@ const getLocalItems = () => {
 };
 
 // }
-const App = () => {
+const App = (props) => {
   // let updateName;
   // const customerAccount = [
   // {
@@ -198,7 +198,6 @@ const App = () => {
   const clickme = (name) => {
     console.log(name);
   };
-
   // console.log(...enteredInputs);
 
   // var object = enteredInputs.reduce(

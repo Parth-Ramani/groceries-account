@@ -1,11 +1,9 @@
 import "./DetailTable.css";
 const DetailTable = (props) => {
-  console.log(props.clickme);
-
   return (
     <div>
       <div className="detail_container">
-        <h1> Parth Ramani</h1>
+        <h1> </h1>
 
         <table className="customers">
           <thead>
