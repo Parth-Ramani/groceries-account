@@ -1,9 +1,13 @@
 import "./DetailTable.css";
 const DetailTable = (props) => {
+  onclick = () => {
+    let name = {};
+    props.clickme(name);
+  };
   return (
     <div>
       <div className="detail_container">
-        <h1>{props.this.clickme} </h1>
+        <h1 onChange={() => props.clickme}></h1>
 
         <table className="customers">
           <thead>

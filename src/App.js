@@ -186,7 +186,7 @@ const App = (props) => {
     setInput(enteredData);
   };
   function clickme(name) {
-    console.log(name.fullName);
+    console.log(name);
   }
 
   //  stored data
