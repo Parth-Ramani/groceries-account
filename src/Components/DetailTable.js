@@ -3,7 +3,7 @@ const DetailTable = (props) => {
   return (
     <div>
       <div className="detail_container">
-        <h1>{props.clickme} </h1>
+        <h1>{props.this.clickme} </h1>
 
         <table className="customers">
           <thead>

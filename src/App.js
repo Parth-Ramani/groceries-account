@@ -185,6 +185,9 @@ const App = (props) => {
     enteredData.splice(indx, 1);
     setInput(enteredData);
   };
+  function clickme(name) {
+    console.log(name.fullName);
+  }
 
   //  stored data
   useEffect(() => {
@@ -195,9 +198,6 @@ const App = (props) => {
     localStorage.setItem("details", JSON.stringify(enteredInputs));
   }, [enteredInputs]);
 
-  let clickme = (name) => {
-    console.log(name.fullName);
-  };
   // console.log(...enteredInputs);
 
   // var object = enteredInputs.reduce(
@@ -252,11 +252,12 @@ const App = (props) => {
         />
       ) : null}
       <DetailTable
+        clickme={clickme}
         enteredInputs={enteredInputs}
         customerList={customerList}
         handleTableDeleteClick={handleTableDeleteClick}
         DUMMY_NAME={DUMMY_NAME}
-        clickme={clickme}
+
         // data={data}
       />
     </div>
