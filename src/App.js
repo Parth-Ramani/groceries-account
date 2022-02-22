@@ -71,7 +71,7 @@ const getLocalItems = () => {
   }
 };
 export const NameObject = createContext();
-
+export const InputObject = createContext();
 // }
 const App = (props) => {
   // let updateName;
@@ -88,7 +88,7 @@ const App = (props) => {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(DUMMY_NAME);
-  const [enteredInputs, setInput] = useState("");
+  // const [enteredInputs, setInput] = useState("");
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
@@ -103,13 +103,16 @@ const App = (props) => {
   // console.log(contactArray);
 
   // inputData
+  const [enteredInpts, setInpts] = useState("");
+
   const customerInputData = (enteredList) => {
-    const updateList = [enteredList, ...enteredInputs];
     console.log(enteredList);
 
-    console.log(enteredInputs);
+    setInpts(enteredList);
 
-    setInput(updateList);
+    // console.log(enteredInputs);
+
+    // setInput(updateList);
   };
 
   // const descriptionArray = enteredInputs.map((obj) => obj.description);
@@ -135,13 +138,13 @@ const App = (props) => {
     setCustomerList(newCustomer);
   };
 
-  const handleTableDeleteClick = (dataid) => {
-    const enteredData = [...enteredInputs];
+  // const handleTableDeleteClick = (dataid) => {
+  //   const enteredData = [...enteredInputs];
 
-    const indx = enteredInputs.findIndex((item) => item.id === dataid);
-    enteredData.splice(indx, 1);
-    setInput(enteredData);
-  };
+  //   const indx = enteredInputs.findIndex((item) => item.id === dataid);
+  //   enteredData.splice(indx, 1);
+  //   setInput(enteredData);
+  // };
   const [enteredObject, setObject] = useState("");
 
   function clickme(name) {
@@ -153,75 +156,59 @@ const App = (props) => {
     localStorage.setItem("customer", JSON.stringify(customerList));
   }, [customerList]);
 
-  useEffect(() => {
-    localStorage.setItem("details", JSON.stringify(enteredInputs));
-  }, [enteredInputs]);
-
-  // console.log(...enteredInputs);
-
-  // var object = enteredInputs.reduce(
-  //   (obj, item) => Object.assign(obj, { [item.description]: item.value }),
-  //   {}
-  // );
-  // var object = enteredInputs.reduce(
-  //   (obj, item) => ((obj[item.description] = item.value), obj),
-  //   {}
-  // );
-  // console.log(object);
-  // console.log(
-  //   customerList.map((item) => {
-  //     item.array.push(enteredInputs);
-  //   })
-  // );
+  // useEffect(() => {
+  //   localStorage.setItem("details", JSON.stringify(enteredInputs));
+  // }, [enteredInputs]);
 
   return (
-    <NameObject.Provider value={enteredObject}>
-      <div>
-        <button
-          onClick={() => {
-            setList(!openList);
-          }}
-          className="accountList"
-        >
-          Account List
-        </button>
-        <input className="search" type="text" placeholder="Search Account" />
-        <button
-          onClick={() => {
-            setForm(!openForm);
-          }}
-          type="button"
-          className="addAccount"
-        >
-          + Account
-        </button>
-        <br /> <InputFields saveList={customerInputData} />
-        {openList ? (
-          <ContactList
+    <InputObject.Provider value={enteredInpts}>
+      <NameObject.Provider value={enteredObject}>
+        <div>
+          <button
+            onClick={() => {
+              setList(!openList);
+            }}
+            className="accountList"
+          >
+            Account List
+          </button>
+          <input className="search" type="text" placeholder="Search Account" />
+          <button
+            onClick={() => {
+              setForm(!openForm);
+            }}
+            type="button"
+            className="addAccount"
+          >
+            + Account
+          </button>
+          <br /> <InputFields saveList={customerInputData} />
+          {openList ? (
+            <ContactList
+              customerList={customerList}
+              // data={data}
+              handleDeleteClick={handleDeleteClick}
+              clickme={clickme}
+            />
+          ) : null}
+          {openForm ? (
+            <Modal
+              setForm={setForm}
+              onSaveData={saveCustomerData}
+              customerInputData={customerInputData}
+            />
+          ) : null}
+          <DetailTable
+            // enteredInputs={enteredInputs}
             customerList={customerList}
-            // data={data}
-            handleDeleteClick={handleDeleteClick}
-            clickme={clickme}
-          />
-        ) : null}
-        {openForm ? (
-          <Modal
-            setForm={setForm}
-            onSaveData={saveCustomerData}
-            customerInputData={customerInputData}
-          />
-        ) : null}
-        <DetailTable
-          clickme={clickme}
-          enteredInputs={enteredInputs}
-          customerList={customerList}
-          handleTableDeleteClick={handleTableDeleteClick}
-          DUMMY_NAME={DUMMY_NAME}
+            // handleTableDeleteClick={handleTableDeleteClick}
+            DUMMY_NAME={DUMMY_NAME}
 
-          // data={data}
-        />
-      </div>
-    </NameObject.Provider>
+            // data={data}
+          />
+        </div>
+      </NameObject.Provider>{" "}
+    </InputObject.Provider>
   );
 };
 

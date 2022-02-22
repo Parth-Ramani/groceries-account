@@ -1,12 +1,16 @@
 import react, { useContext } from "react";
 import "./DetailTable.css";
 import { NameObject } from "../App";
-import { InputObject } from "./InputFields";
+import { InputObject } from "../App";
 const DetailTable = (props) => {
-  const object = useContext(NameObject);
-  console.log(object);
-  const inputObject = useContext(InputObject);
+  let inputObject = useContext(InputObject);
   console.log(inputObject);
+  let object = useContext(NameObject);
+  console.log(object);
+
+  console.log(object.array);
+  const add = object.push(inputObject);
+  console.log(add);
 
   return (
     <div>
