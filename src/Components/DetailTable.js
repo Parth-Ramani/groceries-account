@@ -1,25 +1,17 @@
-import react, { useContext } from "react";
-
+import react, { useContext, useState } from "react";
 import "./DetailTable.css";
 import { NameObject } from "../App";
 import { InputObject } from "../App";
+
 const DetailTable = (props) => {
   let inputObject = useContext(InputObject);
   console.log(inputObject);
   let object = useContext(NameObject);
-  console.log(object.array.length);
+  console.log(object);
 
-  {
-    const obj = {
-      a: 12,
-      b: [],
-    };
-    // console.log(obj.b.push("parth", 23));
-    // const add = obj.b.push(56);
-    // console.log(add);
-    console.log(obj.b);
-  }
-
+  let obj = {
+    a: 12,
+  };
   return (
     <div>
       <div className="detail_container">
