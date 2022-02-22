@@ -195,8 +195,8 @@ const App = (props) => {
     localStorage.setItem("details", JSON.stringify(enteredInputs));
   }, [enteredInputs]);
 
-  const clickme = (name) => {
-    console.log(name);
+  let clickme = (name) => {
+    console.log(name.fullName);
   };
   // console.log(...enteredInputs);
 
