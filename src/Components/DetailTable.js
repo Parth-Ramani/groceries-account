@@ -5,7 +5,7 @@ const DetailTable = (props) => {
   return (
     <div>
       <div className="detail_container">
-        <h1></h1>
+        <h1> Parth Ramani</h1>
 
         <table className="customers">
           <thead>
@@ -18,7 +18,7 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.enteredInputs.map((item) => (
+            {/* {props.enteredInputs.map((item) => (
               <tr>
                 <td>{item.description}</td>
                 <td>{item.quantity}</td>
@@ -36,17 +36,20 @@ const DetailTable = (props) => {
                   </button>
                 </td>
               </tr>
+            ))} */}
+            {props.DUMMY_NAME[0].array.map((n) => (
+              <tr>
+                <td>{n.description}</td>
+                <td>{n.quantity}</td>
+                <td>{n.date}</td>
+                <td>{n.amount}</td>
+                <td>
+                  <button className="editbtn">Edit</button>
+                  <button className="deletebtn">Delete</button>
+                </td>
+              </tr>
             ))}
-            <tr>
-              <td>{props.DUMMY_NAME[0].array[0].description}</td>
-              <td>{props.DUMMY_NAME[0].quantity}</td>
-              <td>{props.DUMMY_NAME[0].date}</td>
-              <td>{props.DUMMY_NAME[0].amount}</td>
-              <td>
-                <button className="editbtn">Edit</button>
-                <button className="deletebtn">Delete</button>
-              </td>
-            </tr>
+
             {/* <tr>
               <td>{props.DUMMY_DATA[1].description}</td>
               <td>{props.DUMMY_DATA[1].quantity}</td>

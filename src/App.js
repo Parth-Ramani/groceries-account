@@ -11,14 +11,9 @@ let DUMMY_NAME = [
     id: "e1",
     fullName: "ram",
     array: [
-      { description: "soap" },
-      { quantity: "4" },
-      { date: "2022-2-12" },
-      { amount: "100" },
-      { description: "chhas" },
-      { quantity: "4" },
-      { date: "2022-2-12" },
-      { amount: "100" },
+      { description: "soap", quantity: "4", date: "2022-2-12", amount: "100" },
+
+      { description: "chhas", quantity: "4", date: "2022-2-12", amount: "100" },
     ],
   },
   {
@@ -262,6 +257,7 @@ const App = () => {
         customerList={customerList}
         handleTableDeleteClick={handleTableDeleteClick}
         DUMMY_NAME={DUMMY_NAME}
+        clickme={clickme}
         // data={data}
       />
     </div>
