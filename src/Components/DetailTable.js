@@ -5,20 +5,22 @@ import { InputObject } from "../App";
 
 const DetailTable = (props) => {
   let inputObject = useContext(InputObject);
-  console.log(inputObject);
+  // console.log(inputObject);
   let object = useContext(NameObject);
-  console.log(object.array.push(inputObject));
+  console.log(typeof object);
 
-  // let array = [];
-  // array.push(inputObject);
-  // console.log(array);
-  // object["array"] = inputObject;
+  let array = [];
+  array.push(object);
+  console.log(typeof array);
+  console.log(object);
+  console.log(object.arr.push({ a: "kk", b: "h", v: "kk" }));
+
   // console.log(object);
 
   return (
     <div>
       <div className="detail_container">
-        <h1>{object.fullName}</h1>
+        {/* <h1>{object.fullName}</h1> */}
         <table className="customers">
           <thead>
             <tr>
