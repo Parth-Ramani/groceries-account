@@ -7,11 +7,11 @@ import { NameObject } from "../App";
 const DetailTable = (props) => {
   // let inputObject = useContext(InputObject);
   // console.log(inputObject);
-  let object = useContext(NameObject);
+  const object = useContext(NameObject);
   console.log(typeof object);
   console.log(props.enteredInputs);
   console.log(object);
-  object.arr = props.enteredInputs;
+
   console.log(object);
   useEffect(() => {
     localStorage.setItem("details", JSON.stringify(object));
