@@ -1,29 +1,28 @@
-import react, { useContext, useState } from "react";
+import react, { useContext, useState, useEffect } from "react";
 
 import "./DetailTable.css";
 import { NameObject } from "../App";
-import { InputObject } from "../App";
+// import { InputObject } from "../App";
 
 const DetailTable = (props) => {
-  let inputObject = useContext(InputObject);
+  // let inputObject = useContext(InputObject);
   // console.log(inputObject);
   let object = useContext(NameObject);
   console.log(typeof object);
-
-  let obj = {
-    a: object,
-    b: [inputObject],
-    c: [],
-  };
-  console.log(obj.c.push(inputObject));
-  console.log(obj);
+  console.log(props.enteredInputs);
+  console.log(object);
+  object.arr = props.enteredInputs;
+  console.log(object);
+  useEffect(() => {
+    localStorage.setItem("details", JSON.stringify(object));
+  }, [object]);
 
   //////////////////////////////
 
   return (
     <div>
       <div className="detail_container">
-        {/* <h1>{object.fullName}</h1> */}
+        <h1>{object.fullName}</h1>
         <table className="customers">
           <thead>
             <tr>
@@ -35,25 +34,23 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/* {props.enteredInputs.map((item) => (
-              <tr>
-                <td>{item.description}</td>
-                <td>{item.quantity}</td>
-                <td>{item.date}</td>
-                <td>{item.amount}</td>
-                <td>
-                  <button className="editbtn">Edit</button>
-                  <button
-                    onClick={() => {
-                      props.handleTableDeleteClick(item.id);
-                    }}
-                    className="deletebtn"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))} */}
+            {/* <tr>
+              <td>{item.description}</td>
+              <td>{item.quantity}</td>
+              <td>{item.date}</td>
+              <td>{item.amount}</td>
+              <td>
+                <button className="editbtn">Edit</button>
+                <button
+                  onClick={() => {
+                    props.handleTableDeleteClick(item.id);
+                  }}
+                  className="deletebtn"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr> */}
             {/* {props.DUMMY_NAME[0].array.map((n) => (
               <tr>
                 <td>{n.description}</td>
@@ -66,7 +63,6 @@ const DetailTable = (props) => {
                 </td>
               </tr>
             ))} */}
-
             {/* <tr>
               <td>{props.DUMMY_DATA[1].description}</td>
               <td>{props.DUMMY_DATA[1].quantity}</td>
