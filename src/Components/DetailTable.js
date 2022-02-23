@@ -16,8 +16,11 @@ const DetailTable = (props) => {
   useEffect(() => {
     localStorage.setItem("details", JSON.stringify(object));
   }, [object]);
+  let foundIndex = object.find((x) => x.id === object.id);
+  object[foundIndex] = props.enteredInputs;
 
-  //////////////////////////////
+  console.log(foundIndex);
+  //////////////////
 
   return (
     <div>
