@@ -12,11 +12,10 @@ const DetailTable = (props) => {
   console.log(props.enteredInputs);
   console.log(object);
 
-  console.log(object);
+  console.log(typeof object);
   useEffect(() => {
     localStorage.setItem("details", JSON.stringify(object));
   }, [object]);
-  console.log(object.fullName);
 
   //////////////////
 
