@@ -179,13 +179,7 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  const [enteredObject, setObject] = useState([
-    {
-      id: "",
-      fullName: "",
-      arr: [],
-    },
-  ]);
+  const [enteredObject, setObject] = useState({});
 
   console.log(enteredObject.fullName);
 
@@ -204,13 +198,11 @@ const App = (props) => {
   // }, [enteredInputs]);
   //////////////////////////////////////
 
-  let objectIndex = enteredObject.findIndex(
-    (obj) => obj.fullName === obj.fullName
-  );
+  let objectIndex = enteredObject.find((obj) => obj.fullName === obj.fullName);
   console.log("before update:", enteredObject[objectIndex]);
 
   console.log(...customerList);
-  console.log(...enteredObject);
+  console.log(enteredObject);
 
   enteredObject[objectIndex].arr = enteredInputs;
   console.log("afterupdate:", enteredObject[objectIndex]);
@@ -256,7 +248,7 @@ const App = (props) => {
         ) : null}
         <DetailTable
           enteredInputs={enteredInputs}
-          customerList={customerList[objectIndex]}
+          // customerList={customerList[objectIndex]}
           // handleTableDeleteClick={handleTableDeleteClick}
           DUMMY_NAME={DUMMY_NAME}
 

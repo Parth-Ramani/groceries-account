@@ -15,14 +15,14 @@ const DetailTable = (props) => {
   useEffect(() => {
     localStorage.setItem("details", JSON.stringify(object));
   }, [object]);
-  console.log(props.customerList);
+  // console.log(props.customerList);
 
   //////////////////
 
   return (
     <div>
       <div className="detail_container">
-        <h1>{props.customerList.fullName}</h1>
+        {/* <h1>{props.customerList.fullName}</h1> */}
         <table className="customers">
           <thead>
             <tr>
