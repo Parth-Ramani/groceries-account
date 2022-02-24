@@ -10,31 +10,37 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
+    arr: "hjhg",
   },
   {
     id: "e2",
     fullName: "akash",
-    array: [{}],
+    arr: "fggvjgjg",
   },
   {
     id: "e3",
     fullName: "hari",
+    arr: "zdfdxgsdffgd",
   },
   {
     id: "e4",
     fullName: "rahul",
+    arr: "fdgdg",
   },
   {
     id: "e5",
     fullName: "shyam",
+    arr: "gbcfhfgh",
   },
   {
     id: "e6",
     fullName: "rohit",
+    arr: "cgfhgj",
   },
   {
     id: "e7",
     fullName: "vivek",
+    arr: "dfxdghf",
   },
 ];
 
@@ -114,7 +120,7 @@ const App = (props) => {
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
-    const updateName = [enterCustomer, ...customerList];
+    let updateName = [enterCustomer, ...customerList];
 
     console.log(updateName);
     console.log(customerList);
@@ -171,9 +177,11 @@ const App = (props) => {
   //   setInput(enteredData);
   // };
   const [enteredObject, setObject] = useState({});
+  console.log(enteredObject.fullName);
 
   function clickme(name) {
     setObject(name);
+    console.log(name);
   }
 
   //  stored data
@@ -184,6 +192,35 @@ const App = (props) => {
   // useEffect(() => {
   //   localStorage.setItem("details", JSON.stringify(enteredInputs));
   // }, [enteredInputs]);
+  //////////////////////////////////////
+
+  // let myArray = [
+  //     { id: 0, name: "Jhon" },
+  //     { id: 1, name: "Sara" },
+  //     { id: 2, name: "Domnic" },
+  //     { id: 3, name: "Bravo" },
+  //   ],
+  //   //Find index of specific object using findIndex method.
+  //   objIndex = myArray.findIndex((obj) => obj.id === obj.id);
+
+  // //Log object to Console.
+  // console.log("Before update: ", myArray[objIndex]);
+
+  // //Update object's name property.
+  // myArray[objIndex].arr = enteredInputs;
+
+  // //Log object to console again.
+  // console.log("After update: ", myArray[objIndex]);
+  // console.log(myArray);
+
+  let objectIndex = customerList.findIndex((obj) => obj.id === obj.id);
+  console.log("before update:", customerList[objectIndex]);
+
+  console.log(...customerList);
+
+  customerList[objectIndex].arr = enteredInputs;
+  console.log("afterupdate:", customerList[objectIndex]);
+  console.log(customerList);
 
   return (
     <NameObject.Provider value={enteredObject}>
