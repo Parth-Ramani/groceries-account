@@ -28,6 +28,7 @@ const InputFields = (props) => {
     event.preventDefault();
 
     const customerData = {
+      id: Math.random().toString(),
       description: enteredDesc,
       quantity: enteredQuantity,
       date: entereddate,

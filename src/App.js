@@ -170,7 +170,7 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  const [enteredObject, setObject] = useState({ id: "", fullName: "" });
+  const [enteredObject, setObject] = useState("");
 
   function clickme(name) {
     setObject({ name });
