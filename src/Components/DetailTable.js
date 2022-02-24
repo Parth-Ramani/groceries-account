@@ -12,9 +12,9 @@ const DetailTable = (props) => {
   console.log(props.enteredInputs);
   console.log(object);
 
-  useEffect(() => {
-    localStorage.setItem("details", JSON.stringify(object));
-  }, [object]);
+  // useEffect(() => {
+  //   localStorage.setItem("details", JSON.stringify(object));
+  // }, [object]);
   // console.log(props.customerList);
 
   //////////////////

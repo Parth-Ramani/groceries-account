@@ -10,67 +10,40 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
-    arr: "hjhg",
+    arr: "",
   },
   {
     id: "e2",
     fullName: "akash",
-    arr: "fggvjgjg",
+    arr: "",
   },
   {
     id: "e3",
     fullName: "hari",
-    arr: "zdfdxgsdffgd",
+    arr: "",
   },
   {
     id: "e4",
     fullName: "rahul",
-    arr: "fdgdg",
+    arr: "",
   },
   {
     id: "e5",
     fullName: "shyam",
-    arr: "gbcfhfgh",
+    arr: "",
   },
   {
     id: "e6",
     fullName: "rohit",
-    arr: "cgfhgj",
+    arr: "",
   },
   {
     id: "e7",
     fullName: "vivek",
-    arr: "dfxdghf",
+    arr: "",
   },
 ];
-
-const DUMMY_DATA = [
-  // {
-  //   description: "soap",
-  //   quantity: "4",
-  //   date: "2022-2-12",
-  //   amount: "100",
-  // },
-  // {
-  //   description: "chocolated",
-  //   quantity: "4",
-  //   date: "2022-2-12",
-  //   amount: "100",
-  // },
-  // {
-  //   description: "chips",
-  //   quantity: "4",
-  //   date: "2022-2-12",
-  //   amount: "100",
-  // },
-  // {
-  //   description: "oil",
-  //   quantity: "4",
-  //   date: "2022-2-12",
-  //   amount: "100",
-  // },
-];
-
+const DUMMY_DATA = [];
 // const account1 = {
 //   owner: 'Jonas Schmedtmann',
 //   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -179,7 +152,11 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  const [enteredObject, setObject] = useState({});
+  const [enteredObject, setObject] = useState({
+    id: "",
+    fullName: "",
+    arr: "",
+  });
 
   console.log(enteredObject.fullName);
 
@@ -198,16 +175,35 @@ const App = (props) => {
   // }, [enteredInputs]);
   //////////////////////////////////////
 
-  let objectIndex = enteredObject.find((obj) => obj.fullName === obj.fullName);
-  console.log("before update:", enteredObject[objectIndex]);
+  // let myArray = [
+  //     { id: 0, name: "Jhon", arr: [] },
+  //     { id: 1, name: "Sara", arr: [] },
+  //     { id: 2, name: "Domnic", arr: [] },
+  //     { id: 3, name: "Bravo", arr: [] },
+  //   ],
+  //   //Find index of specific object using findIndex method.
+  //   objIndex = myArray.findIndex((obj) => obj === obj.name);
 
-  console.log(...customerList);
-  console.log(enteredObject);
+  // //Log object to Console.
+  // console.log("Before update: ", myArray[objIndex]);
 
-  enteredObject[objectIndex].arr = enteredInputs;
-  console.log("afterupdate:", enteredObject[objectIndex]);
-  console.log(customerList);
-  console.log(enteredObject);
+  // //Update object's name property.
+  // myArray[objIndex].name = "Laila";
+
+  // //Log object to console again.
+  // console.log("After update: ", myArray[objIndex]);
+
+  // let objectIndex = customerList.findIndex((ele) => ele === enteredObject);
+  // console.log("before update:", customerList[objectIndex]);
+
+  // console.log(...customerList);
+  // // console.log(enteredObject);
+
+  // customerList[objectIndex].arr = enteredInputs;
+  // console.log("afterupdate:", customerList[objectIndex]);
+  // console.log(customerList);
+  // console.log(enteredObject);
+  // console.log(objectIndex);
 
   return (
     <NameObject.Provider value={enteredObject}>
