@@ -158,6 +158,9 @@ const App = (props) => {
   // const amountArray = enteredInputs.map((obj) => obj.amount);
   // console.log(amountArray);
 
+  const customerArray = customerList.map((obj) => obj.fullName);
+  console.log(customerArray);
+
   /////////////////////
 
   //delete list
@@ -176,7 +179,14 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  const [enteredObject, setObject] = useState({});
+  const [enteredObject, setObject] = useState([
+    {
+      id: "",
+      fullName: "",
+      arr: [],
+    },
+  ]);
+
   console.log(enteredObject.fullName);
 
   function clickme(name) {
@@ -194,33 +204,18 @@ const App = (props) => {
   // }, [enteredInputs]);
   //////////////////////////////////////
 
-  // let myArray = [
-  //     { id: 0, name: "Jhon" },
-  //     { id: 1, name: "Sara" },
-  //     { id: 2, name: "Domnic" },
-  //     { id: 3, name: "Bravo" },
-  //   ],
-  //   //Find index of specific object using findIndex method.
-  //   objIndex = myArray.findIndex((obj) => obj.id === obj.id);
-
-  // //Log object to Console.
-  // console.log("Before update: ", myArray[objIndex]);
-
-  // //Update object's name property.
-  // myArray[objIndex].arr = enteredInputs;
-
-  // //Log object to console again.
-  // console.log("After update: ", myArray[objIndex]);
-  // console.log(myArray);
-
-  let objectIndex = customerList.findIndex((obj) => obj.id === obj.id);
-  console.log("before update:", customerList[objectIndex]);
+  let objectIndex = enteredObject.findIndex(
+    (obj) => obj.fullName === obj.fullName
+  );
+  console.log("before update:", enteredObject[objectIndex]);
 
   console.log(...customerList);
+  console.log(...enteredObject);
 
-  customerList[objectIndex].arr = enteredInputs;
-  console.log("afterupdate:", customerList[objectIndex]);
+  enteredObject[objectIndex].arr = enteredInputs;
+  console.log("afterupdate:", enteredObject[objectIndex]);
   console.log(customerList);
+  console.log(enteredObject);
 
   return (
     <NameObject.Provider value={enteredObject}>
@@ -261,7 +256,7 @@ const App = (props) => {
         ) : null}
         <DetailTable
           enteredInputs={enteredInputs}
-          customerList={customerList}
+          customerList={customerList[objectIndex]}
           // handleTableDeleteClick={handleTableDeleteClick}
           DUMMY_NAME={DUMMY_NAME}
 

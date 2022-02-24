@@ -12,17 +12,17 @@ const DetailTable = (props) => {
   console.log(props.enteredInputs);
   console.log(object);
 
-  console.log(typeof object);
   useEffect(() => {
     localStorage.setItem("details", JSON.stringify(object));
   }, [object]);
+  console.log(props.customerList);
 
   //////////////////
 
   return (
     <div>
       <div className="detail_container">
-        <h1>{object.fullName}</h1>
+        <h1>{props.customerList.fullName}</h1>
         <table className="customers">
           <thead>
             <tr>
@@ -34,23 +34,26 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/* <tr>
-              <td>{item.description}</td>
-              <td>{item.quantity}</td>
-              <td>{item.date}</td>
-              <td>{item.amount}</td>
-              <td>
-                <button className="editbtn">Edit</button>
-                <button
-                  onClick={() => {
-                    props.handleTableDeleteClick(item.id);
-                  }}
-                  className="deletebtn"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr> */}
+            {/* {props.customerList.arr.map((item) => (
+              <tr>
+                <td>{item.description}</td>
+                <td>{item.quantity}</td>
+                <td>{item.date}</td>
+                <td>{item.amount}</td>
+                <td>
+                  <button className="editbtn">Edit</button>
+                  <button
+                    onClick={() => {
+                      props.handleTableDeleteClick(item.id);
+                    }}
+                    className="deletebtn"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))} */}
+
             {/* {props.DUMMY_NAME[0].array.map((n) => (
               <tr>
                 <td>{n.description}</td>
