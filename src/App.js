@@ -202,10 +202,12 @@ const App = (props) => {
   // console.log(objectIndex);
 
   const arr = customerList.map((obj) => {
-    if (obj.id !== enteredObject.id) {
-      return { ...(obj["add"] = enteredInputs) };
-    }
-    return obj;
+    if (enteredObject.id === enteredObject.id) {
+      return { ...(obj["add"] = enteredInputs) 
+    };
+    }  else if(enteredObject.id===(obj["add"] = enteredInputs){
+enteredObject = enteredObject}
+    
   });
 
   console.log(arr);
