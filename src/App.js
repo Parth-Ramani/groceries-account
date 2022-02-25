@@ -10,37 +10,30 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
-    arr: "",
   },
   {
     id: "e2",
     fullName: "akash",
-    arr: "",
   },
   {
     id: "e3",
     fullName: "hari",
-    arr: "",
   },
   {
     id: "e4",
     fullName: "rahul",
-    arr: "",
   },
   {
     id: "e5",
     fullName: "shyam",
-    arr: "",
   },
   {
     id: "e6",
     fullName: "rohit",
-    arr: "",
   },
   {
     id: "e7",
     fullName: "vivek",
-    arr: "",
   },
 ];
 const DUMMY_DATA = [];
@@ -152,18 +145,14 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  const [enteredObject, setObject] = useState({
-    id: "",
-    fullName: "",
-    arr: "",
-  });
-
-  console.log(enteredObject.fullName);
+  let [enteredObject, setObject] = useState({});
 
   function clickme(name) {
     setObject(name);
     console.log(name);
   }
+  // enteredObject["arr"] = enteredInputs;
+  // console.log(enteredObject);
 
   //  stored data
   useEffect(() => {
@@ -174,6 +163,11 @@ const App = (props) => {
   //   localStorage.setItem("details", JSON.stringify(enteredInputs));
   // }, [enteredInputs]);
   //////////////////////////////////////
+  // if (enteredObject !== enteredObject) {
+  //   return { ...(enteredObject["add"] = enteredInputs) };
+  // } else {
+  //   return enteredObject;
+  // }
 
   // let myArray = [
   //     { id: 0, name: "Jhon", arr: [] },
@@ -193,17 +187,28 @@ const App = (props) => {
   // //Log object to console again.
   // console.log("After update: ", myArray[objIndex]);
 
-  // let objectIndex = customerList.findIndex((ele) => ele === enteredObject);
+  // let objectIndex = customerList.findIndex(
+  //   (ele) => ele === { ...enteredObject }
+  // );
   // console.log("before update:", customerList[objectIndex]);
 
   // console.log(...customerList);
   // // console.log(enteredObject);
 
-  // customerList[objectIndex].arr = enteredInputs;
+  // customerList[objectIndex]["arr"] = enteredInputs;
   // console.log("afterupdate:", customerList[objectIndex]);
   // console.log(customerList);
   // console.log(enteredObject);
   // console.log(objectIndex);
+
+  const arr = customerList.map((obj) => {
+    if (obj.id !== enteredObject.id) {
+      return { ...(obj["add"] = enteredInputs) };
+    }
+    return obj;
+  });
+
+  console.log(arr);
 
   return (
     <NameObject.Provider value={enteredObject}>

@@ -22,7 +22,7 @@ const DetailTable = (props) => {
   return (
     <div>
       <div className="detail_container">
-        {/* <h1>{props.customerList.fullName}</h1> */}
+        <h1>{object.fullName}</h1>
         <table className="customers">
           <thead>
             <tr>
@@ -34,7 +34,7 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/* {props.customerList.arr.map((item) => (
+            {/* {object.add.map((item) => (
               <tr>
                 <td>{item.description}</td>
                 <td>{item.quantity}</td>
