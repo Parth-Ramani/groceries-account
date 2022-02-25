@@ -9,14 +9,9 @@ const DetailTable = (props) => {
   // console.log(inputObject);
   const object = useContext(NameObject);
   console.log(typeof object);
-  console.log(props.enteredInputs);
+  console.log(typeof props.enteredInputs);
   console.log(object.add);
-  let newJSON = JSON.stringify(object, function (key, value) {
-    return value === "" ? undefined : value;
-  });
-  console.log(JSON.parse(newJSON));
-  const newObject = JSON.parse(newJSON);
-  console.log(newObject.add);
+  console.log(object.add);
 
   // useEffect(() => {
   //   localStorage.setItem("details", JSON.stringify(object));
@@ -28,7 +23,7 @@ const DetailTable = (props) => {
   return (
     <div>
       <div className="detail_container">
-        <h1>{newObject.fullName}</h1>
+        <h1>{object.fullName}</h1>
         <table className="customers">
           <thead>
             <tr>

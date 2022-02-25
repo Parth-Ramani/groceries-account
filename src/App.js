@@ -10,47 +10,47 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
-    add: [],
+    add: [""],
   },
   {
     id: "e2",
     fullName: "akash",
-    add: [],
+    add: [""],
   },
   {
     id: "e3",
     fullName: "hari",
-    add: [],
+    add: [""],
   },
   {
     id: "e4",
     fullName: "rahul",
-    add: [],
+    add: [""],
   },
   {
     id: "e5",
     fullName: "shyam",
-    add: [],
+    add: [""],
   },
   {
     id: "e6",
     fullName: "rohit",
-    add: [],
+    add: [""],
   },
   {
     id: "e7",
     fullName: "vivek",
-    add: [],
+    add: [""],
   },
 ];
 const DUMMY_DATA = [
-  {
-    id: "ab",
-    description: "fgg",
-    quantity: "gff",
-    date: "444",
-    amount: "ffff",
-  },
+  // {
+  //   id: "ab",
+  //   description: "fgg",
+  //   quantity: "gff",
+  //   date: "444",
+  //   amount: "ffff",
+  // },
 ];
 // const account1 = {
 //   owner: 'Jonas Schmedtmann',
@@ -230,12 +230,15 @@ const App = (props) => {
   // });
 
   // console.log(arr);
-
+  ////////////////////////////////////
+  //////    IMPORTANT
   const arr = customerList.map((obj) => {
     if (obj.id === enteredObject.id) {
       return (obj.add = enteredInputs);
     } else if (obj !== enteredObject.id) {
       return delete obj.add;
+    } else if (enteredObject.add == "undefined") {
+      return "data not found";
     } else {
       return obj;
     }
@@ -243,6 +246,7 @@ const App = (props) => {
   console.log(customerList);
 
   console.log(arr);
+  console.log(typeof enteredObject.add);
 
   // if (enteredObject === enteredObject) {
   //   enteredObject["arr"] = enteredInputs;
