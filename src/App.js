@@ -150,7 +150,7 @@ const App = (props) => {
 
   function clickme(name) {
     setObject(name);
-    console.log(name);
+    console.log((name["add"] = enteredInputs));
   }
   // enteredObject["arr"] = enteredInputs;
   // console.log(enteredObject);
@@ -221,11 +221,11 @@ const App = (props) => {
   // });
   // console.log(arr);
 
-  if (enteredObject === enteredObject) {
-    enteredObject["arr"] = enteredInputs;
-  } else {
-    return enteredObject;
-  }
+  // if (enteredObject === enteredObject) {
+  //   enteredObject["arr"] = enteredInputs;
+  // } else {
+  //   return enteredObject;
+  // }
 
   return (
     <NameObject.Provider value={enteredObject}>
