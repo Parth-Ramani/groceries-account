@@ -10,41 +10,47 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
-    add: "",
+    add: [],
   },
   {
     id: "e2",
     fullName: "akash",
-    add: "gh",
+    add: [],
   },
   {
     id: "e3",
     fullName: "hari",
-    add: "ghg",
+    add: [],
   },
   {
     id: "e4",
     fullName: "rahul",
-    add: "gg",
+    add: [],
   },
   {
     id: "e5",
     fullName: "shyam",
-    add: "gh",
+    add: [],
   },
   {
     id: "e6",
     fullName: "rohit",
-    add: "gh",
+    add: [],
   },
   {
     id: "e7",
     fullName: "vivek",
-    add: "hg",
+    add: [],
   },
 ];
 const DUMMY_DATA = [
-  { description: "fgg", quantity: "gff", date: "444", amount: "ffff" },
+  {
+    id: "ab",
+    description: "fgg",
+    quantity: "gff",
+    date: "444",
+    amount: "ffff",
+  },
 ];
 // const account1 = {
 //   owner: 'Jonas Schmedtmann',

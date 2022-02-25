@@ -15,7 +15,7 @@ const Modal = (props) => {
     const customerNameData = {
       id: Math.random().toString(),
       fullName: enteredName,
-      add: "hggh",
+      add: [],
     };
     props.onSaveData(customerNameData);
     console.log(customerNameData);
