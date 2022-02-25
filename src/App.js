@@ -146,6 +146,7 @@ const App = (props) => {
   //   setInput(enteredData);
   // };
   let [enteredObject, setObject] = useState({});
+  console.log(customerList);
 
   function clickme(name) {
     setObject(name);
@@ -201,16 +202,30 @@ const App = (props) => {
   // console.log(enteredObject);
   // console.log(objectIndex);
 
-  const arr = customerList.map((obj) => {
-    if (enteredObject.id === enteredObject.id) {
-      return { ...(obj["add"] = enteredInputs) 
-    };
-    }  else if(enteredObject.id===(obj["add"] = enteredInputs){
-enteredObject = enteredObject}
-    
-  });
+  // const arr = customerList.map((obj) => {
+  //   if (enteredObject.id === enteredObject.id) {
+  //     return { ...(obj["add"] = enteredInputs)
+  //   }
+  //   }
 
-  console.log(arr);
+  // });
+
+  // console.log(arr);
+
+  // const arr = customerList.map((obj) => {
+  //   if (enteredObject.id === enteredObject.id) {
+  //     obj["add"] = enteredInputs;
+  //   } else if (obj["add"] === enteredInputs) {
+  //     return enteredObject;
+  //   }
+  // });
+  // console.log(arr);
+
+  if (enteredObject === enteredObject) {
+    enteredObject["arr"] = enteredInputs;
+  } else {
+    return enteredObject;
+  }
 
   return (
     <NameObject.Provider value={enteredObject}>
@@ -240,6 +255,7 @@ enteredObject = enteredObject}
             // data={data}
             handleDeleteClick={handleDeleteClick}
             clickme={clickme}
+            enteredInputs={enteredInputs}
           />
         ) : null}
         {openForm ? (
