@@ -124,9 +124,6 @@ const App = (props) => {
   // const amountArray = enteredInputs.map((obj) => obj.amount);
   // console.log(amountArray);
 
-  const customerArray = customerList.map((obj) => obj.fullName);
-  console.log(customerArray);
-
   /////////////////////
 
   //delete list
@@ -147,14 +144,30 @@ const App = (props) => {
   // };
   let [enteredObject, setObject] = useState({});
   console.log(customerList);
-
+  // setObject(name);
   function clickme(name) {
-    setObject(name);
-    console.log((name["add"] = enteredInputs));
+    const obj = {
+      fullName: name.fullName,
+      description: "",
+      quantity: "",
+      date: "",
+    };
+    console.log(obj);
   }
-  // enteredObject["arr"] = enteredInputs;
-  // console.log(enteredObject);
+  /////////////////////////////////
 
+  const customerArray = customerList.map((obj) => obj.fullName);
+  console.log(customerArray);
+
+  let obb = customerArray.reduce((o, key) => ({ ...o, [key]: "" }), {});
+  console.log(obb);
+  obb = customerArray.reduce((acc, cur) => ({
+    ...acc,
+    [cur.fullName]: cur.id,
+  }));
+  console.log(obb);
+
+  //////////////////////////////////////////
   //  stored data
   useEffect(() => {
     localStorage.setItem("customer", JSON.stringify(customerList));
