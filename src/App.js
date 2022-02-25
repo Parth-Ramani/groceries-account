@@ -10,33 +10,42 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
+    add: "",
   },
   {
     id: "e2",
     fullName: "akash",
+    add: "gh",
   },
   {
     id: "e3",
     fullName: "hari",
+    add: "ghg",
   },
   {
     id: "e4",
     fullName: "rahul",
+    add: "gg",
   },
   {
     id: "e5",
     fullName: "shyam",
+    add: "gh",
   },
   {
     id: "e6",
     fullName: "rohit",
+    add: "gh",
   },
   {
     id: "e7",
     fullName: "vivek",
+    add: "hg",
   },
 ];
-const DUMMY_DATA = [];
+const DUMMY_DATA = [
+  { description: "fgg", quantity: "gff", date: "444", amount: "ffff" },
+];
 // const account1 = {
 //   owner: 'Jonas Schmedtmann',
 //   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -144,28 +153,19 @@ const App = (props) => {
   // };
   let [enteredObject, setObject] = useState({});
   console.log(customerList);
-  // setObject(name);
+
   function clickme(name) {
-    const obj = {
-      fullName: name.fullName,
-      description: "",
-      quantity: "",
-      date: "",
-    };
-    console.log(obj);
+    setObject(name);
   }
   /////////////////////////////////
 
-  const customerArray = customerList.map((obj) => obj.fullName);
-  console.log(customerArray);
-
-  let obb = customerArray.reduce((o, key) => ({ ...o, [key]: "" }), {});
-  console.log(obb);
-  obb = customerArray.reduce((acc, cur) => ({
-    ...acc,
-    [cur.fullName]: cur.id,
-  }));
-  console.log(obb);
+  // const customerArray = customerList.map((obj) => obj.fullName);
+  // console.log(customerArray);
+  // const myObj = { ...customerArray };
+  // // for (let i = 0; i < customerArray.length; i++) {
+  // //   myObj[i] = customerArray[i];
+  // // }
+  // console.log( myObj);
 
   //////////////////////////////////////////
   //  stored data
@@ -225,14 +225,18 @@ const App = (props) => {
 
   // console.log(arr);
 
-  // const arr = customerList.map((obj) => {
-  //   if (enteredObject.id === enteredObject.id) {
-  //     obj["add"] = enteredInputs;
-  //   } else if (obj["add"] === enteredInputs) {
-  //     return enteredObject;
-  //   }
-  // });
-  // console.log(arr);
+  const arr = customerList.map((obj) => {
+    if (obj.id === enteredObject.id) {
+      return (obj.add = enteredInputs);
+    } else if (obj !== enteredObject.id) {
+      return delete obj.add;
+    } else {
+      return obj;
+    }
+  });
+  console.log(customerList);
+
+  console.log(arr);
 
   // if (enteredObject === enteredObject) {
   //   enteredObject["arr"] = enteredInputs;

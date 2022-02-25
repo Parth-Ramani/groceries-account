@@ -10,7 +10,7 @@ const DetailTable = (props) => {
   const object = useContext(NameObject);
   console.log(typeof object);
   console.log(props.enteredInputs);
-  console.log(object);
+  console.log(object.add);
 
   // useEffect(() => {
   //   localStorage.setItem("details", JSON.stringify(object));
@@ -34,13 +34,12 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/*         
+            {/* {object.add.map((item) => {
               <tr>
-
-                <td>{object.description}</td>
-                <td>{object.quantity}</td>
-                <td>{object.date}</td>
-                <td>{object.amount}</td>
+                <td>{item.description}</td>
+                <td>{item.quantity}</td>
+                <td>{item.date}</td>
+                <td>{item.amount}</td>
                 <td>
                   <button className="editbtn">Edit</button>
                   <button
@@ -52,7 +51,8 @@ const DetailTable = (props) => {
                     Delete
                   </button>
                 </td>
-              </tr> */}
+              </tr>;
+            })} */}
 
             {/* {props.DUMMY_NAME[0].array.map((n) => (
               <tr>
