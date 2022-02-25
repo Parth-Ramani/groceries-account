@@ -10,37 +10,30 @@ let DUMMY_NAME = [
   {
     id: "e1",
     fullName: "ram",
-    add: [""],
   },
   {
     id: "e2",
     fullName: "akash",
-    add: [""],
   },
   {
     id: "e3",
     fullName: "hari",
-    add: [""],
   },
   {
     id: "e4",
     fullName: "rahul",
-    add: [""],
   },
   {
     id: "e5",
     fullName: "shyam",
-    add: [""],
   },
   {
     id: "e6",
     fullName: "rohit",
-    add: [""],
   },
   {
     id: "e7",
     fullName: "vivek",
-    add: [""],
   },
 ];
 const DUMMY_DATA = [
@@ -163,6 +156,8 @@ const App = (props) => {
   function clickme(name) {
     setObject(name);
   }
+  console.log(enteredObject.add);
+
   /////////////////////////////////
 
   // const customerArray = customerList.map((obj) => obj.fullName);
@@ -234,19 +229,18 @@ const App = (props) => {
   //////    IMPORTANT
   const arr = customerList.map((obj) => {
     if (obj.id === enteredObject.id) {
-      return (obj.add = enteredInputs);
+      return (enteredObject["add"] = [enteredInputs]);
     } else if (obj !== enteredObject.id) {
       return delete obj.add;
-    } else if (enteredObject.add == "undefined") {
-      return "data not found";
+    } else if (!enteredInputs) {
+      return;
     } else {
       return obj;
     }
   });
   console.log(customerList);
 
-  console.log(arr);
-  console.log(typeof enteredObject.add);
+  // console.log(arr);
 
   // if (enteredObject === enteredObject) {
   //   enteredObject["arr"] = enteredInputs;
@@ -296,7 +290,7 @@ const App = (props) => {
           enteredInputs={enteredInputs}
           // customerList={customerList[objectIndex]}
           // handleTableDeleteClick={handleTableDeleteClick}
-          DUMMY_NAME={DUMMY_NAME}
+          customerList={customerList}
 
           // data={data}
         />

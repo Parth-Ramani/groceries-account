@@ -11,7 +11,9 @@ const DetailTable = (props) => {
   console.log(typeof object);
   console.log(typeof props.enteredInputs);
   console.log(object.add);
-  console.log(object.add);
+  console.log((object.add = ""));
+
+  console.log(object);
 
   // useEffect(() => {
   //   localStorage.setItem("details", JSON.stringify(object));
@@ -19,6 +21,12 @@ const DetailTable = (props) => {
   // console.log(props.customerList);
 
   //////////////////
+
+  object.add = props.enteredInputs;
+  console.log(object);
+  console.log(props.customerList);
+
+  console.log(object.add);
 
   return (
     <div>
@@ -35,7 +43,7 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/* {object.add.map((item) => {
+            {props.customerList.map((item) => (
               <tr>
                 <td>{item.description}</td>
                 <td>{item.quantity}</td>
@@ -52,8 +60,8 @@ const DetailTable = (props) => {
                     Delete
                   </button>
                 </td>
-              </tr>;
-            })} */}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
