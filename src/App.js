@@ -196,6 +196,12 @@ const App = (props) => {
   //   }
   // });
   console.log(customerList);
+  if (enteredObject === enteredInputs.fullName) {
+    return enteredInputs;
+  } else {
+    enteredInputs == "";
+  }
+  console.log(enteredInputs);
 
   // console.log(arr);
 
@@ -215,6 +221,7 @@ const App = (props) => {
   // array.push(enteredObject);
   // console.log(array.enteredInputs);
   // console.log(array);
+  ////////////////////////////////////
 
   return (
     <div>
