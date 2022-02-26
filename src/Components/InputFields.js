@@ -6,7 +6,11 @@ const InputFields = (props) => {
   const [enteredQuantity, setQuantity] = useState("");
   const [entereddate, setDate] = useState("");
   const [enteredPrice, setPrice] = useState("");
-
+  // let [enteredObject, setObject] = useState("");
+  // const btn = (clickme) => {
+  //   // setObject(name.fullname);
+  //   console.log(name);
+  // };
   const descChangeHandler = (event) => {
     setDesc(event.target.value);
     console.log(event.target.value);
@@ -28,6 +32,7 @@ const InputFields = (props) => {
     event.preventDefault();
 
     const customerData = {
+      fullname: props.enteredObject,
       description: enteredDesc,
       quantity: enteredQuantity,
       date: entereddate,

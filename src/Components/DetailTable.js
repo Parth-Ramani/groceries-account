@@ -28,12 +28,11 @@ const DetailTable = (props) => {
   //   });
   // });
   // console.log(arr);
-  console.log(props.array.enteredInputs);
 
   return (
     <div>
       <div className="detail_container">
-        <h1>{object.fullName}</h1>
+        <h1></h1>
         <table className="customers">
           <thead>
             <tr>

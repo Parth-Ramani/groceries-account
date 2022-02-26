@@ -120,6 +120,12 @@ const App = (props) => {
 
     // setInput(updateList);
   };
+  let [enteredObject, setObject] = useState("");
+  const clickme = (name) => {
+    console.log(name.fullName);
+    setObject(name.fullName);
+  };
+  console.log(enteredObject);
 
   // const descriptionArray = enteredInputs.map((obj) => obj.description);
   // console.log(descriptionArray);
@@ -151,12 +157,12 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  let [enteredObject, setObject] = useState({});
-  console.log(customerList);
+  // let [enteredObject, setObject] = useState({});
+  // console.log(customerList);
 
-  function clickme(name) {
-    setObject(name);
-  }
+  // function clickme(name) {
+  //   setObject(name);
+  // }
   // const notify = () => {
   //   alert("please select account");
   // };
@@ -257,59 +263,58 @@ const App = (props) => {
   // console.log(array);
   // array.push(enteredObject);
   // console.log(array);
-  let array = [];
-  array.push(enteredObject);
-  console.log(array.enteredInputs);
-  console.log(array);
+  // let array = [];
+  // array.push(enteredObject);
+  // console.log(array.enteredInputs);
+  // console.log(array);
 
   return (
-    <NameObject.Provider value={enteredObject}>
-      <div>
-        <button
-          onClick={() => {
-            setList(!openList);
-          }}
-          className="accountList"
-        >
-          Account List
-        </button>
-        <input className="search" type="text" placeholder="Search Account" />
-        <button
-          onClick={() => {
-            setForm(!openForm);
-          }}
-          type="button"
-          className="addAccount"
-        >
-          + Account
-        </button>
-        <br /> <InputFields saveList={customerInputData} />
-        {openList ? (
-          <ContactList
-            customerList={customerList}
-            // data={data}
-            handleDeleteClick={handleDeleteClick}
-            clickme={clickme}
-            enteredInputs={enteredInputs}
-          />
-        ) : null}
-        {openForm ? (
-          <Modal
-            setForm={setForm}
-            onSaveData={saveCustomerData}
-            customerInputData={customerInputData}
-          />
-        ) : null}
-        <DetailTable
-          enteredInputs={enteredInputs}
-          // customerList={customerList[objectIndex]}
-          // handleTableDeleteClick={handleTableDeleteClick}
+    <div>
+      <button
+        onClick={() => {
+          setList(!openList);
+        }}
+        className="accountList"
+      >
+        Account List
+      </button>
+      <input className="search" type="text" placeholder="Search Account" />
+      <button
+        onClick={() => {
+          setForm(!openForm);
+        }}
+        type="button"
+        className="addAccount"
+      >
+        + Account
+      </button>
+      <br />
+      <InputFields saveList={customerInputData} enteredObject={enteredObject} />
+      {openList ? (
+        <ContactList
+          clickme={clickme}
           customerList={customerList}
-          array={array}
           // data={data}
+          handleDeleteClick={handleDeleteClick}
+          enteredInputs={enteredInputs}
         />
-      </div>
-    </NameObject.Provider>
+      ) : null}
+      {openForm ? (
+        <Modal
+          setForm={setForm}
+          onSaveData={saveCustomerData}
+          customerInputData={customerInputData}
+        />
+      ) : null}
+      <DetailTable
+        enteredInputs={enteredInputs}
+        // customerList={customerList[objectIndex]}
+        // handleTableDeleteClick={handleTableDeleteClick}
+        customerList={customerList}
+
+        // data={data}
+      />
+    </div>
   );
 };
 
