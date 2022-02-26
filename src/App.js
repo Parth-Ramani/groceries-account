@@ -231,7 +231,7 @@ const App = (props) => {
     if (obj.id === enteredObject.id) {
       return (enteredObject["add"] = [enteredInputs]);
     } else if (obj !== enteredObject.id) {
-      return delete obj.add;
+      return (obj["add"] = "");
     } else if (!enteredInputs) {
       return;
     } else {
@@ -239,6 +239,7 @@ const App = (props) => {
     }
   });
   console.log(customerList);
+  console.log(enteredObject.add);
 
   // console.log(arr);
 
@@ -247,6 +248,16 @@ const App = (props) => {
   // } else {
   //   return enteredObject;
   // }
+  /////////////////////
+  // let array = [{ ...enteredObject }];
+  // console.log(array);
+  // array.forEach((e) => (e.add = enteredInputs));
+  // console.log(array);
+  // array.push(enteredObject);
+  // console.log(array);
+  let array = [];
+  array.push(enteredObject);
+  console.log(array);
 
   return (
     <NameObject.Provider value={enteredObject}>
@@ -291,7 +302,7 @@ const App = (props) => {
           // customerList={customerList[objectIndex]}
           // handleTableDeleteClick={handleTableDeleteClick}
           customerList={customerList}
-
+          array={array}
           // data={data}
         />
       </div>

@@ -11,7 +11,6 @@ const DetailTable = (props) => {
   console.log(typeof object);
   console.log(typeof props.enteredInputs);
   console.log(object.add);
-  console.log((object.add = ""));
 
   console.log(object);
 
@@ -21,12 +20,7 @@ const DetailTable = (props) => {
   // console.log(props.customerList);
 
   //////////////////
-
-  object.add = props.enteredInputs;
-  console.log(object);
-  console.log(props.customerList);
-
-  console.log(object.add);
+  // console.log(props.array.fullName);
 
   return (
     <div>
@@ -43,25 +37,29 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.customerList.map((item) => (
-              <tr>
-                <td>{item.description}</td>
-                <td>{item.quantity}</td>
-                <td>{item.date}</td>
-                <td>{item.amount}</td>
-                <td>
-                  <button className="editbtn">Edit</button>
-                  <button
-                    onClick={() => {
-                      props.handleTableDeleteClick(item.id);
-                    }}
-                    className="deletebtn"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {/* {object.map((item) => (
+              <ul>
+                {item.add.map((sub) => (
+                  <tr>
+                    <td>{sub.description}</td>
+                    <td>{sub.quantity}</td>
+                    <td>{sub.date}</td>
+                    <td>{sub.amount}</td>
+                    <td>
+                      <button className="editbtn">Edit</button>
+                      <button
+                        onClick={() => {
+                          props.handleTableDeleteClick(item.id);
+                        }}
+                        className="deletebtn"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </ul>
+            ))} */}
           </tbody>
         </table>
       </div>
@@ -70,3 +68,22 @@ const DetailTable = (props) => {
 };
 
 export default DetailTable;
+
+/* <tr>
+                
+<td>{item.description}</td>
+<td>{item.quantity}</td>
+<td>{item.date}</td>
+<td>{item.amount}</td>
+<td>
+  <button className="editbtn">Edit</button>
+  <button
+    onClick={() => {
+      props.handleTableDeleteClick(item.id);
+    }}
+    className="deletebtn"
+  >
+    Delete
+  </button>
+</td>
+</tr> */
