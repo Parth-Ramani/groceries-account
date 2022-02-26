@@ -150,7 +150,11 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  let [enteredObject, setObject] = useState({});
+  let [enteredObject, setObject] = useState({
+    id: "",
+    fullName: "",
+    add: "",
+  });
   console.log(customerList);
 
   function clickme(name) {

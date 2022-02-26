@@ -12,8 +12,6 @@ const DetailTable = (props) => {
   console.log(typeof props.enteredInputs);
   console.log(object.add);
 
-  console.log(object);
-
   // useEffect(() => {
   //   localStorage.setItem("details", JSON.stringify(object));
   // }, [object]);
@@ -21,7 +19,9 @@ const DetailTable = (props) => {
 
   //////////////////
   // console.log(props.array.fullName);
+  // if(object == true){
 
+  // }
   return (
     <div>
       <div className="detail_container">
@@ -36,31 +36,27 @@ const DetailTable = (props) => {
               <th>Edit</th>
             </tr>
           </thead>
-          <tbody>
-            {/* {object.map((item) => (
-              <ul>
-                {item.add.map((sub) => (
-                  <tr>
-                    <td>{sub.description}</td>
-                    <td>{sub.quantity}</td>
-                    <td>{sub.date}</td>
-                    <td>{sub.amount}</td>
-                    <td>
-                      <button className="editbtn">Edit</button>
-                      <button
-                        onClick={() => {
-                          props.handleTableDeleteClick(item.id);
-                        }}
-                        className="deletebtn"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </ul>
-            ))} */}
-          </tbody>
+          {Object.keys(object).map((add) => (
+            <tbody>
+              <tr>
+                <td>{object[add].description}</td>
+                <td>{object[add].quantity}</td>
+                <td>{object[add].date}</td>
+                <td>{object[add].amount}</td>
+                <td>
+                  <button className="editbtn">Edit</button>
+                  <button
+                    onClick={() => {
+                      props.handleTableDeleteClick(add.id);
+                    }}
+                    className="deletebtn"
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          ))}
         </table>
       </div>
     </div>
