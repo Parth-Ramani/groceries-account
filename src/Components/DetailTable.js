@@ -10,7 +10,6 @@ const DetailTable = (props) => {
   const object = useContext(NameObject);
   console.log(typeof object);
   console.log(typeof props.enteredInputs);
-  console.log(object.add);
 
   // useEffect(() => {
   //   localStorage.setItem("details", JSON.stringify(object));
@@ -22,6 +21,15 @@ const DetailTable = (props) => {
   // if(object == true){
 
   // }
+  // let arr = props.array.map((item) => {
+  //   console.log(item.fullName);
+  //   ((sub) => {
+  //     console.log(sub.amount);
+  //   });
+  // });
+  // console.log(arr);
+  console.log(props.array.enteredInputs);
+
   return (
     <div>
       <div className="detail_container">
@@ -36,18 +44,18 @@ const DetailTable = (props) => {
               <th>Edit</th>
             </tr>
           </thead>
-          {Object.keys(object).map((add) => (
-            <tbody>
+          <tbody>
+            {/* {props.array.enteredInputs.map((item) => (
               <tr>
-                <td>{object[add].description}</td>
-                <td>{object[add].quantity}</td>
-                <td>{object[add].date}</td>
-                <td>{object[add].amount}</td>
+                <td>{item.description}</td>
+                <td>{item.quantity}</td>
+                <td>{item.date}</td>
+                <td>{item.amount}</td>
                 <td>
                   <button className="editbtn">Edit</button>
                   <button
                     onClick={() => {
-                      props.handleTableDeleteClick(add.id);
+                      props.handleTableDeleteClick(item.id);
                     }}
                     className="deletebtn"
                   >
@@ -55,8 +63,8 @@ const DetailTable = (props) => {
                   </button>
                 </td>
               </tr>
-            </tbody>
-          ))}
+            ))} */}
+          </tbody>
         </table>
       </div>
     </div>

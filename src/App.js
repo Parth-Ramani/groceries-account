@@ -37,6 +37,7 @@ let DUMMY_NAME = [
   },
 ];
 const DUMMY_DATA = [
+  "ppp",
   // {
   //   id: "ab",
   //   description: "fgg",
@@ -90,7 +91,7 @@ const App = (props) => {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(DUMMY_NAME);
-  const [enteredInputs, setInput] = useState(DUMMY_DATA);
+  const [enteredInputs, setInput] = useState(["ggg"]);
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
@@ -150,17 +151,15 @@ const App = (props) => {
   //   enteredData.splice(indx, 1);
   //   setInput(enteredData);
   // };
-  let [enteredObject, setObject] = useState({
-    id: "",
-    fullName: "",
-    add: "",
-  });
+  let [enteredObject, setObject] = useState({});
   console.log(customerList);
 
   function clickme(name) {
     setObject(name);
   }
-  console.log(enteredObject.add);
+  // const notify = () => {
+  //   alert("please select account");
+  // };
 
   /////////////////////////////////
 
@@ -231,19 +230,18 @@ const App = (props) => {
   // console.log(arr);
   ////////////////////////////////////
   //////    IMPORTANT
-  const arr = customerList.map((obj) => {
-    if (obj.id === enteredObject.id) {
-      return (enteredObject["add"] = [enteredInputs]);
-    } else if (obj !== enteredObject.id) {
-      return (obj["add"] = "");
-    } else if (!enteredInputs) {
-      return;
-    } else {
-      return obj;
-    }
-  });
+  // const arr = customerList.map((obj) => {
+  //   if (obj.id === enteredObject.id) {
+  //     return (enteredObject["add"] = [enteredInputs]);
+  //   } else if (obj !== enteredObject.id) {
+  //     return (obj["add"] = "");
+  //   } else if (!enteredInputs) {
+  //     return;
+  //   } else {
+  //     return obj;
+  //   }
+  // });
   console.log(customerList);
-  console.log(enteredObject.add);
 
   // console.log(arr);
 
@@ -261,6 +259,7 @@ const App = (props) => {
   // console.log(array);
   let array = [];
   array.push(enteredObject);
+  console.log(array.enteredInputs);
   console.log(array);
 
   return (
