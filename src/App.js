@@ -36,16 +36,7 @@ let DUMMY_NAME = [
     fullName: "vivek",
   },
 ];
-const DUMMY_DATA = [
-  "ppp",
-  // {
-  //   id: "ab",
-  //   description: "fgg",
-  //   quantity: "gff",
-  //   date: "444",
-  //   amount: "ffff",
-  // },
-];
+const DUMMY_DATA = [];
 // const account1 = {
 //   owner: 'Jonas Schmedtmann',
 //   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -91,7 +82,7 @@ const App = (props) => {
   const [openForm, setForm] = useState(false);
   const [openList, setList] = useState(false);
   const [customerList, setCustomerList] = useState(DUMMY_NAME);
-  const [enteredInputs, setInput] = useState(["ggg"]);
+  const [enteredInputs, setInput] = useState(DUMMY_DATA);
 
   //customerListData
   const saveCustomerData = (enterCustomer) => {
@@ -115,6 +106,7 @@ const App = (props) => {
     console.log(updateInputs);
 
     setInput(updateInputs);
+    console.log(enteredInputs);
 
     // console.log(enteredInputs);
 
@@ -163,9 +155,6 @@ const App = (props) => {
   // function clickme(name) {
   //   setObject(name);
   // }
-  // const notify = () => {
-  //   alert("please select account");
-  // };
 
   /////////////////////////////////
 
@@ -193,47 +182,6 @@ const App = (props) => {
   //   return enteredObject;
   // }
 
-  // let myArray = [
-  //     { id: 0, name: "Jhon", arr: [] },
-  //     { id: 1, name: "Sara", arr: [] },
-  //     { id: 2, name: "Domnic", arr: [] },
-  //     { id: 3, name: "Bravo", arr: [] },
-  //   ],
-  //   //Find index of specific object using findIndex method.
-  //   objIndex = myArray.findIndex((obj) => obj === obj.name);
-
-  // //Log object to Console.
-  // console.log("Before update: ", myArray[objIndex]);
-
-  // //Update object's name property.
-  // myArray[objIndex].name = "Laila";
-
-  // //Log object to console again.
-  // console.log("After update: ", myArray[objIndex]);
-
-  // let objectIndex = customerList.findIndex(
-  //   (ele) => ele === { ...enteredObject }
-  // );
-  // console.log("before update:", customerList[objectIndex]);
-
-  // console.log(...customerList);
-  // // console.log(enteredObject);
-
-  // customerList[objectIndex]["arr"] = enteredInputs;
-  // console.log("afterupdate:", customerList[objectIndex]);
-  // console.log(customerList);
-  // console.log(enteredObject);
-  // console.log(objectIndex);
-
-  // const arr = customerList.map((obj) => {
-  //   if (enteredObject.id === enteredObject.id) {
-  //     return { ...(obj["add"] = enteredInputs)
-  //   }
-  //   }
-
-  // });
-
-  // console.log(arr);
   ////////////////////////////////////
   //////    IMPORTANT
   // const arr = customerList.map((obj) => {
@@ -307,6 +255,7 @@ const App = (props) => {
         />
       ) : null}
       <DetailTable
+        enteredObject={enteredObject}
         enteredInputs={enteredInputs}
         // customerList={customerList[objectIndex]}
         // handleTableDeleteClick={handleTableDeleteClick}

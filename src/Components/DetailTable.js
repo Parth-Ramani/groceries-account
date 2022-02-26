@@ -32,7 +32,7 @@ const DetailTable = (props) => {
   return (
     <div>
       <div className="detail_container">
-        <h1></h1>
+        <h1>{props.enteredObject}</h1>
         <table className="customers">
           <thead>
             <tr>
@@ -44,7 +44,7 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {/* {props.array.enteredInputs.map((item) => (
+            {props.enteredInputs.map((item) => (
               <tr>
                 <td>{item.description}</td>
                 <td>{item.quantity}</td>
@@ -62,7 +62,7 @@ const DetailTable = (props) => {
                   </button>
                 </td>
               </tr>
-            ))} */}
+            ))}
           </tbody>
         </table>
       </div>
