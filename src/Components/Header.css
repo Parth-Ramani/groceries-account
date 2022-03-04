@@ -1,6 +1,6 @@
 .nav__bar {
   width: 100vw;
-  height: 13vh;
+  min-height: 13vh;
   background-color: orange;
 }
 

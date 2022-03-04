@@ -1,8 +1,43 @@
+/* .customerList {
+  position: relative;
+  height: 85vh;
+  width: 99vw;
+  border: 2px solid black;
+} */
 .search {
   height: 3rem;
   width: 30rem;
-  margin-left: 30%;
+  margin-top: 3%;
+  margin-left: 45%;
 }
 .search:focus {
   outline: none;
+}
+.filter {
+  margin-top: 3;
+  margin-left: 3%;
+}
+
+.input__Box {
+  min-height: 30vh;
+  width: 40vw;
+  background-color: rgb(235, 158, 16);
+  margin-top: 4%;
+  margin-left: 4%;
+  border-radius: 18px;
+}
+.fname {
+  margin-top: 18px;
+}
+.fname_input {
+}
+.number {
+}
+.number_input {
+}
+.address {
+  margin-left: 5%;
+  margin-top: 15%;
+}
+.address_input {
 }
