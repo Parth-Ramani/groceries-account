@@ -6,7 +6,7 @@ const Header = (props) => {
     <nav className="nav__bar">
       <button
         onClick={() => {
-          props.setList(props.comp1);
+          props.setList("first");
         }}
         className="customer__btn"
       >
@@ -14,7 +14,7 @@ const Header = (props) => {
       </button>
       <button
         onClick={() => {
-          props.setList(props.comp2);
+          props.setList("second");
         }}
         className="Item__btn"
       >

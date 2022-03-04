@@ -6,15 +6,13 @@ import "./App.css";
 import { useState } from "react/cjs/react.development";
 
 const App = (props) => {
-  const [enteredList, setList] = useState(ContactList);
+  const [enteredList, setList] = useState("first");
 
   return (
     <div>
-      <Header
-        setList={setList}
-        comp2={<CustomerItems />}
-        comp1={<ContactList />}
-      />
+      <Header component={CustomerItems} setList={setList} />
+      {enteredList === "first" && <ContactList />}
+      {enteredList === "second" && <CustomerItems />}
     </div>
   );
 };
