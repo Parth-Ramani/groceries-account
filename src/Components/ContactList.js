@@ -15,7 +15,7 @@ const ContactList = (props) => {
         <div className="input__Box">
           <form>
             <label className="fname" htmlFor="fname">
-              Full Name
+              Full Name :-
             </label>
             <input
               id="fname"
@@ -24,8 +24,8 @@ const ContactList = (props) => {
               required="required"
               placeholder="Full Name"
             />
-            {/* <label className="number" for="number">
-              Number
+            <label className="number" for="number">
+              Number :-
             </label>
             <input
               id="number"
@@ -36,7 +36,7 @@ const ContactList = (props) => {
             />
             <br />
             <label className="address" for="address">
-              Address
+              Address :-
             </label>
             <input
               id="address"
@@ -45,8 +45,63 @@ const ContactList = (props) => {
               required="required"
               placeholder="Address"
             />
-            <br /> */}
+            <br />
+            <button className="add__btn"> Add</button>
           </form>
+        </div>
+        <div className="customer__table">
+          <table className="customer__list">
+            <thead>
+              <tr>
+                <th>FullName</th>
+                <th>Number</th>
+                <th>Address</th>
+                <th>Changes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>vanish rai</td>
+                <td>6215472755</td>
+                <td>B1, colony new road delhi</td>
+                <td>
+                  <button className="editbtn ">Edit</button>
+
+                  <button className="deletebtn">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>prem sharma</td>
+                <td>9652472534</td>
+                <td>B2, colony new road delhi</td>
+                <td>
+                  <button className="editbtn ">Edit</button>
+
+                  <button className="deletebtn">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>anup kumar</td>
+                <td>9784546155</td>
+                <td>B3,colony new road delhi</td>
+                <td>
+                  <button className="editbtn ">Edit</button>
+
+                  <button className="deletebtn">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td>hari sharma</td>
+                <td>7895532461</td>
+                <td>b4, colony new road delhi</td>
+                <td>
+                  <button className="editbtn ">Edit</button>
+
+                  <button className="deletebtn">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
