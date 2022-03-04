@@ -1,5 +1,41 @@
 import "./ContactList.css";
+import react from "react";
+import { useState } from "react/cjs/react.development";
 const ContactList = (props) => {
+  ///////////////////
+  const [enteredFname, setFname] = useState("");
+  const [enteredNumber, setNumber] = useState("");
+  const [enteredAddress, setAddress] = useState("");
+
+  const fNameChangeHandler = (event) => {
+    setFname(event.target.value);
+    console.log(event.target.value);
+  };
+  const numberChangeHandler = (event) => {
+    setNumber(event.target.value);
+  };
+  const addressChangeHandler = (event) => {
+    setAddress(event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    const formData = {
+      id: Math.random().toString(),
+      fullName: enteredFname,
+      number: enteredNumber,
+      address: enteredAddress,
+    };
+    console.log(formData);
+    console.log(formData);
+    props.onSaved(formData);
+    setFname("");
+    setNumber("");
+    setNumber("");
+  };
+
+  /////////////////////////
   return (
     <div>
       <div className="customerList">
@@ -13,7 +49,7 @@ const ContactList = (props) => {
           <button className="filter">Filter </button>
         </div>
         <div className="input__Box">
-          <form>
+          <form onSubmit={submitHandler}>
             <label className="fname" htmlFor="fname">
               Full Name :-
             </label>
@@ -23,6 +59,8 @@ const ContactList = (props) => {
               className="fname_input"
               required="required"
               placeholder="Full Name"
+              value={enteredFname}
+              onChange={fNameChangeHandler}
             />
             <label className="number" for="number">
               Number :-
@@ -33,6 +71,8 @@ const ContactList = (props) => {
               className="number_input"
               required="required"
               placeholder="Number"
+              onChange={numberChangeHandler}
+              value={enteredNumber}
             />
             <br />
             <label className="address" for="address">
@@ -44,6 +84,8 @@ const ContactList = (props) => {
               className="address_input"
               required="required"
               placeholder="Address"
+              onChange={addressChangeHandler}
+              value={enteredAddress}
             />
             <br />
             <button className="add__btn"> Add</button>

@@ -1,6 +1,9 @@
 import ContactList from "./ContactList";
 import "./CustomerItems.css";
 const CustomerItems = () => {
+  /////////////
+
+  ///////////
   return (
     <div>
       <div className="customer__name">
@@ -21,9 +24,50 @@ const CustomerItems = () => {
         <input
           className="search_product"
           type="search"
-          placeholder="Search.."
+          placeholder="Search Product.."
           name="search"
         />
+        <div className="input__Box">
+          <form>
+            <label className="product" htmlFor="product">
+              product
+            </label>
+            <input
+              id="product"
+              type="text"
+              className="product_input"
+              required="required"
+              placeholder="Product"
+            />
+            <label className="quantity" for="quantity">
+              Quantity
+            </label>
+            <input
+              id="quantity"
+              type="text"
+              className="quantity_input"
+              required="required"
+              placeholder="Quantity"
+            />
+            <br />
+            <label className="date" for="date">
+              Date
+            </label>
+            <input id="date" type="date" className="date_input" />
+            <label className="amount" for="amount">
+              Amount
+            </label>
+            <input
+              id="amount"
+              type="number"
+              className="amount_input"
+              required="required"
+              placeholder="Amount"
+            />
+            <br />
+            <button className="add__btn"> Add</button>
+          </form>
+        </div>
 
         <div className="detail_container">
           <h1>Hari Sharma</h1>
