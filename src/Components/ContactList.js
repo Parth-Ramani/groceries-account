@@ -1,6 +1,8 @@
 import "./ContactList.css";
 import react from "react";
+import reactDom from "react-dom";
 import { useState } from "react/cjs/react.development";
+
 const ContactList = (props) => {
   ///////////////////
   const [enteredFname, setFname] = useState("");
@@ -27,12 +29,26 @@ const ContactList = (props) => {
       number: enteredNumber,
       address: enteredAddress,
     };
+    props.enteredData.map((item) => {
+      if (
+        item.fullName ||
+        item.number ||
+        item.address === formData.fullName ||
+        formData.number ||
+        formData.address
+      ) {
+        alert("Dont enter same data");
+      } else {
+        return props.onsaved(formData);
+      }
+    });
+
     console.log(formData);
     console.log(formData);
-    props.onSaved(formData);
+
     setFname("");
     setNumber("");
-    setNumber("");
+    setAddress("");
   };
 
   /////////////////////////
@@ -102,46 +118,18 @@ const ContactList = (props) => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>vanish rai</td>
-                <td>6215472755</td>
-                <td>B1, colony new road delhi</td>
-                <td>
-                  <button className="editbtn ">Edit</button>
+              {props.enteredData.map((item) => (
+                <tr>
+                  <td>{item.fullName}</td>
+                  <td>{item.number}</td>
+                  <td>{item.address}</td>
+                  <td>
+                    <button className="editbtn ">Edit</button>
 
-                  <button className="deletebtn">Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <td>prem sharma</td>
-                <td>9652472534</td>
-                <td>B2, colony new road delhi</td>
-                <td>
-                  <button className="editbtn ">Edit</button>
-
-                  <button className="deletebtn">Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <td>anup kumar</td>
-                <td>9784546155</td>
-                <td>B3,colony new road delhi</td>
-                <td>
-                  <button className="editbtn ">Edit</button>
-
-                  <button className="deletebtn">Delete</button>
-                </td>
-              </tr>
-              <tr>
-                <td>hari sharma</td>
-                <td>7895532461</td>
-                <td>b4, colony new road delhi</td>
-                <td>
-                  <button className="editbtn ">Edit</button>
-
-                  <button className="deletebtn">Delete</button>
-                </td>
-              </tr>
+                    <button className="deletebtn">Delete</button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

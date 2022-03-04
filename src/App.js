@@ -36,13 +36,18 @@ const App = (props) => {
   const [enteredList, setList] = useState("first");
   const [enteredData, setData] = useState(DUMMY_CONTACTS);
 
-  const savedData = (customerData) => {
-    console.log(customerData);
+  const saveCustomerData = (enterCustomer) => {
+    let updateData = [enterCustomer, ...enteredData];
+
+    console.log(updateData);
+    setData(updateData);
   };
   return (
     <div>
       <Header component={CustomerItems} setList={setList} />
-      {enteredList === "first" && <ContactList onsaved={savedData} />}
+      {enteredList === "first" && (
+        <ContactList onsaved={saveCustomerData} enteredData={enteredData} />
+      )}
       {enteredList === "second" && <CustomerItems />}
     </div>
   );
