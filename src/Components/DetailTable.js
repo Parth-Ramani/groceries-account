@@ -15,19 +15,9 @@ const DetailTable = (props) => {
   //   localStorage.setItem("details", JSON.stringify(object));
   // }, [object]);
   // console.log(props.customerList);
+  // console.log(props.enteredObject);
 
   //////////////////
-  // console.log(props.array.fullName);
-  // if(object == true){
-
-  // }
-  // let arr = props.array.map((item) => {
-  //   console.log(item.fullName);
-  //   ((sub) => {
-  //     console.log(sub.amount);
-  //   });
-  // });
-  // console.log(arr);
 
   return (
     <div>
@@ -44,25 +34,23 @@ const DetailTable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.enteredInputs.map((item) => (
-              <tr>
-                <td>{item.description}</td>
-                <td>{item.quantity}</td>
-                <td>{item.date}</td>
-                <td>{item.amount}</td>
-                <td>
-                  <button className="editbtn">Edit</button>
-                  <button
-                    onClick={() => {
-                      props.handleTableDeleteClick(item.id);
-                    }}
-                    className="deletebtn"
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
+            <tr>
+              <td></td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>{}</td>
+              <td>
+                <button className="editbtn">Edit</button>
+                <button
+                  onClick={() => {
+                    props.handleTableDeleteClick();
+                  }}
+                  className="deletebtn"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
