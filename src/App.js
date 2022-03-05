@@ -68,36 +68,36 @@ const App = (props) => {
     localStorage.setItem("customers", JSON.stringify(enteredData));
   }, [enteredData]);
 
-/////////// search results
-const [searchTerm, setSearchTerm] = useState("");
-const [searchResult, setSearchResult] = useState([]);
-const searchHandler = (searchTerm) => {
-  setSearchTerm(searchTerm);
-  if (searchTerm !== "") {
-    let newContactList = data.filter((item) => {
-      return Object.values(item)
-        .join("  ")
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-    });
-    console.log(newContactList);
-    setSearchResult(newContactList);
-  } else {
-    setSearchResult(data);
-  }
-};
+  /////////// search results
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
 
-
-
+  const searchHandler = (searchTerm) => {
+    setSearchTerm(searchTerm);
+    if (searchTerm !== "") {
+      let newContactList = enteredData.filter((item) => {
+        return Object.values(item)
+          .join("  ")
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
+      });
+      console.log(newContactList);
+      setSearchResult(newContactList);
+    } else {
+      setSearchResult(enteredData);
+    }
+  };
 
   return (
     <div>
       <Header component={CustomerItems} setList={setList} />
       {enteredList === "first" && (
-        <ContactList term={searchTerm} searchKeyward={searchHandler}
+        <ContactList
+          term={searchTerm}
+          searchKeyward={searchHandler}
           setData={setData}
           onsaved={saveCustomerData}
-          enteredData={enteredData}
+          enteredData={searchTerm.length < 1 ? enteredData : searchResult}
           handleDeleteClick={handleDeleteClick}
         />
       )}

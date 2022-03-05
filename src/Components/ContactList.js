@@ -2,7 +2,7 @@ import "./ContactList.css";
 import react from "react";
 import reactDom from "react-dom";
 import Modal from "./Modal";
-import { useState } from "react/cjs/react.development";
+import { useState, useRef } from "react/cjs/react.development";
 
 const ContactList = (props) => {
   ///////////////////
@@ -10,7 +10,7 @@ const ContactList = (props) => {
   const [enteredNumber, setNumber] = useState("");
   const [enteredAddress, setAddress] = useState("");
   const [editItem, setItem] = useState(null);
-
+  const inputEl = useRef("");
   /// Edit Data
   const editData = (dataid) => {
     let newEdit = props.enteredData.find((item) => {
@@ -64,15 +64,22 @@ const ContactList = (props) => {
 
   /////////////////////////
 
+  const getSearchTerm = () => {
+    props.searchKeyward(inputEl.current.value);
+  };
   return (
     <div>
       <div className="customerList">
         <div>
           <input
+            autocomplete="off"
+            ref={inputEl}
             className="search"
             type="search"
             placeholder="Search.."
             name="search"
+            value={props.term}
+            onChange={getSearchTerm}
           />
           <button className="filter">Filter </button>
         </div>
@@ -82,6 +89,7 @@ const ContactList = (props) => {
               Full Name :-
             </label>
             <input
+              autocomplete="off"
               id="fname"
               type="text"
               className="fname_input"
@@ -94,6 +102,7 @@ const ContactList = (props) => {
               Number :-
             </label>
             <input
+              autocomplete="off"
               id="number"
               type="number"
               className="number_input"
@@ -107,6 +116,7 @@ const ContactList = (props) => {
               Address :-
             </label>
             <input
+              autocomplete="off"
               id="address"
               type="text"
               className="address_input"
