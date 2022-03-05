@@ -44,7 +44,7 @@ const getLocalItem = () => {
 
 const App = (props) => {
   const [enteredList, setList] = useState("first");
-  const [enteredData, setData] = useState(DUMMY_CONTACTS);
+  const [enteredData, setData] = useState(getLocalItem);
 
   /// Delete Data
   const handleDeleteClick = (dataid) => {
@@ -101,7 +101,7 @@ const App = (props) => {
           handleDeleteClick={handleDeleteClick}
         />
       )}
-      {enteredList === "second" && <CustomerItems />}
+      {enteredList === "second" && <CustomerItems enteredData={enteredData} />}
     </div>
   );
 };

@@ -44,9 +44,11 @@ const ContactList = (props) => {
     };
     props.enteredData.map((item) => {
       if (
-        (item.fullName && item.number && item.address === formData.fullName) ||
-        formData.number ||
-        formData.address
+        item.fullName ||
+        item.number ||
+        (item.address === formData.fullName &&
+          formData.number &&
+          formData.address)
       ) {
         alert("Dont enter same data");
       } else {

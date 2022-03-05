@@ -1,24 +1,46 @@
+import { useState } from "react/cjs/react.development";
 import ContactList from "./ContactList";
 import "./CustomerItems.css";
-const CustomerItems = () => {
+const CustomerItems = (props) => {
   /////////////
+  const [userName, setUserName] = useState("");
+  const userNameHandler = (event) => {
+    setUserName(event.target.value);
+  };
 
+  const userSubmitHandler = (event) => {
+    event.preventDefault();
+    const userData = {
+      userName: userName,
+    };
+    props.enteredData.find((item) => {
+      if (item.fullName === userData.userName) {
+        console.log(item);
+      } else return;
+    });
+    setUserName("");
+  };
   ///////////
   return (
     <div>
       <div className="customer__name">
-        <label className="customerName" htmlFor="fname">
-          Customer Name
-        </label>
-        <br />
-        <input
-          id="fname"
-          type="text"
-          className="fname_input"
-          required="required"
-          placeholder="Full Name"
-        />
-        <button className="addbtn"> Add</button>
+        <form onSubmit={userSubmitHandler}>
+          <label className="customerName" htmlFor="fname">
+            Customer Name
+          </label>
+          <br />
+          <input
+            autocomplete="off"
+            id="fname"
+            type="text"
+            className="fname_input"
+            required="required"
+            placeholder="Full Name"
+            value={userName}
+            onChange={userNameHandler}
+          />
+          <button className="addbtn">Add</button>
+        </form>
       </div>
       <div className="detailList">
         <input
