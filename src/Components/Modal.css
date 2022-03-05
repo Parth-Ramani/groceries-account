@@ -1,0 +1,14 @@
+.msg {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+  box-shadow: 0 10px 100px rgba(122, 120, 120, 0.5);
+  overflow: auto;
+  z-index: 99999;
+}
+.background {
+}

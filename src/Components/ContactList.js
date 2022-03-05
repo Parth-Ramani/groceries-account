@@ -1,6 +1,7 @@
 import "./ContactList.css";
 import react from "react";
 import reactDom from "react-dom";
+import Modal from "./Modal";
 import { useState } from "react/cjs/react.development";
 
 const ContactList = (props) => {
@@ -52,6 +53,7 @@ const ContactList = (props) => {
   };
 
   /////////////////////////
+
   return (
     <div>
       <div className="customerList">
@@ -124,9 +126,23 @@ const ContactList = (props) => {
                   <td>{item.number}</td>
                   <td>{item.address}</td>
                   <td>
-                    <button className="editbtn ">Edit</button>
+                    <button
+                      onClick={() => {
+                        props.editData(item.id);
+                      }}
+                      className="editbtn "
+                    >
+                      Edit
+                    </button>
 
-                    <button className="deletebtn">Delete</button>
+                    <button
+                      onClick={() => {
+                        props.handleDeleteClick(item.id);
+                      }}
+                      className="deletebtn"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

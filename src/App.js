@@ -36,6 +36,22 @@ const App = (props) => {
   const [enteredList, setList] = useState("first");
   const [enteredData, setData] = useState(DUMMY_CONTACTS);
 
+  /// Delete Data
+  const handleDeleteClick = (dataid) => {
+    const newContacts = [...enteredData];
+
+    const index = enteredData.findIndex((item) => item.id === dataid);
+    newContacts.splice(index, 1);
+    setData(newContacts);
+  };
+
+  /// Edit Data
+  const editData = (dataid) => {
+    let newEdit = enteredData.find((item) => {
+      return item.id === dataid;
+    });
+    setData(newEdit.fullName && newEdit.number && newEdit.address);
+  };
   const saveCustomerData = (enterCustomer) => {
     let updateData = [enterCustomer, ...enteredData];
 
@@ -46,7 +62,12 @@ const App = (props) => {
     <div>
       <Header component={CustomerItems} setList={setList} />
       {enteredList === "first" && (
-        <ContactList onsaved={saveCustomerData} enteredData={enteredData} />
+        <ContactList
+          onsaved={saveCustomerData}
+          enteredData={enteredData}
+          handleDeleteClick={handleDeleteClick}
+          editData={editData}
+        />
       )}
       {enteredList === "second" && <CustomerItems />}
     </div>
