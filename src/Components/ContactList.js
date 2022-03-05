@@ -9,7 +9,19 @@ const ContactList = (props) => {
   const [enteredFname, setFname] = useState("");
   const [enteredNumber, setNumber] = useState("");
   const [enteredAddress, setAddress] = useState("");
+  const [editItem, setItem] = useState(null);
 
+  /// Edit Data
+  const editData = (dataid) => {
+    let newEdit = props.enteredData.find((item) => {
+      return item.id === dataid;
+    });
+    console.log(newEdit);
+    setFname(newEdit.fullName);
+    setNumber(newEdit.number);
+    setAddress(newEdit.address);
+    setItem(dataid);
+  };
   const fNameChangeHandler = (event) => {
     setFname(event.target.value);
     console.log(event.target.value);
@@ -32,9 +44,7 @@ const ContactList = (props) => {
     };
     props.enteredData.map((item) => {
       if (
-        item.fullName ||
-        item.number ||
-        item.address === formData.fullName ||
+        (item.fullName && item.number && item.address === formData.fullName) ||
         formData.number ||
         formData.address
       ) {
@@ -128,7 +138,7 @@ const ContactList = (props) => {
                   <td>
                     <button
                       onClick={() => {
-                        props.editData(item.id);
+                        editData(item.id);
                       }}
                       className="editbtn "
                     >
