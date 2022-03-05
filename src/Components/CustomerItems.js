@@ -4,9 +4,43 @@ import "./CustomerItems.css";
 const CustomerItems = (props) => {
   /////////////
   const [userName, setUserName] = useState("");
+  const [product, setProduct] = useState("");
+  const [quantity, setQuantity] = useState("");
+  const [date, setDate] = useState("");
+  const [amount, setAmount] = useState("");
+  const productHandler = (event) => {
+    setProduct(event.target.value);
+  };
+  const quantityHandler = (event) => {
+    setQuantity(event.target.value);
+  };
+  const dateHandler = (event) => {
+    setDate(event.target.value);
+  };
+  const amountHandler = (event) => {
+    setAmount(event.target.value);
+  };
+
+  const itemSubmitHandler = (event) => {
+    event.preventDefault();
+    const itemData = {
+      product: product,
+      quantity: quantity,
+      date: date,
+      amount: amount,
+    };
+    console.log(itemData);
+
+    setProduct("");
+    setQuantity("");
+    setDate("");
+    setAmount("");
+  };
+
   const userNameHandler = (event) => {
     setUserName(event.target.value);
   };
+  const [enteredItem, setItem] = useState("");
 
   const userSubmitHandler = (event) => {
     event.preventDefault();
@@ -15,11 +49,18 @@ const CustomerItems = (props) => {
     };
     props.enteredData.find((item) => {
       if (item.fullName === userData.userName) {
-        console.log(item);
+        setItem(item);
       } else return;
     });
     setUserName("");
   };
+  console.log(enteredItem);
+  console.log(
+    enteredItem.items.map((item) => {
+      console.log(item.product);
+    })
+  );
+
   ///////////
   return (
     <div>
@@ -50,41 +91,57 @@ const CustomerItems = (props) => {
           name="search"
         />
         <div className="input__Box">
-          <form>
+          <form onSubmit={itemSubmitHandler}>
             <label className="product" htmlFor="product">
               product
             </label>
             <input
+              autoComplete="off"
               id="product"
               type="text"
               className="product_input"
               required="required"
               placeholder="Product"
+              value={product}
+              onChange={productHandler}
             />
             <label className="quantity" for="quantity">
               Quantity
             </label>
             <input
+              autoComplete="off"
               id="quantity"
               type="text"
               className="quantity_input"
               required="required"
               placeholder="Quantity"
+              value={quantity}
+              onChange={quantityHandler}
             />
             <br />
             <label className="date" for="date">
               Date
             </label>
-            <input id="date" type="date" className="date_input" />
+            <input
+              autoComplete="off"
+              id="date"
+              type="date"
+              className="date_input"
+              value={date}
+              onChange={dateHandler}
+            />
             <label className="amount" for="amount">
               Amount
             </label>
             <input
+              autoComplete="off"
               id="amount"
               type="number"
               className="amount_input"
               required="required"
               placeholder="Amount"
+              value={amount}
+              onChange={amountHandler}
             />
             <br />
             <button className="add__btn"> Add</button>
@@ -92,7 +149,7 @@ const CustomerItems = (props) => {
         </div>
 
         <div className="detail_container">
-          <h1>Hari Sharma</h1>
+          <h1>{enteredItem.fullName}</h1>
           <table className="customers">
             <thead>
               <tr>
@@ -105,10 +162,10 @@ const CustomerItems = (props) => {
             </thead>
             <tbody>
               <tr>
-                <td>soap</td>
-                <td>5</td>
-                <td>20-2-2021</td>
-                <td>100</td>
+                <td>{}</td>
+                <td>{}</td>
+                <td>{}</td>
+                <td>{}</td>
                 <td>
                   <button className="editbtn">Edit</button>
                   <button className="deletebtn">Delete</button>

@@ -17,6 +17,12 @@ const DUMMY_CONTACTS = [
     fullName: "ram",
     number: "8945587452",
     address: "205, near sai garden delhi",
+    items: [
+      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
+      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
+      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
+      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
+    ],
   },
   {
     id: "a3",
@@ -44,7 +50,7 @@ const getLocalItem = () => {
 
 const App = (props) => {
   const [enteredList, setList] = useState("first");
-  const [enteredData, setData] = useState(getLocalItem);
+  const [enteredData, setData] = useState(DUMMY_CONTACTS);
 
   /// Delete Data
   const handleDeleteClick = (dataid) => {
@@ -59,7 +65,9 @@ const App = (props) => {
   const saveCustomerData = (enterCustomer) => {
     let updateData = [enterCustomer, ...enteredData];
 
+    console.log(enteredData.item);
     console.log(updateData);
+
     setData(updateData);
   };
 
