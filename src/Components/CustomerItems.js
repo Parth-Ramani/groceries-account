@@ -45,31 +45,27 @@ const CustomerItems = (props) => {
     setUserName(event.target.value);
   };
 
+  const [itemObject, setItemObject] = useState("");
+
   const userSubmitHandler = (event) => {
     event.preventDefault();
     const userData = {
       userName: userName,
     };
-
-    props.user(userData);
+    props.enteredData.map((item) => {
+      if (item.fullName === userData.userName) {
+        setItemObject(item);
+      } else return;
+    });
     setUserName("");
   };
-
-  // props.enteredData.map((item) => {
-  //   if (item.fullName === userData.userName) {
-  //     setItemObject(item);
-  //   } else return;
-  // });
-  // console.log(itemsCustomer);
-  // props.renderObject(itemObject);
-  // console.log(props.render);
 
   // props.render.items
   //   ? props.render.items.push({ ...props.itemsCustomer })
   //   : console.log("undefined");
   // console.log(itemObject.items);
-
-  // console.log(props.arrayItem);
+  console.log(itemObject);
+  const render = () => {};
 
   ///////////
   return (

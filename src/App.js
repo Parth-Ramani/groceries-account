@@ -90,7 +90,6 @@ const App = (props) => {
     setCustomer(updateProduct);
     console.log(reciveData);
   };
-  console.log(itemsCustomer);
 
   /// setData
   useEffect(() => {
@@ -118,44 +117,46 @@ const App = (props) => {
   };
   ////
   const [userObj, setUserObj] = useState("");
+  // const memo = useMemo();
   const user = (recive) => {
     setUserObj(recive);
   };
 
   console.log(userObj);
+
+  /////////
+  // const [items,setItem]=useState(DUMMY_ITEM)
+  //   const setItems=(reciveItem)=>{
+  // const updateItem =[reciveItem,...DUMMY_ITEM]
+  //   }
   ////////////
 
-  const arrayItem = enteredData.find((item) => {
-    if (userObj.userName === item.fullName) {
-      return item;
-    } else return;
-  });
-  console.log(arrayItem);
+  console.log(itemsCustomer);
 
+  ///////////////
+
+  // console.log(arrayItem.items);
   return (
     <div>
-      <React.Fragment>
-        <Header component={CustomerItems} setList={setList} />
-        {enteredList === "first" && (
-          <ContactList
-            term={searchTerm}
-            searchKeyward={searchHandler}
-            setData={setData}
-            onsaved={saveCustomerData}
-            enteredData={searchTerm.length < 1 ? enteredData : searchResult}
-            handleDeleteClick={handleDeleteClick}
-          />
-        )}
-        {enteredList === "second" && (
-          <CustomerItems
-            enteredData={enteredData}
-            setItems={setItems}
-            itemsCustomer={itemsCustomer}
-            user={user}
-            arrayItem={arrayItem}
-          />
-        )}
-      </React.Fragment>
+      <Header component={CustomerItems} setList={setList} />
+      {enteredList === "first" && (
+        <ContactList
+          term={searchTerm}
+          searchKeyward={searchHandler}
+          setData={setData}
+          onsaved={saveCustomerData}
+          enteredData={searchTerm.length < 1 ? enteredData : searchResult}
+          handleDeleteClick={handleDeleteClick}
+        />
+      )}
+      {enteredList === "second" && (
+        <CustomerItems
+          enteredData={enteredData}
+          setItems={setItems}
+          itemsCustomer={itemsCustomer}
+          user={userObj}
+        />
+      )}
     </div>
   );
 };
