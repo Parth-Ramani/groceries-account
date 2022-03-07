@@ -1,13 +1,17 @@
+import React from "react";
 import { useState } from "react/cjs/react.development";
 import ContactList from "./ContactList";
 import "./CustomerItems.css";
+
 const CustomerItems = (props) => {
   /////////////
+
   const [userName, setUserName] = useState("");
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState("");
+
   const productHandler = (event) => {
     setProduct(event.target.value);
   };
@@ -29,7 +33,7 @@ const CustomerItems = (props) => {
       date: date,
       amount: amount,
     };
-    console.log(itemData);
+    props.setItems(itemData);
 
     setProduct("");
     setQuantity("");
@@ -40,26 +44,30 @@ const CustomerItems = (props) => {
   const userNameHandler = (event) => {
     setUserName(event.target.value);
   };
-  const [enteredItem, setItem] = useState("");
 
+  const [itemObject, setItemObject] = useState();
   const userSubmitHandler = (event) => {
     event.preventDefault();
     const userData = {
       userName: userName,
     };
-    props.enteredData.find((item) => {
+    props.enteredData.map((item) => {
       if (item.fullName === userData.userName) {
-        setItem(item);
+        setItemObject(item);
       } else return;
     });
     setUserName("");
   };
-  console.log(enteredItem);
-  console.log(
-    enteredItem.items.map((item) => {
-      console.log(item.product);
-    })
-  );
+
+  // console.log(itemsCustomer);
+  // props.renderObject(itemObject);
+  // console.log(props.render);
+  console.log(itemObject);
+
+  // props.render.items
+  //   ? props.render.items.push({ ...props.itemsCustomer })
+  //   : console.log("undefined");
+  // console.log(itemObject.items);
 
   ///////////
   return (
@@ -149,7 +157,7 @@ const CustomerItems = (props) => {
         </div>
 
         <div className="detail_container">
-          <h1>{enteredItem.fullName}</h1>
+          <h1>{itemObject.fullName}</h1>
           <table className="customers">
             <thead>
               <tr>
@@ -161,16 +169,22 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{}</td>
-                <td>{}</td>
-                <td>{}</td>
-                <td>{}</td>
-                <td>
-                  <button className="editbtn">Edit</button>
-                  <button className="deletebtn">Delete</button>
-                </td>
-              </tr>
+              {itemObject.items ? (
+                itemObject.items.map((item) => (
+                  <tr>
+                    <td>{item.product}</td>
+                    <td>{item.quantity}</td>
+                    <td>{item.date}</td>
+                    <td>{item.amount}</td>
+                    <td>
+                      <button className="editbtn">Edit</button>
+                      <button className="deletebtn">Delete</button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <p> data is empty</p>
+              )}
             </tbody>
           </table>
         </div>

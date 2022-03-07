@@ -24,7 +24,6 @@ const ContactList = (props) => {
   };
   const fNameChangeHandler = (event) => {
     setFname(event.target.value);
-    console.log(event.target.value);
   };
   const numberChangeHandler = (event) => {
     setNumber(event.target.value);
@@ -41,6 +40,7 @@ const ContactList = (props) => {
       fullName: enteredFname,
       number: enteredNumber,
       address: enteredAddress,
+      items: [],
     };
     // props.enteredData.map((item) => {
     //   if (
@@ -74,7 +74,7 @@ const ContactList = (props) => {
       <div className="customerList">
         <div>
           <input
-            autocomplete="off"
+            autoComplete="off"
             ref={inputEl}
             className="search"
             type="search"
@@ -91,7 +91,7 @@ const ContactList = (props) => {
               Full Name :-
             </label>
             <input
-              autocomplete="off"
+              autoComplete="off"
               id="fname"
               type="text"
               className="fname_input"
@@ -104,7 +104,7 @@ const ContactList = (props) => {
               Number :-
             </label>
             <input
-              autocomplete="off"
+              autoComplete="off"
               id="number"
               type="number"
               className="number_input"
@@ -118,7 +118,7 @@ const ContactList = (props) => {
               Address :-
             </label>
             <input
-              autocomplete="off"
+              autoComplete="off"
               id="address"
               type="text"
               className="address_input"

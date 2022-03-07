@@ -4,6 +4,7 @@ import ContactList from "./Components/ContactList";
 import CustomerItems from "./Components/CustomerItems";
 import "./App.css";
 import { useState, useEffect } from "react/cjs/react.development";
+import React from "react";
 
 const DUMMY_CONTACTS = [
   {
@@ -11,6 +12,7 @@ const DUMMY_CONTACTS = [
     fullName: "Ashok sharma",
     number: "8945587452",
     address: "205, near sai garden delhi",
+    items: [],
   },
   {
     id: "a2",
@@ -29,13 +31,24 @@ const DUMMY_CONTACTS = [
     fullName: "nilkanth",
     number: "8945587452",
     address: "205, near sai garden delhi",
+    items: [
+      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
+      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
+      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
+      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
+    ],
   },
   {
     id: "a4",
     fullName: "Narayan ",
     number: "8945587452",
     address: "205, near sai garden delhi",
+    items: [],
   },
+];
+
+const DUMMY_ITEM = [
+  { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
 ];
 
 const getLocalItem = () => {
@@ -44,13 +57,13 @@ const getLocalItem = () => {
   if (customers) {
     return JSON.parse(localStorage.getItem("customers"));
   } else {
-    return [];
+    return [""];
   }
 };
 
 const App = (props) => {
   const [enteredList, setList] = useState("first");
-  const [enteredData, setData] = useState(DUMMY_CONTACTS);
+  const [enteredData, setData] = useState(getLocalItem);
 
   /// Delete Data
   const handleDeleteClick = (dataid) => {
@@ -65,11 +78,19 @@ const App = (props) => {
   const saveCustomerData = (enterCustomer) => {
     let updateData = [enterCustomer, ...enteredData];
 
-    console.log(enteredData.item);
-    console.log(updateData);
+    // console.log(enteredData.item);
+    // console.log(updateData);
 
     setData(updateData);
   };
+  //// setitem
+  const [itemsCustomer, setCustomer] = useState(DUMMY_ITEM);
+  const setItems = (reciveData) => {
+    const updateProduct = [reciveData, ...itemsCustomer];
+    setCustomer(updateProduct);
+    console.log(reciveData);
+  };
+  console.log(itemsCustomer);
 
   /// setData
   useEffect(() => {
@@ -95,21 +116,35 @@ const App = (props) => {
       setSearchResult(enteredData);
     }
   };
-
+  ////
+  const [render, setRender] = useState("");
+  const renderObject = (reciveObject) => {
+    setRender(reciveObject);
+  };
   return (
     <div>
-      <Header component={CustomerItems} setList={setList} />
-      {enteredList === "first" && (
-        <ContactList
-          term={searchTerm}
-          searchKeyward={searchHandler}
-          setData={setData}
-          onsaved={saveCustomerData}
-          enteredData={searchTerm.length < 1 ? enteredData : searchResult}
-          handleDeleteClick={handleDeleteClick}
-        />
-      )}
-      {enteredList === "second" && <CustomerItems enteredData={enteredData} />}
+      <React.Fragment>
+        <Header component={CustomerItems} setList={setList} />
+        {enteredList === "first" && (
+          <ContactList
+            term={searchTerm}
+            searchKeyward={searchHandler}
+            setData={setData}
+            onsaved={saveCustomerData}
+            enteredData={searchTerm.length < 1 ? enteredData : searchResult}
+            handleDeleteClick={handleDeleteClick}
+          />
+        )}
+        {enteredList === "second" && (
+          <CustomerItems
+            enteredData={enteredData}
+            setItems={setItems}
+            itemsCustomer={itemsCustomer}
+            renderObject={renderObject}
+            render={render}
+          />
+        )}
+      </React.Fragment>
     </div>
   );
 };
