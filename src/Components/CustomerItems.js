@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
+import { useState, useMemo } from "react/cjs/react.development";
 import ContactList from "./ContactList";
 import "./CustomerItems.css";
 
@@ -45,27 +45,34 @@ const CustomerItems = (props) => {
     setUserName(event.target.value);
   };
 
-  const [itemObject, setItemObject] = useState("");
+  let [itemObject, setItemObject] = useState("");
 
   const userSubmitHandler = (event) => {
     event.preventDefault();
     const userData = {
       userName: userName,
     };
-    props.enteredData.map((item) => {
+    props.enteredData.find((item) => {
       if (item.fullName === userData.userName) {
-        setItemObject(item);
+        return setItemObject(item);
       } else return;
     });
     setUserName("");
   };
 
-  // props.render.items
-  //   ? props.render.items.push({ ...props.itemsCustomer })
+  // const fun = (itemObject) => {
+  //   console.log(itemObject);
+  // };
+  // console.log(itemObject.items);
+
+  const item = useMemo(() => itemObject, []);
+
+  console.log(item);
+
+  // props.itemObject.items
+  //   ? itemObject.items.push({ ...props.itemsCustomer })
   //   : console.log("undefined");
   // console.log(itemObject.items);
-  console.log(itemObject);
-  const render = () => {};
 
   ///////////
   return (
@@ -155,7 +162,7 @@ const CustomerItems = (props) => {
         </div>
 
         <div className="detail_container">
-          <h1></h1>
+          <h1>{itemObject.fullName}</h1>
           <table className="customers">
             <thead>
               <tr>
@@ -167,7 +174,7 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {/* {itemObject.items ? (
+              {itemObject.items ? (
                 itemObject.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
@@ -182,7 +189,7 @@ const CustomerItems = (props) => {
                 ))
               ) : (
                 <p> data is empty</p>
-              )} */}
+              )}
             </tbody>
           </table>
         </div>

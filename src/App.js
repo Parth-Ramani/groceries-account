@@ -115,27 +115,7 @@ const App = (props) => {
       setSearchResult(enteredData);
     }
   };
-  ////
-  const [userObj, setUserObj] = useState("");
-  // const memo = useMemo();
-  const user = (recive) => {
-    setUserObj(recive);
-  };
 
-  console.log(userObj);
-
-  /////////
-  // const [items,setItem]=useState(DUMMY_ITEM)
-  //   const setItems=(reciveItem)=>{
-  // const updateItem =[reciveItem,...DUMMY_ITEM]
-  //   }
-  ////////////
-
-  console.log(itemsCustomer);
-
-  ///////////////
-
-  // console.log(arrayItem.items);
   return (
     <div>
       <Header component={CustomerItems} setList={setList} />
@@ -154,7 +134,6 @@ const App = (props) => {
           enteredData={enteredData}
           setItems={setItems}
           itemsCustomer={itemsCustomer}
-          user={userObj}
         />
       )}
     </div>
