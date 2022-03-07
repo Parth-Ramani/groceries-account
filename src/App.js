@@ -117,10 +117,21 @@ const App = (props) => {
     }
   };
   ////
-  const [render, setRender] = useState("");
-  const renderObject = (reciveObject) => {
-    setRender(reciveObject);
+  const [userObj, setUserObj] = useState("");
+  const user = (recive) => {
+    setUserObj(recive);
   };
+
+  console.log(userObj);
+  ////////////
+
+  const arrayItem = enteredData.find((item) => {
+    if (userObj.userName === item.fullName) {
+      return item;
+    } else return;
+  });
+  console.log(arrayItem);
+
   return (
     <div>
       <React.Fragment>
@@ -140,8 +151,8 @@ const App = (props) => {
             enteredData={enteredData}
             setItems={setItems}
             itemsCustomer={itemsCustomer}
-            renderObject={renderObject}
-            render={render}
+            user={user}
+            arrayItem={arrayItem}
           />
         )}
       </React.Fragment>

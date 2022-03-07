@@ -45,29 +45,31 @@ const CustomerItems = (props) => {
     setUserName(event.target.value);
   };
 
-  const [itemObject, setItemObject] = useState();
   const userSubmitHandler = (event) => {
     event.preventDefault();
     const userData = {
       userName: userName,
     };
-    props.enteredData.map((item) => {
-      if (item.fullName === userData.userName) {
-        setItemObject(item);
-      } else return;
-    });
+
+    props.user(userData);
     setUserName("");
   };
 
+  // props.enteredData.map((item) => {
+  //   if (item.fullName === userData.userName) {
+  //     setItemObject(item);
+  //   } else return;
+  // });
   // console.log(itemsCustomer);
   // props.renderObject(itemObject);
   // console.log(props.render);
-  console.log(itemObject);
 
   // props.render.items
   //   ? props.render.items.push({ ...props.itemsCustomer })
   //   : console.log("undefined");
   // console.log(itemObject.items);
+
+  // console.log(props.arrayItem);
 
   ///////////
   return (
@@ -157,7 +159,7 @@ const CustomerItems = (props) => {
         </div>
 
         <div className="detail_container">
-          <h1>{itemObject.fullName}</h1>
+          <h1></h1>
           <table className="customers">
             <thead>
               <tr>
@@ -169,7 +171,7 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {itemObject.items ? (
+              {/* {itemObject.items ? (
                 itemObject.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
@@ -184,7 +186,7 @@ const CustomerItems = (props) => {
                 ))
               ) : (
                 <p> data is empty</p>
-              )}
+              )} */}
             </tbody>
           </table>
         </div>
