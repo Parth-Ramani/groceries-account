@@ -2,57 +2,23 @@ import React from "react";
 import { useState } from "react/cjs/react.development";
 import UserNameInput from "./UserNameInput";
 import "./CustomerItems.css";
+import CustomerItemsInput from "./CustomerItemsInput";
+
+const DUMMY_ITEM = [
+  { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
+];
 
 const CustomerItems = (props) => {
   /////////////
-
-  const [product, setProduct] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [date, setDate] = useState("");
-  const [amount, setAmount] = useState("");
-
-  const productHandler = (event) => {
-    setProduct(event.target.value);
+  const [allDetails, setDetails] = useState(DUMMY_ITEM);
+  const allItems = (rec) => {
+    const dataUpdate = [rec, ...allDetails];
+    setDetails(dataUpdate);
   };
-  const quantityHandler = (event) => {
-    setQuantity(event.target.value);
-  };
-  const dateHandler = (event) => {
-    setDate(event.target.value);
-  };
-  const amountHandler = (event) => {
-    setAmount(event.target.value);
-  };
+  console.log(allDetails);
 
-  const itemSubmitHandler = (event) => {
-    event.preventDefault();
-    const itemData = {
-      product: product,
-      quantity: quantity,
-      date: date,
-      amount: amount,
-    };
-    console.log(itemData);
+  ////////////////////////////
 
-    props.setItems(itemData);
-
-    setProduct("");
-    setQuantity("");
-    setDate("");
-    setAmount("");
-  };
-
-  // const fun = (itemObject) => {
-  //   console.log(itemObject);
-  // };
-  // console.log(itemObject.items);
-
-  // const item = useMemo(() => itemObject, []);
-
-  // props.itemObject.items
-  //   ? itemObject.items.push({ ...props.itemsCustomer })
-  //   : console.log("undefined");
-  // console.log(itemObject.items);
   const [name, setName] = useState("");
   const user = (recive) => {
     setName(recive);
@@ -68,8 +34,15 @@ const CustomerItems = (props) => {
 
   // console.log(obj.fullName ? obj.fullName : "please defined");
   let copiedObj = Object.assign({}, obj);
-  console.log(copiedObj.fullName);
+  console.log(copiedObj);
+  console.log(copiedObj.items);
 
+  copiedObj.items.push([
+    { a: "9", b: "89", c: "gh" },
+    { a: "9", b: "89", c: "gh" },
+  ]);
+  console.log(copiedObj);
+  console.log(copiedObj.items);
   ///////////
 
   return (
@@ -86,63 +59,7 @@ const CustomerItems = (props) => {
           placeholder="Search Product.."
           name="search"
         />
-        <div className="input__Box">
-          <form onSubmit={itemSubmitHandler}>
-            <label className="product" htmlFor="product">
-              product
-            </label>
-            <input
-              autoComplete="off"
-              id="product"
-              type="text"
-              className="product_input"
-              required="required"
-              placeholder="Product"
-              value={product}
-              onChange={productHandler}
-            />
-            <label className="quantity" for="quantity">
-              Quantity
-            </label>
-            <input
-              autoComplete="off"
-              id="quantity"
-              type="text"
-              className="quantity_input"
-              required="required"
-              placeholder="Quantity"
-              value={quantity}
-              onChange={quantityHandler}
-            />
-            <br />
-            <label className="date" for="date">
-              Date
-            </label>
-            <input
-              autoComplete="off"
-              id="date"
-              type="date"
-              className="date_input"
-              value={date}
-              onChange={dateHandler}
-            />
-            <label className="amount" for="amount">
-              Amount
-            </label>
-            <input
-              autoComplete="off"
-              id="amount"
-              type="number"
-              className="amount_input"
-              required="required"
-              placeholder="Amount"
-              value={amount}
-              onChange={amountHandler}
-            />
-            <br />
-            <button className="add__btn"> Add</button>
-          </form>
-        </div>
+        <CustomerItemsInput setItems={allItems} />
 
         <div className="detail_container">
           <h1>{copiedObj.fullName}</h1>
@@ -157,8 +74,8 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {/* {obj.items ? (
-                obj.items.map((item) => (
+              {copiedObj.items ? (
+                copiedObj.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
@@ -172,7 +89,7 @@ const CustomerItems = (props) => {
                 ))
               ) : (
                 <p> data is empty</p>
-              )} */}
+              )}
             </tbody>
           </table>
         </div>

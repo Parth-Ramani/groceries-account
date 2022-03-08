@@ -2,10 +2,6 @@ import { useState, memo } from "react";
 
 import "./UserNameInput.css";
 
-// const DUMMY_ITEM = [
-//   { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-// ];
-
 const UserNameInput = (props) => {
   const [userName, setUserName] = useState("");
   //   const [user, setUser] = useState("");
@@ -25,7 +21,6 @@ const UserNameInput = (props) => {
     setUserName("");
   };
   //// setitem
-  // const [itemsCustomer, setCustomer] = useState(DUMMY_ITEM);
 
   // const setItems = (reciveData) => {
   //   const updateProduct = [reciveData, ...itemsCustomer];
