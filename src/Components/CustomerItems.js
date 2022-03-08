@@ -7,17 +7,19 @@ import CustomerItemsInput from "./CustomerItemsInput";
 // const DUMMY_ITEM = [
 //   { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
 // ];
-const DUMMY_ITEM = {
-  product: "oil",
-  quantity: "500gm",
-  date: "2022-2-11",
-  amount: "80",
-};
+const DUMMY_ITEM = [
+  {
+    product: "oil",
+    quantity: "500gm",
+    date: "2022-2-11",
+    amount: "80",
+  },
+];
 const CustomerItems = (props) => {
   /////////////
-  const [allDetails, setDetails] = useState(DUMMY_ITEM);
+  const [allDetails, setDetails] = useState("");
   const allItems = (rec) => {
-    const dataUpdate = [{ rec }];
+    const dataUpdate = [rec, ...allDetails];
     setDetails(dataUpdate);
   };
   console.log(allDetails);
@@ -80,8 +82,8 @@ const CustomerItems = (props) => {
             </thead>
             <tbody>
               {copiedObj.items ? (
-                copiedObj.items.unshift({ allDetails }) &&
-                copiedObj.items.flatMap((items, item) => (
+                copiedObj.items.push(allDetails) &&
+                copiedObj.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
