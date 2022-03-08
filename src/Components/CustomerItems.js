@@ -4,15 +4,20 @@ import UserNameInput from "./UserNameInput";
 import "./CustomerItems.css";
 import CustomerItemsInput from "./CustomerItemsInput";
 
-const DUMMY_ITEM = [
-  { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-];
-
+// const DUMMY_ITEM = [
+//   { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
+// ];
+const DUMMY_ITEM = {
+  product: "oil",
+  quantity: "500gm",
+  date: "2022-2-11",
+  amount: "80",
+};
 const CustomerItems = (props) => {
   /////////////
   const [allDetails, setDetails] = useState(DUMMY_ITEM);
   const allItems = (rec) => {
-    const dataUpdate = [rec, ...allDetails];
+    const dataUpdate = [{ rec }];
     setDetails(dataUpdate);
   };
   console.log(allDetails);
@@ -33,17 +38,17 @@ const CustomerItems = (props) => {
   });
 
   // console.log(obj.fullName ? obj.fullName : "please defined");
-  let copiedObj = Object.assign({}, obj);
+  const copiedObj = Object.assign({}, obj);
   console.log(copiedObj);
   console.log(copiedObj.items);
 
-  copiedObj.items.push([
-    { a: "9", b: "89", c: "gh" },
-    { a: "9", b: "89", c: "gh" },
-  ]);
+  // copiedObj.items.push(allDetails);
   console.log(copiedObj);
   console.log(copiedObj.items);
   ///////////
+  // copiedObj.items ? copiedObj.items.unshift(allDetails) : <h1>jhhj</h1>;
+  // console.log(copiedObj.items);
+  // console.log(props.enteredData);
 
   return (
     <div>
@@ -75,7 +80,8 @@ const CustomerItems = (props) => {
             </thead>
             <tbody>
               {copiedObj.items ? (
-                copiedObj.items.map((item) => (
+                copiedObj.items.unshift({ allDetails }) &&
+                copiedObj.items.flatMap((items, item) => (
                   <tr>
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
