@@ -1,12 +1,11 @@
 import React from "react";
-import { useState, useMemo } from "react/cjs/react.development";
-import ContactList from "./ContactList";
+import { useState } from "react/cjs/react.development";
+import UserNameInput from "./UserNameInput";
 import "./CustomerItems.css";
 
 const CustomerItems = (props) => {
   /////////////
 
-  const [userName, setUserName] = useState("");
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
@@ -41,61 +40,24 @@ const CustomerItems = (props) => {
     setAmount("");
   };
 
-  const userNameHandler = (event) => {
-    setUserName(event.target.value);
-  };
-
-  let [itemObject, setItemObject] = useState("");
-
-  const userSubmitHandler = (event) => {
-    event.preventDefault();
-    const userData = {
-      userName: userName,
-    };
-    props.enteredData.find((item) => {
-      if (item.fullName === userData.userName) {
-        return setItemObject(item);
-      } else return;
-    });
-    setUserName("");
-  };
-
   // const fun = (itemObject) => {
   //   console.log(itemObject);
   // };
   // console.log(itemObject.items);
 
-  const item = useMemo(() => itemObject, []);
-
-  console.log(item);
+  // const item = useMemo(() => itemObject, []);
 
   // props.itemObject.items
   //   ? itemObject.items.push({ ...props.itemsCustomer })
   //   : console.log("undefined");
   // console.log(itemObject.items);
-
+  const detailObj = (recive) => {
+    console.log(recive);
+  };
   ///////////
   return (
     <div>
-      <div className="customer__name">
-        <form onSubmit={userSubmitHandler}>
-          <label className="customerName" htmlFor="fname">
-            Customer Name
-          </label>
-          <br />
-          <input
-            autocomplete="off"
-            id="fname"
-            type="text"
-            className="fname_input"
-            required="required"
-            placeholder="Full Name"
-            value={userName}
-            onChange={userNameHandler}
-          />
-          <button className="addbtn">Add</button>
-        </form>
-      </div>
+      <UserNameInput customerData={props.enteredData} obj={detailObj} />
       <div className="detailList">
         <input
           className="search_product"
@@ -162,7 +124,7 @@ const CustomerItems = (props) => {
         </div>
 
         <div className="detail_container">
-          <h1>{itemObject.fullName}</h1>
+          <h1></h1>
           <table className="customers">
             <thead>
               <tr>
@@ -174,7 +136,7 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {itemObject.items ? (
+              {/* {itemObject.items ? (
                 itemObject.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
@@ -189,7 +151,7 @@ const CustomerItems = (props) => {
                 ))
               ) : (
                 <p> data is empty</p>
-              )}
+              )} */}
             </tbody>
           </table>
         </div>

@@ -115,7 +115,17 @@ const App = (props) => {
       setSearchResult(enteredData);
     }
   };
-
+  // const [users, setUsers] = useState("");
+  // const userData = (recive) => {
+  //   let array = enteredData.find((item) => {
+  //     if (item.fullName === recive.userName) {
+  //       return item;
+  //     }
+  //   });
+  //   setUsers(array);
+  // };
+  // console.log(users);
+  // const arr = users;
   return (
     <div>
       <Header component={CustomerItems} setList={setList} />
