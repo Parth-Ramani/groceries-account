@@ -32,6 +32,8 @@ const CustomerItems = (props) => {
       date: date,
       amount: amount,
     };
+    console.log(itemData);
+
     props.setItems(itemData);
 
     setProduct("");
@@ -51,13 +53,32 @@ const CustomerItems = (props) => {
   //   ? itemObject.items.push({ ...props.itemsCustomer })
   //   : console.log("undefined");
   // console.log(itemObject.items);
-  const detailObj = (recive) => {
-    console.log(recive);
+  const [name, setName] = useState("");
+  const user = (recive) => {
+    setName(recive);
   };
+
+  let obj = props.enteredData.find((item) => {
+    if (item.fullName === name.userName) {
+      return item;
+    } else {
+      return;
+    }
+  });
+
+  // console.log(obj.fullName ? obj.fullName : "please defined");
+  let copiedObj = Object.assign({}, obj);
+  console.log(copiedObj.fullName);
+
   ///////////
+
   return (
     <div>
-      <UserNameInput customerData={props.enteredData} obj={detailObj} />
+      <UserNameInput
+        customerData={props.enteredData}
+        setUser={user}
+        // cusItem={productItem}
+      />
       <div className="detailList">
         <input
           className="search_product"
@@ -124,7 +145,7 @@ const CustomerItems = (props) => {
         </div>
 
         <div className="detail_container">
-          <h1></h1>
+          <h1>{copiedObj.fullName}</h1>
           <table className="customers">
             <thead>
               <tr>
@@ -136,8 +157,8 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {/* {itemObject.items ? (
-                itemObject.items.map((item) => (
+              {/* {obj.items ? (
+                obj.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>

@@ -2,9 +2,13 @@ import { useState, memo } from "react";
 
 import "./UserNameInput.css";
 
+// const DUMMY_ITEM = [
+//   { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
+// ];
+
 const UserNameInput = (props) => {
   const [userName, setUserName] = useState("");
-  const [user, setUser] = useState({});
+  //   const [user, setUser] = useState("");
 
   const userNameHandler = (event) => {
     setUserName(event.target.value);
@@ -17,16 +21,19 @@ const UserNameInput = (props) => {
     };
 
     console.log(userData);
-    setUser(userData);
+    props.setUser(userData);
     setUserName("");
   };
-  const userField = user;
-  console.log(userField);
-  const object = props.customerData.find(
-    (item) => item.fullName === userField.userName
-  );
-  console.log(object);
-  props.obj(object);
+  //// setitem
+  // const [itemsCustomer, setCustomer] = useState(DUMMY_ITEM);
+
+  // const setItems = (reciveData) => {
+  //   const updateProduct = [reciveData, ...itemsCustomer];
+  //   setCustomer(updateProduct);
+  //   console.log(reciveData);
+  // };
+  // console.log(itemsCustomer);
+  // props.cusItem(itemsCustomer);
   return (
     <div>
       <div className="customer__name">

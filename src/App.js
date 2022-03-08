@@ -47,10 +47,6 @@ const DUMMY_CONTACTS = [
   },
 ];
 
-const DUMMY_ITEM = [
-  { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-];
-
 const getLocalItem = () => {
   let customers = localStorage.getItem("customers");
   console.log(customers);
@@ -83,13 +79,6 @@ const App = (props) => {
 
     setData(updateData);
   };
-  //// setitem
-  const [itemsCustomer, setCustomer] = useState(DUMMY_ITEM);
-  const setItems = (reciveData) => {
-    const updateProduct = [reciveData, ...itemsCustomer];
-    setCustomer(updateProduct);
-    console.log(reciveData);
-  };
 
   /// setData
   useEffect(() => {
@@ -115,17 +104,7 @@ const App = (props) => {
       setSearchResult(enteredData);
     }
   };
-  // const [users, setUsers] = useState("");
-  // const userData = (recive) => {
-  //   let array = enteredData.find((item) => {
-  //     if (item.fullName === recive.userName) {
-  //       return item;
-  //     }
-  //   });
-  //   setUsers(array);
-  // };
-  // console.log(users);
-  // const arr = users;
+
   return (
     <div>
       <Header component={CustomerItems} setList={setList} />
@@ -139,13 +118,7 @@ const App = (props) => {
           handleDeleteClick={handleDeleteClick}
         />
       )}
-      {enteredList === "second" && (
-        <CustomerItems
-          enteredData={enteredData}
-          setItems={setItems}
-          itemsCustomer={itemsCustomer}
-        />
-      )}
+      {enteredList === "second" && <CustomerItems enteredData={enteredData} />}
     </div>
   );
 };
