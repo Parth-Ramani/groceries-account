@@ -42,19 +42,7 @@ const ContactList = (props) => {
       address: enteredAddress,
       items: [],
     };
-    // props.enteredData.map((item) => {
-    //   if (
-    //     item.fullName ||
-    //     item.number ||
-    //     (item.address === formData.fullName &&
-    //       formData.number &&
-    //       formData.address)
-    //   ) {
-    //     console.log("sorry");
-    //   } else {
-    //     return props.onsaved(formData);
-    //   }
-    // });
+
     props.onsaved(formData);
     console.log(formData);
     console.log(formData);

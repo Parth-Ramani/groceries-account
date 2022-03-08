@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react/cjs/react.development";
+import { useState, useEffect } from "react/cjs/react.development";
 import UserNameInput from "./UserNameInput";
 import "./CustomerItems.css";
 import CustomerItemsInput from "./CustomerItemsInput";
@@ -47,9 +47,6 @@ const CustomerItems = (props) => {
   console.log(copiedObj);
   console.log(copiedObj.items);
   ///////////
-  // copiedObj.items ? copiedObj.items.unshift(allDetails) : <h1>jhhj</h1>;
-  // console.log(copiedObj.items);
-  // console.log(props.enteredData);
 
   return (
     <div>
