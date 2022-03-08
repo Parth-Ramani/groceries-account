@@ -19,8 +19,7 @@ const CustomerItems = (props) => {
   /////////////
   const [allDetails, setDetails] = useState("");
   const allItems = (rec) => {
-    const dataUpdate = [rec, ...allDetails];
-    setDetails(dataUpdate);
+    setDetails(rec);
   };
   console.log(allDetails);
 
@@ -82,7 +81,7 @@ const CustomerItems = (props) => {
             </thead>
             <tbody>
               {copiedObj.items ? (
-                copiedObj.items.push(allDetails) &&
+                copiedObj.items.unshift(allDetails) &&
                 copiedObj.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
