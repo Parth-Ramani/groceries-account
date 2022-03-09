@@ -40,7 +40,7 @@ const ContactList = (props) => {
       fullName: enteredFname,
       number: enteredNumber,
       address: enteredAddress,
-      items: [],
+      items: "",
     };
 
     props.onsaved(formData);

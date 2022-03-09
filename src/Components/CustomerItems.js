@@ -15,9 +15,19 @@ const DUMMY_ITEM = [
     amount: "80",
   },
 ];
+
+// const getLocalCustomerItem = () => {
+//   let customersItemsDetail = localStorage.getItem("customersItemsDetail");
+//   console.log(customersItemsDetail);
+//   if (customersItemsDetail) {
+//     return JSON.parse(localStorage.getItem("customersItemsDetail"));
+//   } else {
+//     return;
+//   }
+// };
 const CustomerItems = (props) => {
   /////////////
-  const [allDetails, setDetails] = useState("");
+  const [allDetails, setDetails] = useState();
   const allItems = (rec) => {
     setDetails(rec);
   };
@@ -51,7 +61,9 @@ const CustomerItems = (props) => {
 
   /// setData
   useEffect(() => {
-    localStorage.setItem("customersItemsDetail", JSON.stringify(copiedObj));
+    if (copiedObj.id !== copiedObj.id) {
+      localStorage.setItem("customersItemsDetail", JSON.stringify(copiedObj));
+    }
   }, [copiedObj]);
 
   return (
@@ -84,8 +96,8 @@ const CustomerItems = (props) => {
             </thead>
             <tbody>
               {copiedObj.items && copiedObj ? (
-                copiedObj["items"].push(allDetails) &&
-                copiedObj.items.map((item) => (
+                copiedObj.items.unshift(allDetails) &&
+                copiedObj.items.flatMap((item) => (
                   <tr>
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
