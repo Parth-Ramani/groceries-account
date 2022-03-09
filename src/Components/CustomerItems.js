@@ -16,13 +16,6 @@ const CustomerItems = (props) => {
   };
   console.log(allDetails);
 
-  const handleDeleteItem = (dataid) => {
-    const newItem = [...copiedObj.item];
-
-    const index = copiedObj.items.findIndex((item) => item.id === dataid);
-    newItem.splice(index, 1);
-    setDetails(newItem);
-  };
   ////////////////////////////
 
   const [name, setName] = useState("");
@@ -48,6 +41,10 @@ const CustomerItems = (props) => {
   console.log(copiedObj.items);
 
   ///////////
+  const handleDeleteItem = (dataid) => {
+    console.log(dataid);
+  };
+  console.log(copiedObj.items);
 
   return (
     <div>
