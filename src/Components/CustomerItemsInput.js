@@ -6,7 +6,7 @@ const CustomerItemsInput = (props) => {
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
   const [amount, setAmount] = useState("");
-  //   const [items, setItems] = useState("");
+
   const productHandler = (event) => {
     setProduct(event.target.value);
   };
@@ -23,6 +23,7 @@ const CustomerItemsInput = (props) => {
   const itemSubmitHandler = (event) => {
     event.preventDefault();
     const itemData = {
+      id: Math.random().toString(),
       product: product,
       quantity: quantity,
       date: date,
@@ -37,14 +38,7 @@ const CustomerItemsInput = (props) => {
     setDate("");
     setAmount("");
   };
-  //   const [itemsCustomer, setCustomer] = useState(DUMMY_ITEM);
-  // console.log(items);
 
-  //   const item = (items) => {
-  //     const update = [items, ...itemsCustomer];
-  //     setCustomer(update);
-  //     console.log(itemsCustomer);
-  //   };
   return (
     <div>
       <div className="input__Box">

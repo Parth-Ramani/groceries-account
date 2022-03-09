@@ -40,7 +40,7 @@ const ContactList = (props) => {
       fullName: enteredFname,
       number: enteredNumber,
       address: enteredAddress,
-      items: "",
+      items: [],
     };
 
     props.onsaved(formData);
@@ -136,23 +136,27 @@ const ContactList = (props) => {
                   <td>{item.number}</td>
                   <td>{item.address}</td>
                   <td>
-                    <button
-                      onClick={() => {
-                        editData(item.id);
-                      }}
-                      className="editbtn "
-                    >
-                      Edit
-                    </button>
+                    {
+                      <button
+                        onClick={() => {
+                          editData(item.id);
+                        }}
+                        className="editbtn "
+                      >
+                        Edit
+                      </button>
+                    }
 
-                    <button
-                      onClick={() => {
-                        props.handleDeleteClick(item.id);
-                      }}
-                      className="deletebtn"
-                    >
-                      Delete
-                    </button>
+                    {
+                      <button
+                        onClick={() => {
+                          props.handleDeleteClick(item.id);
+                        }}
+                        className="deletebtn"
+                      >
+                        Delete
+                      </button>
+                    }
                   </td>
                 </tr>
               ))}

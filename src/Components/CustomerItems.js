@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react/cjs/react.development";
+import { useState } from "react/cjs/react.development";
 import UserNameInput from "./UserNameInput";
 import "./CustomerItems.css";
 import CustomerItemsInput from "./CustomerItemsInput";
@@ -7,32 +7,22 @@ import CustomerItemsInput from "./CustomerItemsInput";
 // const DUMMY_ITEM = [
 //   { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
 // ];
-const DUMMY_ITEM = [
-  {
-    product: "oil",
-    quantity: "500gm",
-    date: "2022-2-11",
-    amount: "80",
-  },
-];
 
-// const getLocalCustomerItem = () => {
-//   let customersItemsDetail = localStorage.getItem("customersItemsDetail");
-//   console.log(customersItemsDetail);
-//   if (customersItemsDetail) {
-//     return JSON.parse(localStorage.getItem("customersItemsDetail"));
-//   } else {
-//     return;
-//   }
-// };
 const CustomerItems = (props) => {
   /////////////
-  const [allDetails, setDetails] = useState();
+  const [allDetails, setDetails] = useState(props.getLocalItem);
   const allItems = (rec) => {
     setDetails(rec);
   };
   console.log(allDetails);
 
+  const handleDeleteItem = (dataid) => {
+    const newItem = [...copiedObj.item];
+
+    const index = copiedObj.items.findIndex((item) => item.id === dataid);
+    newItem.splice(index, 1);
+    setDetails(newItem);
+  };
   ////////////////////////////
 
   const [name, setName] = useState("");
@@ -58,13 +48,6 @@ const CustomerItems = (props) => {
   console.log(copiedObj.items);
 
   ///////////
-
-  /// setData
-  useEffect(() => {
-    if (copiedObj.id !== copiedObj.id) {
-      localStorage.setItem("customersItemsDetail", JSON.stringify(copiedObj));
-    }
-  }, [copiedObj]);
 
   return (
     <div>
@@ -97,7 +80,7 @@ const CustomerItems = (props) => {
             <tbody>
               {copiedObj.items && copiedObj ? (
                 copiedObj.items.unshift(allDetails) &&
-                copiedObj.items.flatMap((item) => (
+                copiedObj.items.map((item) => (
                   <tr>
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
@@ -105,7 +88,13 @@ const CustomerItems = (props) => {
                     <td>{item.amount}</td>
                     <td>
                       <button className="editbtn">Edit</button>
-                      <button className="deletebtn">Delete</button>
+
+                      <button
+                        onClick={() => handleDeleteItem(item.id)}
+                        className="deletebtn"
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))

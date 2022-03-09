@@ -1,4 +1,3 @@
-import react from "react";
 import Header from "./Components/Header";
 import ContactList from "./Components/ContactList";
 import CustomerItems from "./Components/CustomerItems";
@@ -6,56 +5,15 @@ import "./App.css";
 import { useState, useEffect } from "react/cjs/react.development";
 import React from "react";
 
-const DUMMY_CONTACTS = [
-  {
-    id: "a1",
-    fullName: "Ashok sharma",
-    number: "8945587452",
-    address: "205, near sai garden delhi",
-    items: [],
-  },
-  {
-    id: "a2",
-    fullName: "ram",
-    number: "8945587452",
-    address: "205, near sai garden delhi",
-    items: [
-      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-      { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-    ],
-  },
-  {
-    id: "a3",
-    fullName: "nilkanth",
-    number: "8945587452",
-    address: "205, near sai garden delhi",
-    items: [
-      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
-      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
-      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
-      { product: "wheat", quantity: "500gm", date: "2022-2-11", amount: "80" },
-    ],
-  },
-  {
-    id: "a4",
-    fullName: "Narayan ",
-    number: "8945587452",
-    address: "205, near sai garden delhi",
-    items: [],
-  },
-];
-
 const getLocalItem = () => {
   let customers = localStorage.getItem("customers");
   console.log(customers);
-  if (customers) {
-    return JSON.parse(localStorage.getItem("customers"));
-  } else {
+  if (customers) return JSON.parse(localStorage.getItem("customers"));
+  else {
     return [""];
   }
 };
+const DUMMY_ITEM = [];
 
 const App = (props) => {
   const [enteredList, setList] = useState("first");
@@ -73,10 +31,6 @@ const App = (props) => {
   /// dataEntered
   const saveCustomerData = (enterCustomer) => {
     let updateData = [enterCustomer, ...enteredData];
-
-    // console.log(enteredData.item);
-    // console.log(updateData);
-
     setData(updateData);
   };
 
@@ -118,7 +72,9 @@ const App = (props) => {
           handleDeleteClick={handleDeleteClick}
         />
       )}
-      {enteredList === "second" && <CustomerItems enteredData={enteredData} />}
+      {enteredList === "second" && (
+        <CustomerItems enteredData={enteredData} getLocalItem={getLocalItem} />
+      )}
     </div>
   );
 };
