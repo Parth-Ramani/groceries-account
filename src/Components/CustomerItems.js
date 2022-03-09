@@ -46,6 +46,7 @@ const CustomerItems = (props) => {
   // copiedObj.items.push(allDetails);
   console.log(copiedObj);
   console.log(copiedObj.items);
+
   ///////////
 
   return (
@@ -79,8 +80,11 @@ const CustomerItems = (props) => {
             <tbody>
               {copiedObj.items ? (
                 copiedObj.items.unshift(allDetails) &&
-                copiedObj.items.map((item) => (
+                copiedObj.items.map((item, i, copiedObj) => (
                   <tr>
+                    {i + 1 === copiedObj.items.length
+                      ? copiedObj.items.shift()
+                      : null}
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
                     <td>{item.date}</td>
@@ -94,6 +98,9 @@ const CustomerItems = (props) => {
               ) : (
                 <p> data is empty</p>
               )}
+              {copiedObj.items == !copiedObj.items
+                ? copiedObj.items.shift()
+                : null}
             </tbody>
           </table>
         </div>
