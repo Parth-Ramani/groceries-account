@@ -49,6 +49,11 @@ const CustomerItems = (props) => {
 
   ///////////
 
+  /// setData
+  useEffect(() => {
+    localStorage.setItem("customersItemsDetail", JSON.stringify(copiedObj));
+  }, [copiedObj]);
+
   return (
     <div>
       <UserNameInput
@@ -78,13 +83,10 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {copiedObj.items ? (
-                copiedObj.items.unshift(allDetails) &&
-                copiedObj.items.map((item, i, copiedObj) => (
+              {copiedObj.items && copiedObj ? (
+                copiedObj["items"].push(allDetails) &&
+                copiedObj.items.map((item) => (
                   <tr>
-                    {i + 1 === copiedObj.items.length
-                      ? copiedObj.items.shift()
-                      : null}
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
                     <td>{item.date}</td>
@@ -98,9 +100,6 @@ const CustomerItems = (props) => {
               ) : (
                 <p> data is empty</p>
               )}
-              {copiedObj.items == !copiedObj.items
-                ? copiedObj.items.shift()
-                : null}
             </tbody>
           </table>
         </div>
