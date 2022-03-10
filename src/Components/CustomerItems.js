@@ -10,11 +10,14 @@ import CustomerItemsInput from "./CustomerItemsInput";
 
 const CustomerItems = (props) => {
   /////////////
-  const [allDetails, setDetails] = useState(props.getLocalItem);
+  const [allDetails, setDetails] = useState("");
   const allItems = (rec) => {
     setDetails(rec);
   };
   console.log(allDetails);
+  console.log(allDetails.items);
+
+  /////
 
   ////////////////////////////
 
@@ -23,7 +26,7 @@ const CustomerItems = (props) => {
     setName(recive);
   };
 
-  let obj = props.enteredData.find((item) => {
+  const obj = props.enteredData.find((item) => {
     if (item.fullName === name.userName) {
       return item;
     } else {
@@ -31,28 +34,27 @@ const CustomerItems = (props) => {
     }
   });
 
-  // console.log(obj.fullName ? obj.fullName : "please defined");
   const copiedObj = Object.assign({}, obj);
   console.log(copiedObj);
   console.log(copiedObj.items);
 
-  // copiedObj.items.push(allDetails);
   console.log(copiedObj);
   console.log(copiedObj.items);
 
   ///////////
   const handleDeleteItem = (dataid) => {
     console.log(dataid);
+    const newContactsItems = [...copiedObj.items];
+
+    const index = copiedObj.items.findIndex((item) => item.id === dataid);
+    newContactsItems.splice(index, 1);
+    setName(newContactsItems);
   };
-  console.log(copiedObj.items);
+  // console.log(copiedObj.items);
 
   return (
     <div>
-      <UserNameInput
-        customerData={props.enteredData}
-        setUser={user}
-        // cusItem={productItem}
-      />
+      <UserNameInput customerData={props.enteredData} setUser={user} />
       <div className="detailList">
         <input
           className="search_product"
@@ -75,7 +77,7 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {copiedObj.items && copiedObj ? (
+              {copiedObj.items ? (
                 copiedObj.items.unshift(allDetails) &&
                 copiedObj.items.map((item) => (
                   <tr>

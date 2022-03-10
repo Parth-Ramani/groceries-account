@@ -59,6 +59,8 @@ const App = (props) => {
     }
   };
 
+  ///
+
   return (
     <div>
       <Header component={CustomerItems} setList={setList} />
@@ -72,9 +74,7 @@ const App = (props) => {
           handleDeleteClick={handleDeleteClick}
         />
       )}
-      {enteredList === "second" && (
-        <CustomerItems enteredData={enteredData} getLocalItem={getLocalItem} />
-      )}
+      {enteredList === "second" && <CustomerItems enteredData={enteredData} />}
     </div>
   );
 };
