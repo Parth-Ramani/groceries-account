@@ -22,10 +22,13 @@ const App = (props) => {
   /// Delete Data
   const handleDeleteClick = (dataid) => {
     const newContacts = [...enteredData];
+    console.log(dataid);
 
     const index = enteredData.findIndex((item) => item.id === dataid);
     newContacts.splice(index, 1);
     setData(newContacts);
+
+    console.log(index);
   };
 
   /// dataEntered

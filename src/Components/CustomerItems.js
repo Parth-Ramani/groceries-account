@@ -42,15 +42,18 @@ const CustomerItems = (props) => {
   console.log(copiedObj.items);
 
   ///////////
+
   const handleDeleteItem = (dataid) => {
     console.log(dataid);
-    const newContactsItems = [...copiedObj.items];
 
-    const index = copiedObj.items.findIndex((item) => item.id === dataid);
-    newContactsItems.splice(index, 1);
-    setName(newContactsItems);
+    // const index = copiedObj.items.findIndex(
+    //   (item) => item.id === dataid || "undefined"
+    // );
+    // const result = copiedObj.items.splice(index, 1);
+    // setDetails(result);
+    // console.log(result);
   };
-  // console.log(copiedObj.items);
+  console.log(copiedObj.items);
 
   return (
     <div>
