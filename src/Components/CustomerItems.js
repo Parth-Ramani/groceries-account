@@ -4,20 +4,14 @@ import UserNameInput from "./UserNameInput";
 import "./CustomerItems.css";
 import CustomerItemsInput from "./CustomerItemsInput";
 
-// const DUMMY_ITEM = [
-//   { product: "oil", quantity: "500gm", date: "2022-2-11", amount: "80" },
-// ];
+const DUMMY_ITEM = [];
 
 const CustomerItems = (props) => {
   /////////////
-  const [allDetails, setDetails] = useState("");
-  const allItems = (rec) => {
-    setDetails(rec);
-  };
-  console.log(allDetails);
-  console.log(allDetails.items);
+  const [allDetails, setDetails] = useState(DUMMY_ITEM);
 
   /////
+  console.log(props.getLocalItem);
 
   ////////////////////////////
 
@@ -25,35 +19,49 @@ const CustomerItems = (props) => {
   const user = (recive) => {
     setName(recive);
   };
+  /////////////////////////////////////////////////////////////////
+  // const obj = props.enteredData.find((item) => {
+  //   if (item.fullName === name.userName) {
+  //     return [item];
+  //   } else {
+  //     return;
+  //   }
+  // });
 
-  const obj = props.enteredData.find((item) => {
-    if (item.fullName === name.userName) {
-      return item;
-    } else {
-      return;
-    }
-  });
+  // const copiedObj = Object.assign({}, obj);
+  // console.log(copiedObj);
+  // console.log(copiedObj.items);
 
-  const copiedObj = Object.assign({}, obj);
-  console.log(copiedObj);
-  console.log(copiedObj.items);
+  // console.log(copiedObj);
+  // console.log(copiedObj.items);
 
-  console.log(copiedObj);
-  console.log(copiedObj.items);
-
+  // copiedObj.items.unshift(allDetails)
   ///////////
-
-  const handleDeleteItem = (dataid) => {
-    console.log(dataid);
-
-    // const index = copiedObj.items.findIndex(
-    //   (item) => item.id === dataid || "undefined"
-    // );
-    // const result = copiedObj.items.splice(index, 1);
-    // setDetails(result);
-    // console.log(result);
+  const allItems = (rec) => {
+    // copiedObj.items = [rec, ...allDetails];
+    // setDetails(copiedObj.items);
   };
-  console.log(copiedObj.items);
+  // console.log(copiedObj);
+  // console.log(allDetails);
+
+  // console.log(copiedObj.items);
+
+  // const handleDeleteItem = (dataid) => {
+  //   console.log(dataid);
+
+  //   // const index = copiedObj.items.findIndex(
+  //   //   (item) => item.id === dataid || "undefined"
+  //   // );
+  //   // const result = copiedObj.items.splice(index, 1);
+  //   // setDetails(result);
+  //   // console.log(result);
+  //   copiedObj.items.remove((item) => item.id === dataid);
+  // };
+
+  // const maping = copiedObj.items
+  //   ? copiedObj.items.map((item) => item.amount)
+  //   : null;
+  // console.log(maping);
 
   return (
     <div>
@@ -68,7 +76,8 @@ const CustomerItems = (props) => {
         <CustomerItemsInput setItems={allItems} />
 
         <div className="detail_container">
-          <h1>{copiedObj.fullName}</h1>
+          <h1></h1>
+          {/* <h1 className="total">{copiedObj.fullName}</h1>  */}
           <table className="customers">
             <thead>
               <tr>
@@ -80,9 +89,9 @@ const CustomerItems = (props) => {
               </tr>
             </thead>
             <tbody>
-              {copiedObj.items ? (
+              {/* {copiedObj.items ? (
                 copiedObj.items.unshift(allDetails) &&
-                copiedObj.items.map((item) => (
+                copiedObj.items[0].map((item) => (
                   <tr>
                     <td>{item.product}</td>
                     <td>{item.quantity}</td>
@@ -91,18 +100,13 @@ const CustomerItems = (props) => {
                     <td>
                       <button className="editbtn">Edit</button>
 
-                      <button
-                        onClick={() => handleDeleteItem(item.id)}
-                        className="deletebtn"
-                      >
-                        Delete
-                      </button>
+                      <button className="deletebtn">Delete</button>
                     </td>
                   </tr>
                 ))
               ) : (
                 <p> data is empty</p>
-              )}
+              )} */}
             </tbody>
           </table>
         </div>

@@ -77,7 +77,9 @@ const App = (props) => {
           handleDeleteClick={handleDeleteClick}
         />
       )}
-      {enteredList === "second" && <CustomerItems enteredData={enteredData} />}
+      {enteredList === "second" && (
+        <CustomerItems enteredData={enteredData} getLocalItem={getLocalItem} />
+      )}
     </div>
   );
 };
